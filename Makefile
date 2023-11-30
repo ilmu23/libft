@@ -82,7 +82,6 @@ SRCS	=	ft_atoi.c \
 			gnl_utils.c
 
 OBJS	= $(patsubst %.c, %.o, $(SRCS))
-BONUSO	= $(patsubst %.c, %.o, $(BONUSS))
 
 all: $(NAME)
 
@@ -90,24 +89,14 @@ $(NAME): $(OBJS)
 	@echo Creating libft...
 	@ar -crs $(NAME) $(OBJS)
 
-bonus: .bonus
-
-.bonus: $(NAME) $(BONUSO) 
-	@echo Creating library with bonuses...
-	@ar -crs $(NAME) $(BONUSO)
-	@touch .bonus
-
 %.o: %.c
 	@echo Compiling $@
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
-	@rm -f $(BONUSO)
-	@rm -f .bonus
 
 fclean: clean
-	@rm -f ../libft.h
 	@rm -f $(NAME)
 
 re: fclean all
