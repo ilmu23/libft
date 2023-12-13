@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:26:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/06 13:42:40 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/12/06 13:37:52 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/12/06 14:06:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+char	*ft_strupper(char *s)
 {
-	if (!s)
-		return (ft_putstr_fd("(null)", fd));
-	return (write(fd, s, ft_strlen(s)));
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_toupper(s[i]);
+		i++;
+	}
+	return (s);
 }

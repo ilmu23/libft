@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:39:59 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:05:14 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,22 @@ size_t	ft_strclen(const char *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_freestrs(char **arr);
+char	**ft_splitstrs(char const *s, char c);
 char	**ft_split(char const *s, char c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_subescstr(char const *s, unsigned int start, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strsjoin(char const *s1, char const *s2, char sep);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strremove(const char *s, const char c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
+char	*ft_strupper(char *s);
+char	*ft_strlower(char *s);
 char	*ft_strrev(char *s);
 int		ft_contains(const char *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
