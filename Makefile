@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/12/28 11:42:14 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/12/28 12:51:29 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 SRCS	=	ft_atoi.c \
 			ft_atol.c \
 			ft_bzero.c \
+			ft_alloc.c \
 			ft_calloc.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
@@ -90,7 +91,6 @@ SRCS	=	ft_atoi.c \
 			ft_clean.c \
 			ft_sweep.c \
 			ft_mark.c \
-			ft_int.c \
 			ft_obj.c \
 			ft_vm.c
 

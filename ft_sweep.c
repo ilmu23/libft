@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 11:36:18 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:50:33 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_sweep(t_vm *vm)
 			tmp = *obj;
 			*obj = tmp->next;
 			vm->objs--;
+			free(tmp->blk);
 			free(tmp);
 		}
 		else

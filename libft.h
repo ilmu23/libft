@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 11:40:59 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:55:51 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@
 typedef enum e_objtype
 {
 	OBJ_INT,
-	OBJ_UINT
+	OBJ_UINT,
+	OBJ_CHAR,
+	OBJ_UCHAR,
+	OBJ_LONG,
+	OBJ_ULONG
 }	t_objtype;
 
 typedef struct s_obj
 {
 	unsigned char	marked;
 	t_objtype		type;
-	union
-	{
-		int				ival;
-		unsigned int	uival;
-	};
+	void			*blk;
 	struct s_obj	*next;
 }	t_obj;
 
@@ -128,6 +128,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // mem
 void	ft_bzero(void *s, size_t n);
+void	*ft_alloc(size_t n, t_objtype type, t_vm *vm);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -167,12 +168,10 @@ char	*bufcopy(char *buf, char **out);
 // gc
 t_vm	*ft_newvm(void);
 void	ft_push(t_vm *vm, t_obj *value);
-void	ft_pushint(t_vm *vm, int n);
-void	ft_pushuint(t_vm *vm, unsigned int n);
 void	ft_markall(t_vm *vm);
 void	ft_sweep(t_vm *vm);
 void	ft_clean(t_vm *vm);
 t_obj	*ft_pop(t_vm *vm);
-t_obj	*ft_newobj(t_vm *vm, t_objtype type);
+t_obj	*ft_newobj(t_vm *vm, t_objtype type, size_t n);
 
 #endif
