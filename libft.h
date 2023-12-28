@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 14:21:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:32:54 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,6 @@ char	*bufshift(char *buf, char *src, size_t n);
 char	*bufcopy(char *buf, char **out);
 
 // gc
-t_vm	*ft_newvm(void);
 t_vm	*ft_getvm(void);
 void	ft_push(t_vm *vm, t_obj *value);
 void	ft_markall(t_vm *vm);

@@ -6,13 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 13:46:55 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:32:09 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_vm	*ft_newvm(void)
+static t_vm	*ft_newvm(void)
 {
 	t_vm	*vm;
 
