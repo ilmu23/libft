@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/11 19:05:14 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 11:40:59 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,50 @@
 #  define BUFFER_SIZE 512
 # endif
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-# define LONG_MIN -9223372036854775808
-# define LONG_MAX 9223372036854775807
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
+# endif
+# ifndef INT_MAX
+#  define INT_MAX 2147483647
+# endif
+# ifndef LONG_MIN
+#  define LONG_MIN -9223372036854775808
+# endif
+# ifndef LONG_MAX
+#  define LONG_MAX 9223372036854775807
+# endif
+
+# define GC_START 32
+# define STACK_MAX 1024
+# define E_STACKOF 23
+# define E_STACKUF 24
+
+typedef enum e_objtype
+{
+	OBJ_INT,
+	OBJ_UINT
+}	t_objtype;
+
+typedef struct s_obj
+{
+	unsigned char	marked;
+	t_objtype		type;
+	union
+	{
+		int				ival;
+		unsigned int	uival;
+	};
+	struct s_obj	*next;
+}	t_obj;
+
+typedef struct s_vm
+{
+	t_obj	*stack[STACK_MAX];
+	size_t	stacksize;
+	size_t	maxobjs;
+	size_t	objs;
+	t_obj	*head;
+}	t_vm;
 
 typedef struct s_list
 {
@@ -123,5 +163,16 @@ int		putpadding(int spaces, char c, int *sign, int *flags);
 char	*get_next_line(int fd);
 char	*bufshift(char *buf, char *src, size_t n);
 char	*bufcopy(char *buf, char **out);
+
+// gc
+t_vm	*ft_newvm(void);
+void	ft_push(t_vm *vm, t_obj *value);
+void	ft_pushint(t_vm *vm, int n);
+void	ft_pushuint(t_vm *vm, unsigned int n);
+void	ft_markall(t_vm *vm);
+void	ft_sweep(t_vm *vm);
+void	ft_clean(t_vm *vm);
+t_obj	*ft_pop(t_vm *vm);
+t_obj	*ft_newobj(t_vm *vm, t_objtype type);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/12/12 17:02:18 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/12/28 11:42:14 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,13 @@ SRCS	=	ft_atoi.c \
 			ft_putx.c \
 			printf_utils.c \
 			get_next_line.c \
-			gnl_utils.c
+			gnl_utils.c \
+			ft_clean.c \
+			ft_sweep.c \
+			ft_mark.c \
+			ft_int.c \
+			ft_obj.c \
+			ft_vm.c
 
 OBJS	= $(patsubst %.c, %.o, $(SRCS))
 
