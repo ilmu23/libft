@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:43:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:46:39 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:28:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_next_line(int fd)
 		}
 		if (out)
 		{
-			if (out[ft_strclen(out, '\0') - 1] == '\n')
+			if (out[ft_strlen(out) - 1] == '\n')
 				return (out);
 		}
 		rv = read(fd, buf[fd], BUFFER_SIZE);

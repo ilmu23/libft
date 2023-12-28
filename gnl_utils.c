@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 14:20:06 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:13:16 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,24 @@ char	*bufshift(char *dst, char *src, size_t n)
 
 char	*bufcopy(char *buf, char **out)
 {
-	size_t	i;
 	size_t	linelen;
 	size_t	buflen;
 	char	*cpy;
 	char	*tmp;
 
-	buflen = ft_strclen(buf, '\0');
+	buflen = ft_strlen(buf);
 	linelen = ft_strclen(buf, '\n');
 	if (linelen < buflen)
 		linelen++;
 	cpy = ft_calloc(linelen + 1, sizeof(char));
-	i = 0;
-	while (cpy && i < linelen)
-	{
-		cpy[i] = buf[i];
-		i++;
-	}
+	if (*out)
+		ft_pop(ft_getvm());
+	ft_strlcpy(cpy, buf, linelen + 1);
 	bufshift(buf, &buf[linelen], buflen - linelen);
 	tmp = ft_strjoin(*out, cpy);
 	if (!cpy)
 		return (NULL);
 	*out = tmp;
+	ft_push(ft_getvm(), tmp);
 	return (buf);
 }

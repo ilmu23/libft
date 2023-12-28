@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_alloc.c                                         :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 19:59:31 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/12/28 16:04:35 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/12/28 19:02:23 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_alloc(size_t n)
+void	ft_free(void *ptr)
 {
-	t_obj			*tmp;
-	t_vm			*vm;
+	t_obj	*obj;
 
-	vm = ft_getvm();
-	tmp = ft_newobj(vm, n);
-	if (!tmp)
-		return (NULL);
-	return (tmp->blk);
+	obj = ft_getvm()->head;
+	while (obj)
+	{
+		if (obj->blk == ptr)
+			break ;
+		obj = obj->next;
+	}
+	if (obj)
+		obj->blk = NULL;
+	free(ptr);
 }

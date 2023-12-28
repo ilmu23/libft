@@ -6,24 +6,34 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:08:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 11:30:33 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 21:43:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_mark(t_obj *obj);
+static void	ft_mark(t_vm *vm, t_obj *obj);
 
 void	ft_markall(t_vm *vm)
+{
+	t_obj	*obj;
+
+	obj = vm->head;
+	while (obj)
+	{
+		ft_mark(vm, obj);
+		obj = obj->next;
+	}
+}
+
+static void	ft_mark(t_vm *vm, t_obj *obj)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < vm->stacksize)
-		ft_mark(vm->stack[i++]);
-}
-
-static void	ft_mark(t_obj *obj)
-{
-	obj->marked = 1;
+	while (obj->marked == 0 && i < vm->stacksize)
+	{
+		if (obj->blk == vm->stack[i++])
+			obj->marked = 1;
+	}
 }

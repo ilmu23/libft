@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 14:32:54 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:14:25 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 512
+#  define BUFFER_SIZE 1
 # endif
 
 # ifndef INT_MIN
@@ -34,7 +34,7 @@
 # endif
 
 # define GC_START 32
-# define STACK_MAX 1024
+# define STACK_MAX 512
 # define E_STACKOF 23
 # define E_STACKUF 24
 
@@ -47,7 +47,7 @@ typedef struct s_obj
 
 typedef struct s_vm
 {
-	t_obj	*stack[STACK_MAX];
+	void	*stack[STACK_MAX];
 	size_t	stacksize;
 	size_t	maxobjs;
 	size_t	objs;
@@ -115,6 +115,7 @@ int		ft_contains(const char *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // mem
+void	ft_free(void *ptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_alloc(size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -155,10 +156,11 @@ char	*bufcopy(char *buf, char **out);
 
 // gc
 t_vm	*ft_getvm(void);
-void	ft_push(t_vm *vm, t_obj *value);
+void	ft_push(t_vm *vm, void *value);
 void	ft_markall(t_vm *vm);
 void	ft_sweep(t_vm *vm);
 void	ft_clean(t_vm *vm);
+void	ft_popall(t_vm *vm);
 t_obj	*ft_pop(t_vm *vm);
 t_obj	*ft_newobj(t_vm *vm, size_t n);
 
