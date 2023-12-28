@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 20:25:38 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:24:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**ft_split(char const *s, char c)
 		if (!out[i] && i <= splits)
 			return (NULL);
 		if (out[i++])
-			ft_push(ft_getvm(), out[i - 1]);
+			ft_push(ft_getvm(), 1, out[i - 1]);
 	}
 	return (out);
 }

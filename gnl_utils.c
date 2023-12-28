@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 22:13:16 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:23:33 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ char	*bufcopy(char *buf, char **out)
 	if (!cpy)
 		return (NULL);
 	*out = tmp;
-	ft_push(ft_getvm(), tmp);
+	ft_push(ft_getvm(), 1, tmp);
 	return (buf);
 }
