@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 12:34:25 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:46:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,25 @@
 
 t_vm	*ft_newvm(void)
 {
-	t_vm	*out;
+	t_vm	*vm;
 
-	out = malloc(sizeof(t_vm));
-	if (!out)
+	vm = malloc(sizeof(t_vm));
+	if (!vm)
 		return (NULL);
-	out->stacksize = 0;
-	out->maxobjs = GC_START;
-	out->objs = 0;
-	out->head = NULL;
-	return (out);
+	vm->stacksize = 0;
+	vm->maxobjs = GC_START;
+	vm->objs = 0;
+	vm->head = NULL;
+	return (vm);
+}
+
+t_vm	*ft_getvm(void)
+{
+	static t_vm	*vm = NULL;
+
+	if (!vm)
+		vm = ft_newvm();
+	return (vm);
 }
 
 void	ft_push(t_vm *vm, t_obj *value)

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:32:31 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 17:30:56 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:58:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_putnbr_fd(int n, int fd, int *flags)
 		ret = ft_putstr_fd(nbr, fd);
 	else
 		ret = ft_putstr_fd(nbr + 1, fd);
-	free(nbr);
 	return (ret);
 }
 

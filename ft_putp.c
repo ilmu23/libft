@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:08:43 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:31:49 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:58:21 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	ft_putp(va_list args, int *flags)
 		out = putleft(s, ndigits, flags);
 	else
 		out = putright(s, ndigits, flags);
-	free(s);
 	return (out);
 }
 
@@ -117,6 +116,5 @@ static char	*ptox(unsigned long n, int ndigits)
 	tmp[i++] = hexarr[n];
 	ft_strrev(tmp);
 	out = ft_strjoin("0x", tmp);
-	free(tmp);
 	return (out);
 }

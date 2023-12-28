@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/08 15:26:04 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:13:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ char	**ft_split(char const *s, char c)
 	{
 		out[i++] = makesplit(s, c);
 		if (!out[i - 1] && i <= splits)
-		{
-			while (i > 0)
-				free(out[i-- - 1]);
-			free(out);
 			return (NULL);
-		}
 	}
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 12:55:51 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:21:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,9 @@
 # define E_STACKOF 23
 # define E_STACKUF 24
 
-typedef enum e_objtype
-{
-	OBJ_INT,
-	OBJ_UINT,
-	OBJ_CHAR,
-	OBJ_UCHAR,
-	OBJ_LONG,
-	OBJ_ULONG
-}	t_objtype;
-
 typedef struct s_obj
 {
 	unsigned char	marked;
-	t_objtype		type;
 	void			*blk;
 	struct s_obj	*next;
 }	t_obj;
@@ -106,7 +95,6 @@ size_t	ft_strclen(const char *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-void	ft_freestrs(char **arr);
 char	**ft_splitstrs(char const *s, char c);
 char	**ft_split(char const *s, char c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
@@ -128,7 +116,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // mem
 void	ft_bzero(void *s, size_t n);
-void	*ft_alloc(size_t n, t_objtype type, t_vm *vm);
+void	*ft_alloc(size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -167,11 +155,12 @@ char	*bufcopy(char *buf, char **out);
 
 // gc
 t_vm	*ft_newvm(void);
+t_vm	*ft_getvm(void);
 void	ft_push(t_vm *vm, t_obj *value);
 void	ft_markall(t_vm *vm);
 void	ft_sweep(t_vm *vm);
 void	ft_clean(t_vm *vm);
 t_obj	*ft_pop(t_vm *vm);
-t_obj	*ft_newobj(t_vm *vm, t_objtype type, size_t n);
+t_obj	*ft_newobj(t_vm *vm, size_t n);
 
 #endif

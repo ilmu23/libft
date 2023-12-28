@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:56:22 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/11 19:02:51 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:21:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ char	*ft_strremove(const char *s, const char c)
 	while (arr[i])
 	{
 		tmp = ft_strjoin(out, arr[i]);
-		if (out)
-			free(out);
-		free(arr[i++]);
 		out = tmp;
 	}
-	free(arr);
 	return (out);
 }
