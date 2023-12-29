@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:56:01 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 14:22:02 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:23:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strdup(const char *s1)
 	size_t	asize;
 
 	asize = ft_strlen(s1) + 1;
-	ft_push(ft_getvm(), 1, s1);
+	ft_push((void *)s1);
 	out = ft_calloc(asize, sizeof(char));
-	ft_pop(ft_getvm());
+	ft_pop();
 	if (!out)
 		return (NULL);
 	ft_strlcpy(out, s1, asize);

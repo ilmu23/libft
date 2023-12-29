@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 12:05:34 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:22:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,20 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	splits = getsplits(s, c);
-	ft_push(ft_getvm(), 1, s);
+	ft_push((void *)s);
 	out = ft_calloc((splits + 1), sizeof(char *));
-	ft_pop(ft_getvm());
-	ft_push(ft_getvm(), 1, out);
+	ft_pop();
+	ft_push(out);
 	if (!out)
 		return (NULL);
 	i = 0;
 	while (i <= splits)
 	{
-		out[i] = makesplit(s, c);
-		if (!out[i] && i <= splits)
+		out[i++] = makesplit(s, c);
+		if (!out[i - 1] && i <= splits)
 			return (NULL);
-		if (out[i++])
-			ft_push(ft_getvm(), 1, out[i - 1]);
 	}
+	ft_popn(i);
 	return (out);
 }
 
@@ -71,7 +70,6 @@ static char	*makesplit(char const *s, char c)
 {
 	static size_t	i = 0;
 	size_t			j;
-	char			*out;
 
 	while (s[i] && s[i] == c)
 		i++;
@@ -83,8 +81,5 @@ static char	*makesplit(char const *s, char c)
 		i = 0;
 		return (NULL);
 	}
-	out = ft_substr(s, j, i - j);
-	if (!out)
-		return (NULL);
-	return (out);
+	return (ft_push(ft_substr(s, j, i - j)));
 }

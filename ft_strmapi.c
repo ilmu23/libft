@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:57:22 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 12:12:10 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:51:46 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s)
 		return (NULL);
-	ft_push(ft_getvm(), 1, s);
+	ft_push((void *)s);
 	out = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	ft_pop(ft_getvm());
+	ft_pop();
 	if (!out)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:23:35 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:42:47 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,50 +26,4 @@ t_vm	*ft_getvm(void)
 		init = 1;
 	}
 	return (&vm);
-}
-
-void	ft_push(t_vm *vm, size_t blks, ...)
-{
-	va_list	args;
-	void	*blk;
-
-	va_start(args, blks);
-	while (blks)
-	{
-		if (vm->stacksize >= STACK_MAX)
-		{
-			ft_putendl_fd("vm: ft_push(): stack overflow", 2);
-			ft_exit(E_STACKOF);
-		}
-		blk = va_arg(args, void *);
-		if (blk)
-			vm->stack[vm->stacksize++] = blk;
-		blks--;
-	}
-	va_end(args);
-}
-
-void	ft_popall(t_vm *vm)
-{
-	while (vm->stacksize)
-		ft_pop(vm);
-}
-
-void	ft_popn(t_vm *vm, size_t blks)
-{
-	while (blks)
-	{
-		ft_pop(vm);
-		blks--;
-	}
-}
-
-t_obj	*ft_pop(t_vm *vm)
-{
-	if (vm->stacksize == 0)
-	{
-		ft_putendl_fd("vm: ft_pop(): stack underflow", 2);
-		ft_exit(E_STACKUF);
-	}
-	return (vm->stack[--vm->stacksize]);
 }

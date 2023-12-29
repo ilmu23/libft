@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:00:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 12:17:15 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:25:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	ft_push(ft_getvm(), 1, s1);
+	ft_push((void *)s1);
 	if (!(*s1))
 		return (ft_strdup(""));
-	ft_pop(ft_getvm());
+	ft_pop();
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	while (ft_contains(set, s1[i]) == 1)

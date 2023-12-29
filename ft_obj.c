@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 21:45:08 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 21:05:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_obj	*ft_newobj(t_vm *vm, size_t n)
 	obj->blk = malloc(n);
 	if (!obj->blk)
 		return (NULL);
+	obj->blksize = n;
 	vm->head = obj;
 	vm->objs++;
 	return (obj);

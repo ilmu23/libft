@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   ft_pop.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 20:28:43 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/12/29 21:01:04 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_clean(t_vm *vm)
+void	ft_popall(void)
 {
-	ft_markall(vm);
-	ft_sweep(vm);
-	if (vm->objs > GC_START / 2)
-		vm->maxobjs = vm->objs * 2;
-	else
-		vm->maxobjs = GC_START;
+	ft_popn(ft_getvm()->stacksize);
+}
+
+void	ft_popn(size_t blks)
+{
+	while (blks)
+	{
+		ft_pop();
+		blks--;
+	}
+}
+
+void	*ft_pop(void)
+{
+	t_vm	*vm;
+
+	vm = ft_getvm();
+	if (vm->stacksize == 0)
+	{
+		ft_putendl_fd("vm: ft_pop(): stack underflow", 2);
+		ft_exit(E_STACKUF);
+	}
+	return (vm->stack[--vm->stacksize]);
 }
