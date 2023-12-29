@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:51:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 22:20:17 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 10:00:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1)
 		ft_strlcpy(out, s1, len1 + 1);
 	ft_strlcpy((out + len1), s2, len2 + 1);
-	ft_pop(ft_getvm());
-	if (s1)
-		ft_pop(ft_getvm());
+	ft_popn(ft_getvm(), 1 + (s1 != NULL));
 	return (out);
 }
