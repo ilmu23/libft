@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:13:44 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:31:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:50:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_putc(va_list args, int *flags, char format)
 		rv1 = putpadding(flags[2] - 1, ' ', &flags[0], flags);
 	if (rv1 < 0)
 		return (-1);
-	rv2 = ft_putchar_fd(c, 1);
+	rv2 = ft_putchar_fd(c, ft_pfgetfd());
 	if (rv2 < 0)
 		return (-1);
 	if (flags[0] == 1)

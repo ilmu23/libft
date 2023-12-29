@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:30:19 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:31:54 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:50:09 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	putleft(char *s, int nchars, int *flags)
 	ret = 0;
 	while (out < nchars && ret >= 0)
 	{
-		ret = ft_putchar_fd(s[out], 1);
+		ret = ft_putchar_fd(s[out], ft_pfgetfd());
 		out += ret;
 	}
 	if (ret < 0)
@@ -72,7 +72,7 @@ static int	putright(char *s, int nchars, int *flags)
 	out += ret;
 	while (i < nchars && ret >= 0)
 	{
-		ret = ft_putchar_fd(s[i++], 1);
+		ret = ft_putchar_fd(s[i++], ft_pfgetfd());
 		out += ret;
 	}
 	if (ret < 0)

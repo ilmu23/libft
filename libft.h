@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 09:52:41 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:54:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #  define LONG_MAX 9223372036854775807
 # endif
 
-# define GC_START 32
+# define GC_START 256
 # define STACK_MAX 2048
 # define E_STACKOF 23
 # define E_STACKUF 24
@@ -53,12 +53,6 @@ typedef struct s_vm
 	size_t	objs;
 	t_obj	*head;
 }	t_vm;
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 // is
 int		ft_isalpha(int c);
@@ -85,9 +79,10 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
 
-// int
+// nbr
 size_t	ft_intlen(int n);
 size_t	ft_uintlen(unsigned int n);
+size_t	ft_hexlen(unsigned long n);
 
 // str
 size_t	ft_strlen(const char *s);
@@ -125,19 +120,11 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
-// lst
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-
 // printf
+void	ft_pfsetfd(int fd);
+int		ft_pfgetfd(void);
 int		ft_printf(const char *s, ...);
+int		ft_dprintf(int fd, const char *s, ...);
 int		ft_printformat(const char **f, va_list args);
 int		ft_putarg(const char **f, va_list args);
 int		ft_putc(va_list args, int *flags, char format);
@@ -146,7 +133,6 @@ int		ft_putu(va_list args, int *flags);
 int		ft_puts(va_list args, int *flags);
 int		ft_putx(va_list args, int *flags, char format);
 int		ft_putp(va_list args, int *flags);
-int		ft_hexlen(unsigned long n);
 int		putpadding(int spaces, char c, int *sign, int *flags);
 
 // gnl

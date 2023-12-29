@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 09:52:08 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:23:35 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_push(t_vm *vm, size_t blks, ...)
 	{
 		if (vm->stacksize >= STACK_MAX)
 		{
-			ft_putendl_fd("vm: stack overflow", 2);
+			ft_putendl_fd("vm: ft_push(): stack overflow", 2);
 			ft_exit(E_STACKOF);
 		}
 		blk = va_arg(args, void *);
@@ -68,7 +68,7 @@ t_obj	*ft_pop(t_vm *vm)
 {
 	if (vm->stacksize == 0)
 	{
-		ft_putendl_fd("vm: stack underflow", 2);
+		ft_putendl_fd("vm: ft_pop(): stack underflow", 2);
 		ft_exit(E_STACKUF);
 	}
 	return (vm->stack[--vm->stacksize]);

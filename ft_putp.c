@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:08:43 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 13:58:21 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:52:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	putleft(char *s, int ndigits, int *flags)
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = ft_putstr_fd(s, 1);
+	ret = ft_putstr_fd(s, ft_pfgetfd());
 	out += ret;
 	if (ret < 0)
 		return (-1);
@@ -85,7 +85,7 @@ static int	putright(char *s, int ndigits, int *flags)
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = ft_putstr_fd(s, 1);
+	ret = ft_putstr_fd(s, ft_pfgetfd());
 	out += ret;
 	if (ret < 0)
 		return (-1);
