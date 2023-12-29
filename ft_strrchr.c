@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:23:00 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/24 17:26:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:18:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*out;
+	size_t	i;
 
-	out = NULL;
-	while (*s)
+	i = ft_strlen(s);
+	if (!(char)c)
+		return ((char *)&s[i]);
+	while (i)
 	{
-		if (*s == (char)c)
-			out = (char *)s;
-		s++;
+		if (s[i - 1] == (char)c)
+			return ((char *)&s[i - 1]);
+		i--;
 	}
-	if (*s == (char)c)
-		return ((char *)s);
-	return (out);
+	return (NULL);
 }

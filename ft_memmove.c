@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:19:08 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/24 16:02:25 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:23:52 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (!src && !dst)
 		return (dst);
 	if (dst > src)
-	{
-		while (len > 0)
-		{
-			*(char *)(dst + len - 1) = *(char *)(src + len - 1);
-			len--;
-		}
-	}
+		ft_memcpy(dst, src, len);
 	else
 	{
 		i = 0;
