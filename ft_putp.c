@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:08:43 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:52:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:41:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_putp.c
+ */
 
 #include "libft.h"
 
@@ -16,6 +20,12 @@ static int	putleft(char *s, int ndigits, int *flags);
 static int	putright(char *s, int ndigits, int *flags);
 static char	*ptox(unsigned long n, int ndigits);
 
+/** @brief Prints the address of a pointer according to the flags
+ *
+ * @param args va_list containing the pointers address
+ * @param *flags Pointer to the output flag array
+ * @retval int Amount of characters printed or -1 if an error occurred
+ */
 int	ft_putp(va_list args, int *flags)
 {
 	unsigned long	p;

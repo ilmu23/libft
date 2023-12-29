@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:26:06 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:51:22 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:47:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_putu.c
+ */
 
 #include "libft.h"
 
@@ -16,6 +20,12 @@ static int	putleft(unsigned int n, int ndigits, int *flags);
 static int	putright(unsigned int n, int ndigits, int *flags);
 static int	getlen(unsigned int n, int *ndigits, int *flags);
 
+/** @brief Prints an unsigned int according to the flags
+ *
+ * @param args va_list containing the unsigned int to be printed
+ * @param *flags Pointer to the output flag array
+ * @retval int Amount of characters printed or -1 if an error occurred
+ */
 int	ft_putu(va_list args, int *flags)
 {
 	unsigned int	n;

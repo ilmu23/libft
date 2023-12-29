@@ -6,17 +6,27 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 21:01:04 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 23:53:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_pop.c
+ */
+
 #include "libft.h"
 
+/** @brief Pops all blocks from the vm stack
+ */
 void	ft_popall(void)
 {
 	ft_popn(ft_getvm()->stacksize);
 }
 
+/** @brief Pops blks amount of blocks from the vm stack
+ *
+ * @param blks Amount of blocks to pop
+ */
 void	ft_popn(size_t blks)
 {
 	while (blks)
@@ -26,6 +36,10 @@ void	ft_popn(size_t blks)
 	}
 }
 
+/** @brief Pops a block from the vm stack
+ *
+ * @retval void * Pointer to the popped block
+ */
 void	*ft_pop(void)
 {
 	t_vm	*vm;

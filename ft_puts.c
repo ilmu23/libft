@@ -6,15 +6,25 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:30:19 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:50:09 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:41:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_puts.c
+ */
 
 #include "libft.h"
 
 static int	putleft(char *s, int nchars, int *flags);
 static int	putright(char *s, int nchars, int *flags);
 
+/** @brief Prints a string according to the flags
+ *
+ * @param args va_list containing the string to be printed
+ * @param *flags Pointer to the output flag array
+ * @retval int Amount of characters written or -1 if an error occurred
+ */
 int	ft_puts(va_list args, int *flags)
 {
 	const char	nullstr[7] = "(null)\0";

@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:55:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:50:57 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:42:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_putd.c
+ */
 
 #include "libft.h"
 
@@ -16,6 +20,12 @@ static int	putleft(int n, int ndigits, int *flags);
 static int	putright(int n, int ndigits, int *flags);
 static int	getlen(int n, int *ndigits, int *flags);
 
+/** @brief Prints an int according to the flags
+ *
+ * @param args va_list containing the int to be printed
+ * @param *flags Pointer to the output flag array
+ * @retval int Amount of characters printed or -1 if an error occurred
+ */
 int	ft_putd(va_list args, int *flags)
 {
 	int	n;

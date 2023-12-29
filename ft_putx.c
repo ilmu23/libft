@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:51:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:54:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_putx.c
+ */
 
 #include "libft.h"
 
@@ -16,6 +20,14 @@ static int	getlen(unsigned int n, int *ndigits, int *flags);
 static int	putleft(unsigned int n, int ndigits, int *flags, int upper);
 static int	putright(unsigned int n, int ndigits, int *flags, int upper);
 
+/** @brief Prints an unsigned integer as a hex value according to the flags
+ *
+ * @param args va_list containing the unsigned integer to be printed
+ * @param *flags Pointer to the flag array
+ * @param format Character specifying whether to print a-f as lowercase (x)
+ * or uppercase (X) characters
+ * @retval int Amount of characters printed or -1 if an error occurred
+ */
 int	ft_putx(va_list args, int *flags, char format)
 {
 	unsigned int	n;
