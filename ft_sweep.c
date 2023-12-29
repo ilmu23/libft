@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 21:44:25 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/29 22:20:00 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_sweep(t_vm *vm)
 			free(tmp);
 		}
 		else
-		{
-			(*obj)->marked = 0;
 			obj = &(*obj)->next;
-		}
 	}
 }

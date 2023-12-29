@@ -6,15 +6,14 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/12/29 21:45:01 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/12/29 22:23:10 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 
 CC		= cc
-#CFLAGS	= -Wall -Wextra -Werror -g
-CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g
 
 SRCS	=	ft_atoi.c \
 			ft_atol.c \
