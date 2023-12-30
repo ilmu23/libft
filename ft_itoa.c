@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:06:35 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 12:13:56 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:02:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 /** @brief Converts n into a string
  *
- * @param n Integer to be converted into a character representation of its value
- * @retval char * Pointer to the allocated text representation of n, or NULL if
- * allocation failed
+ * @param n Integer to be converted into an ascii representation of its value
+ * @retval char * Pointer to the allocated string
+ * or NULL if the allocation failed
  */
 char	*ft_itoa(int n)
 {

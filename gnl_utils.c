@@ -6,12 +6,23 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 20:25:55 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:41:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file gnl_utils.c
+ */
+
 #include "libft.h"
 
+/** @brief Copies n characters from src to dst and NUL terminates dst
+ *
+ * @param dst String to copy to
+ * @param src String to copy from
+ * @param n Amount of characters to copy
+ * @retval char * Pointer to the start of dst or NULL if dst is empty
+ */
 char	*bufshift(char *dst, char *src, size_t n)
 {
 	size_t	i;
@@ -22,14 +33,19 @@ char	*bufshift(char *dst, char *src, size_t n)
 		dst[i] = src[i];
 		i++;
 	}
-	src = dst + n;
-	while (*src)
-		*src++ = '\0';
+	dst[n] = '\0';
 	if (*dst)
 		return (dst);
 	return (NULL);
 }
 
+/** @brief Catenates characters from buf to out
+ *
+ * Joins the characters from buf, until the first newline, to out
+ * @param *buf String to catenate from
+ * @param **out Address of string to catenate to
+ * @retval char * Address of buf or NULL if the allocation failed
+ */
 char	*bufcopy(char *buf, char **out)
 {
 	size_t	linelen;

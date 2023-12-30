@@ -6,12 +6,24 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:43:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 17:28:48 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:05:15 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file get_next_line.c
+ */
+
 #include "libft.h"
 
+/** @brief Reads a line from fd
+ *
+ * Reads BUFFER_SIZE bytes from fd to a buffer and copies the contents
+ * of the buffer to a string until the string has a whole line.
+ * @param fd File descriptor to read from
+ * @retval char * Pointer to the line
+ * or NULL if the allocation failed or EOF was reached
+ */
 char	*get_next_line(int fd)
 {
 	static char		buf[499][BUFFER_SIZE + 1];

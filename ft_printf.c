@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:28:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 11:40:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:46:36 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	ft_printf(const char *s, ...)
 		return (-1);
 	ret = 1;
 	out = 0;
+	ft_pfsetfd(1);
 	va_start(args, s);
 	while (*s && ret >= 0)
 	{

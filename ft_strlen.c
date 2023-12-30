@@ -6,12 +6,21 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:06:12 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/17 12:30:08 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 13:39:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_strlen.c
+ */
+
 #include "libft.h"
 
+/** @brief Calculates the length of s
+ *
+ * @param *s String to calculate
+ * @retval size_t Length of the string or 0 if s is NULL
+ */
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

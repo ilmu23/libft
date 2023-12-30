@@ -6,12 +6,20 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:52:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 15:59:17 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:50:04 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file printf_utils.c
+ */
+
 #include "libft.h"
 
+/** @brief Returns a pointer to the printf fd
+ *
+ * @retval int * Pointer to the printf fd
+ */
 static int	*ft_pfgetfdp(void)
 {
 	static int	fd = 1;
@@ -19,14 +27,19 @@ static int	*ft_pfgetfdp(void)
 	return (&fd);
 }
 
+/** @brief Sets the printf fd to fd
+ *
+ * @param fd File descriptor to set for printf
+ */
 void	ft_pfsetfd(int fd)
 {
-	int	*fdp;
-
-	fdp = ft_pfgetfdp();
-	*fdp = fd;
+	*ft_pfgetfdp() = fd;
 }
 
+/** @brief Gets the value of the current printf fd
+ *
+ * @retval int Value of the current printf fd
+ */
 int	ft_pfgetfd(void)
 {
 	return (*ft_pfgetfdp());

@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 20:21:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:10:25 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_splitstrs.c
+ */
 
 #include "libft.h"
 
@@ -16,6 +20,15 @@ static size_t	getsplits(char const *s, char c);
 static size_t	getstrend(char const *s, size_t i, const char c);
 static char		*makesplit(char const *s, char c);
 
+/** @brief Splits the string s into substrings of s separated by c
+ *
+ * Behaves like ft_split, but doesn't split if it encounters c
+ * between a pair of quotes
+ * @param *s Pointer to the string to split
+ * @param c Character to split on
+ * @retval char ** Pointer to the NULL terminated string array or NULL
+ * if one of the allocations failed
+ */
 char	**ft_splitstrs(char const *s, char c)
 {
 	char	**out;
@@ -38,6 +51,7 @@ char	**ft_splitstrs(char const *s, char c)
 		if (!out[i - 1] && i <= splits)
 			return (NULL);
 	}
+	ft_popn(i);
 	return (out);
 }
 
@@ -87,7 +101,7 @@ static char	*makesplit(char const *s, char c)
 	{
 		j = i + 1;
 		i = getstrend(s, i + 1, s[i]);
-		return (ft_push(ft_subescstr(s, j, i - 1 - j)));
+		return (ft_push(ft_strremove(ft_substr(s, j, i - 1 - j), '\\')));
 	}
 	while (s[i] && s[i] == c)
 		i++;

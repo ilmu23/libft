@@ -6,12 +6,22 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:56:22 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/28 14:21:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 13:57:08 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_strremove.c
+ */
+
 #include "libft.h"
 
+/** @brief Creates a copy of s with all occurences of c removed
+ *
+ * @param *s String to copy
+ * @param c Character to remove
+ * @retval char * Pointer to the copy or NULL if the allocation failed
+ */
 char	*ft_strremove(const char *s, const char c)
 {
 	size_t	i;

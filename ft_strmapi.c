@@ -6,12 +6,22 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:57:22 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 20:51:46 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:02:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_strmapi.c
+ */
+
 #include "libft.h"
 
+/** @brief Allocates and returns a duplicate of s
+ * with f applied to all characters
+ *
+ * @param *s String to duplicate
+ * @param *f Pointer to the function to apply
+ */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*out;

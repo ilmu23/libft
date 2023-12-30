@@ -6,12 +6,12 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 11:57:12 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 11:59:51 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 12:55:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file ft_isupper
+ * @file ft_isupper.c
  */
 
 /** @brief Checks if c is an uppercase character

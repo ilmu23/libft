@@ -6,12 +6,23 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:31:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/25 18:41:54 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 13:33:44 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_strlcat.c
+ */
+
 #include "libft.h"
 
+/** @brief catenates src to dst, NUL terminating the result
+ *
+ * @param *dst String to catenate to
+ * @param *src String to catenate from
+ * @param dstsize Total size of the destination block
+ * @retval size_t Length of the string the function tried to create
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dstlen;

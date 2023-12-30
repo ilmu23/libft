@@ -6,26 +6,37 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 18:22:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:42:38 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:04:49 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_uitoa.c
+ */
+
 #include "libft.h"
 
+/** @brief Converts n into a string
+ *
+ * @param n Unsigned integer to be converted into
+ * an ascii representation of its value
+ * @retval char * Pointer to the allocated string
+ * or NULL if the allocation failed
+ */
 char	*ft_uitoa(unsigned int n)
 {
-	size_t	i;
 	char	*out;
+	size_t	i;
 
-	out = ft_calloc(ft_uintlen(n) + 1, sizeof(char));
+	i = ft_uintlen(n);
+	out = ft_calloc(i-- + 1, sizeof(char));
 	if (!out)
 		return (NULL);
-	i = 0;
 	while (n > 9)
 	{
-		out[i++] = n % 10 + '0';
+		out[i--] = n % 10 + '0';
 		n /= 10;
 	}
 	out[i] = n + '0';
-	return (ft_strrev(out));
+	return (out);
 }
