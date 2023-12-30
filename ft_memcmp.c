@@ -6,12 +6,24 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:51:13 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/25 17:50:04 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 12:20:26 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_memcmp.c
+ */
+
 #include "libft.h"
 
+/** @brief Compares the values in s1 and s2 for n bytes
+ *
+ * @param *s1 Pointer to the first memory area
+ * @param *s2 Pointer to the second memory area
+ * @param n Amount of bytes to compare s1 and s2 for
+ * @retval int Difference in the values of the first unequal
+ * bytes in s1 and s2, or 0 if s1 and s2 are equal for n bytes
+ */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	if (n == 0)

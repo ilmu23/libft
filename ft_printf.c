@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:28:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 00:12:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 11:40:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  *
  * Prints the format string replacing all occurences of %[%csdiupx]
  * with the next argument in the va_list
- * @param s Format string to print
+ * @param *s Format string to print
  * @param ... Arguments for format string conversions
  * @retval int Amount of characters printed or -1 if an error occurred
  */
@@ -52,8 +52,8 @@ int	ft_printf(const char *s, ...)
 
 /** @brief NULL checks the character after the %
  *
- * @param f Address of the pointer to the current position in the format string
- * @param args va_list of the arguments for the conversions
+ * @param **f Address of the pointer to the current position in the format string
+ * @param args va_list containing the variable to print
  * @retval int Amount of characters printed or -1 if an error occurred
  */
 int	ft_printformat(const char **f, va_list args)

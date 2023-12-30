@@ -6,15 +6,28 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 20:22:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 11:26:31 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_split.c
+ */
 
 #include "libft.h"
 
 static size_t	getsplits(char const *s, char c);
 static char		*makesplit(char const *s, char c);
 
+/** @brief Splits the string s into substrings of s separated by c
+ *
+ * Goes through s, allocating a new substring into an array of strings
+ * between every every occurence of c in s
+ * @param *s Pointer to the string to split
+ * @param c Character to split on
+ * @retval char ** Pointer to the NULL terminated string array or NULL
+ * if one of the allocations failed
+ */
 char	**ft_split(char const *s, char c)
 {
 	char	**out;

@@ -6,9 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:06:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/20 19:31:27 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 11:43:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ * @file ft_format.c
+ */
 
 #include "libft.h"
 
@@ -17,6 +21,14 @@ static char	*getflags(const char *f, int *flags);
 static void	parseflag(const char c, int *flags);
 static int	getvalue(const char *f, va_list args);
 
+/** @brief Parses the format to print
+ *
+ * Parses the format specifier and any flags and runs the
+ * corresponding printing function
+ * @param **f Address of the pointer to the current position in the format string
+ * @param args va_list containing the variable to print
+ * @retval int Amount of characters printed or -1 if an error occurred
+ */
 int	ft_putarg(const char **f, va_list args)
 {
 	int	flags[6];
@@ -40,6 +52,13 @@ int	ft_putarg(const char **f, va_list args)
 	return (0);
 }
 
+/** @brief Parses any flags from the format specifier
+ *
+ * @param *f Pointer to the start of the format specifier
+ * @param *flags Pointer to the flag array
+ * @param args va_list potentially containing flag variable values
+ * @retval char * Pointer to the format specifier without the preceding flags
+ */
 static char	*parseformat(const char *f, int *flags, va_list args)
 {
 	flags[0] = 0;

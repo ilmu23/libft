@@ -6,12 +6,22 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:06:35 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 14:27:14 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 12:13:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_itoa.c
+ */
+
 #include "libft.h"
 
+/** @brief Converts n into a string
+ *
+ * @param n Integer to be converted into a character representation of its value
+ * @retval char * Pointer to the allocated text representation of n, or NULL if
+ * allocation failed
+ */
 char	*ft_itoa(int n)
 {
 	int		neg;
