@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 18:22:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 15:04:49 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:20:43 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,13 @@ char	*ft_uitoa(unsigned int n)
 	size_t	i;
 
 	i = ft_uintlen(n);
-	out = ft_calloc(i-- + 1, sizeof(char));
+	if (DEBUG_MSG)
+	{
+		out = malloc((i-- + 1) * sizeof(char));
+		out[i + 1] = '\0';
+	}
+	else
+		out = ft_calloc(i-- + 1, sizeof(char));
 	if (!out)
 		return (NULL);
 	while (n > 9)

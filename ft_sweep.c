@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 23:32:44 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:56:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	ft_sweep(t_vm *vm)
 			tmp = *obj;
 			*obj = tmp->next;
 			vm->objs--;
+			if (DEBUG_MSG)
+				ft_dprintf(DEBUGFD, "Freeing unused block at %p (%u bytes)\n",
+					tmp, tmp->blksize);
 			free(tmp->blk);
 			free(tmp);
 		}

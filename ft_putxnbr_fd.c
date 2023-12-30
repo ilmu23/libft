@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:37:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 01:00:30 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:16:47 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @param upper 0 = lowercase output, !0 = uppercase output
  * @retval int Amount of bytes written or -1 if an error occurred
  */
-int	ft_putxnbr_fd(unsigned int n, int fd, int upper)
+int	ft_putxnbr_fd(unsigned long n, int fd, int upper)
 {
 	const char	*hexarr = "0123456789abcdef";
 	int			ret;

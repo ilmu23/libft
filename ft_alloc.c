@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/29 23:44:55 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:56:36 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@ static t_obj	*ft_findblk(size_t n)
 		obj = obj->next;
 	}
 	ft_unmarkall(vm);
+	if (DEBUG_MSG && obj)
+		ft_dprintf(DEBUGFD, "Found unused obj at %p (%u bytes)\n",
+			obj, obj->blksize);
 	return (obj);
 }

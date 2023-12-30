@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 00:14:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:28:54 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ void	*ft_push(void *blk)
  *
  * Pushes arr to the vm stack, then goes through arr pushing
  * all of its elements to the vm stack as well
- * @param arr Pointer to the pointer array to be pushed to the vm stack
- * @retval void ** Pointer to the pointer array that was pushed to the vm stack
+ * @param addr Pointer to the pointer array to be pushed to the vm stack
+ * @retval void * Pointer to the pointer array that was pushed to the vm stack
  */
-void	**ft_pusharr(void **arr)
+void	*ft_pusharr(void *addr)
 {
-	size_t	i;
+	void	**arr;
 
-	i = 0;
-	ft_push(arr);
-	while (arr && arr[i])
-		ft_push(arr[i++]);
-	return (arr);
+	ft_push(addr);
+	arr = addr;
+	while (arr && *arr)
+		ft_push(*arr++);
+	return (addr);
 }
 
 /** @brief Pushes blks blocks to the vm stack

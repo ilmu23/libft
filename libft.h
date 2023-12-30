@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 14:10:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:17:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 512
+# endif
+
+# ifndef DEBUG_MSG
+#  define DEBUG_MSG 0
 # endif
 
 # ifndef INT_MIN
@@ -33,7 +37,8 @@
 #  define LONG_MAX 9223372036854775807
 # endif
 
-# define GC_START 256
+# define DEBUGFD 2
+# define GC_START 256 
 # define STACK_MAX 2048
 # define E_STACKOF 23
 # define E_STACKUF 24
@@ -72,7 +77,7 @@ int		ft_putstr_fd(char *s, int fd);
 int		ft_putendl_fd(char *s, int fd);
 int		ft_putnbr_fd(int n, int fd, int *flags);
 int		ft_putunbr_fd(unsigned int n, int fd);
-int		ft_putxnbr_fd(unsigned int n, int fd, int upper);
+int		ft_putxnbr_fd(unsigned long n, int fd, int upper);
 
 // to
 char	*ft_itoa(int n);
@@ -146,7 +151,7 @@ char	*bufcopy(char *buf, char **out);
 t_vm	*ft_getvm(void);
 void	*ft_pop(void);
 void	*ft_push(void *blk);
-void	**ft_pusharr(void **arr);
+void	*ft_pusharr(void *arr);
 void	ft_pushn(size_t blks, ...);
 void	ft_unmarkall(t_vm *vm);
 void	ft_markall(t_vm *vm);

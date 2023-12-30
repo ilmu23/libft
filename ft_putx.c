@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 00:54:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:16:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 #include "libft.h"
 
-static int	getlen(unsigned int n, int *ndigits, int *flags);
-static int	putleft(unsigned int n, int ndigits, int *flags, int upper);
-static int	putright(unsigned int n, int ndigits, int *flags, int upper);
+static int	getlen(unsigned long n, int *ndigits, int *flags);
+static int	putleft(unsigned long n, int ndigits, int *flags, int upper);
+static int	putright(unsigned long n, int ndigits, int *flags, int upper);
 
 /** @brief Prints an unsigned integer as a hex value according to the flags
  *
@@ -39,7 +39,7 @@ int	ft_putx(va_list args, int *flags, char format)
 		ndigits = flags[3];
 	else
 		ndigits = 0;
-	n = va_arg(args, unsigned int);
+	n = va_arg(args, unsigned long);
 	if (format == 'X')
 		upper = 1;
 	if (upper == 1 && flags[4] == 1)
@@ -51,7 +51,7 @@ int	ft_putx(va_list args, int *flags, char format)
 	return (putright(n, ndigits, flags, upper));
 }
 
-static int	putleft(unsigned int n, int ndigits, int *flags, int upper)
+static int	putleft(unsigned long n, int ndigits, int *flags, int upper)
 {
 	int	nlen;
 	int	ret;
@@ -76,7 +76,7 @@ static int	putleft(unsigned int n, int ndigits, int *flags, int upper)
 	return (out + ret);
 }
 
-static int	putright(unsigned int n, int ndigits, int *flags, int upper)
+static int	putright(unsigned long n, int ndigits, int *flags, int upper)
 {
 	int	nlen;
 	int	ret;
@@ -102,11 +102,11 @@ static int	putright(unsigned int n, int ndigits, int *flags, int upper)
 	return (out + ret);
 }
 
-static int	getlen(unsigned int n, int *ndigits, int *flags)
+static int	getlen(unsigned long n, int *ndigits, int *flags)
 {
 	int	digits;
 
-	digits = ft_hexlen((unsigned long)n);
+	digits = ft_hexlen(n);
 	if (flags[2] > *ndigits && flags[4] > 0)
 		digits += 2;
 	if (flags[2] > *ndigits && flags[4] > 0 && n != 0)
