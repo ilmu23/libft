@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 15:56:36 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:26:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	*ft_alloc(size_t n)
 {
 	t_obj			*tmp;
 
+	if (DEBUG_MSG)
+		ft_dprintf(DEBUGFD, "GC: alloc: ");
 	tmp = ft_findblk(n);
 	if (!tmp)
 		tmp = ft_newobj(ft_getvm(), n);
@@ -59,7 +61,9 @@ static t_obj	*ft_findblk(size_t n)
 	}
 	ft_unmarkall(vm);
 	if (DEBUG_MSG && obj)
-		ft_dprintf(DEBUGFD, "Found unused obj at %p (%u bytes)\n",
-			obj, obj->blksize);
+	{
+		ft_dprintf(DEBUGFD, "Found unused obj at %p ", obj);
+		ft_dprintf(DEBUGFD, "(%u bytes at %p)\n", obj->blksize, obj->blk);
+	}
 	return (obj);
 }

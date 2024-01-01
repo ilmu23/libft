@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 14:41:58 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:08:35 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ char	*bufcopy(char *buf, char **out)
 		ft_pop();
 	ft_strlcpy(cpy, buf, linelen + 1);
 	bufshift(buf, &buf[linelen], buflen - linelen);
-	tmp = ft_strjoin(*out, cpy);
+	if (!*out)
+		tmp = cpy;
+	else
+		tmp = ft_strjoin(*out, cpy);
 	if (!cpy)
 		return (NULL);
 	*out = tmp;

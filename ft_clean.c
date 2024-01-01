@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 14:44:28 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:14:04 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_clean(void)
 
 	vm = ft_getvm();
 	if (DEBUG_MSG)
-		ft_dprintf(DEBUGFD, "Cleaning...\n");
+		ft_dprintf(DEBUGFD, "GC: Cleaning...\n");
 	ft_markall(vm);
 	ft_sweep(vm);
 	ft_unmarkall(vm);
@@ -34,4 +34,10 @@ void	ft_clean(void)
 		vm->maxobjs = vm->objs * 2;
 	else
 		vm->maxobjs = GC_START;
+	if (DEBUG_MSG)
+	{
+		ft_dprintf(DEBUGFD, "GC: Done! ");
+		ft_dprintf(DEBUGFD, "Current objs: %u, next clean at %u objs\n",
+			vm->objs, vm->maxobjs);
+	}
 }
