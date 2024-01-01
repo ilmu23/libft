@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 15:53:00 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/31 07:46:06 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_obj	*ft_newobj(t_vm *vm, size_t n)
 	t_obj	*obj;
 
 	if (vm->objs == vm->maxobjs)
-		ft_clean(vm);
+		ft_clean();
 	obj = malloc(sizeof(t_obj));
 	if (!obj)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 16:17:56 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/12/31 07:45:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ char	*bufshift(char *buf, char *src, size_t n);
 char	*bufcopy(char *buf, char **out);
 
 // gc
+t_obj	*ft_newobj(t_vm *vm, size_t n);
 t_vm	*ft_getvm(void);
 void	*ft_pop(void);
 void	*ft_push(void *blk);
@@ -156,10 +157,10 @@ void	ft_pushn(size_t blks, ...);
 void	ft_unmarkall(t_vm *vm);
 void	ft_markall(t_vm *vm);
 void	ft_sweep(t_vm *vm);
-void	ft_clean(t_vm *vm);
+void	ft_clean(void);
 void	ft_popall(void);
 void	ft_popn(size_t blks);
 void	ft_exit(int estat);
-t_obj	*ft_newobj(t_vm *vm, size_t n);
+int		ft_return(int rval);
 
 #endif

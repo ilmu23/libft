@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/12/30 15:58:38 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/12/31 07:46:49 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ SRCS	=	ft_atoi.c \
 			printf_utils.c \
 			get_next_line.c \
 			gnl_utils.c \
+			ft_return.c \
 			ft_clean.c \
 			ft_sweep.c \
 			ft_mark.c \

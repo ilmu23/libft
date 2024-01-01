@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   ft_return.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 14:44:28 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/12/31 07:43:06 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/12/31 07:45:07 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file ft_clean.c
+ * @file ft_return.c
  */
 
 #include "libft.h"
 
-/** @brief Finds all unused allocations and frees them
+/** @brief Frees all memory before returning
  *
- * @param *vm Pointer to the virtual memory manager
+ * @param rval Return value
+ * @retval int rval
  */
-void	ft_clean(void)
+int	ft_return(int rval)
 {
-	t_vm	*vm;
-
-	vm = ft_getvm();
-	if (DEBUG_MSG)
-		ft_dprintf(DEBUGFD, "Cleaning...\n");
-	ft_markall(vm);
-	ft_sweep(vm);
-	ft_unmarkall(vm);
-	if (vm->objs > GC_START / 2)
-		vm->maxobjs = vm->objs * 2;
-	else
-		vm->maxobjs = GC_START;
+	ft_popall();
+	ft_clean();
+	return (rval);
 }
