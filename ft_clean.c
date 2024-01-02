@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 19:07:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:36:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ void	ft_clean(void)
 	t_vm	*vm;
 
 	vm = ft_getvm();
-	if (DEBUG_MSG)
-		ft_dprintf(DEBUGFD, "%s Cleaning...\n%s", GCCLEAN, GCRESET);
+	if (!vm->head)
+	{
+		ft_debugmsg(GCCLEAN, "Nothing allocated");
+		return ;
+	}
+	ft_debugmsg(GCCLEAN, "Cleaning...");
 	ft_markall(vm);
 	ft_sweep(vm);
 	ft_unmarkall(vm);
@@ -34,10 +38,6 @@ void	ft_clean(void)
 		vm->maxobjs = vm->objs * 2;
 	else
 		vm->maxobjs = GC_START;
-	if (DEBUG_MSG)
-	{
-		ft_dprintf(DEBUGFD, "%s Done! ", GCCLEAN);
-		ft_dprintf(DEBUGFD, "Current objs: %u, next clean at %u objs\n%s",
-			vm->objs, vm->maxobjs, GCRESET);
-	}
+	ft_debugmsg(GCCLEAN, "Done! Current objs: %u, next clean at %u objs",
+		vm->objs, vm->maxobjs);
 }

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:28:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 14:46:36 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:52:24 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_printf(const char *s, ...)
 	while (*s && ret >= 0)
 	{
 		if (*s != '%')
-			ret = ft_putchar_fd(*s, 1);
+			ret = ft_putchar_fd(*s, ft_pfgetfd());
 		else
 			ret = ft_printformat(&s, args);
 		out += ret;

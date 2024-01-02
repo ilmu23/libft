@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 17:19:05 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:33:43 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	*ft_pop(void)
 		ft_putendl_fd("GC: pop: stack underflow", 2);
 		ft_exit(E_STACKUF);
 	}
-	if (DEBUG_MSG)
-		ft_dprintf(DEBUGFD, "%s Popping block %p\n%s", GCPOP,
-			vm->stack[vm->stacksize - 1], GCRESET);
+	ft_debugmsg(GCPOP, "Popping block %p", vm->stack[vm->stacksize -1]);
 	return (vm->stack[--vm->stacksize]);
 }

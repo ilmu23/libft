@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 19:08:34 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:37:51 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 #  define INT_MAX 2147483647
 # endif
 # ifndef LONG_MIN
-#  define LONG_MIN -9223372036854775808
+#  define LONG_MIN -9223372036854775807
 # endif
 # ifndef LONG_MAX
 #  define LONG_MAX 9223372036854775807
@@ -39,12 +39,12 @@
 
 # define DEBUGFD 2
 # define GCRESET "\e[0m"
-# define GCGEN "\e[1mGC:"
-# define GCCLEAN "\e[1;36mGC:"
-# define GCALLOC "\e[1;34mGC: alloc:"
-# define GCSWEEP "\e[1;35mGC: sweep:"
-# define GCPUSH "\e[1;32mGC: push:"
-# define GCPOP "\e[1;31mGC: pop:"
+# define GCGEN "\e[1mGC: "
+# define GCCLEAN "\e[1;36mGC: clean: "
+# define GCALLOC "\e[1;34mGC: alloc: "
+# define GCSWEEP "\e[1;35mGC: sweep: "
+# define GCPUSH "\e[1;32mGC: push: "
+# define GCPOP "\e[1;31mGC: pop: "
 
 # define GC_START 256 
 # define STACK_MAX 2048
@@ -80,6 +80,10 @@ int		ft_isspace(int c);
 int		ft_isinteger(char *n);
 
 // put
+void	ft_debugmsg(char *pfx, char *f, ...);
+void	ft_debugnbr(long n);
+void	ft_debugunbr(unsigned long n);
+void	ft_debugxnbr(unsigned long n, char f);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putendl_fd(char *s, int fd);
