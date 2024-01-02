@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/31 07:45:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:08:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 512
+#  define BUFFER_SIZE 8
 # endif
 
 # ifndef DEBUG_MSG
@@ -38,6 +38,14 @@
 # endif
 
 # define DEBUGFD 2
+# define GCRESET "\e[0m"
+# define GCGEN "\e[1mGC:"
+# define GCCLEAN "\e[1;36mGC:"
+# define GCALLOC "\e[1;34mGC: alloc:"
+# define GCSWEEP "\e[1;35mGC: sweep:"
+# define GCPUSH "\e[1;32mGC: push:"
+# define GCPOP "\e[1;31mGC: pop:"
+
 # define GC_START 256 
 # define STACK_MAX 2048
 # define E_STACKOF 23

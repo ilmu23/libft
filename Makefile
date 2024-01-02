@@ -6,19 +6,19 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/01/01 15:32:38 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/01/01 17:59:42 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a
+NAME	=	libft.a
 
-BUILD	= normal
+BUILD	=	normal
 
-CC				= cc
-cflags.common	= -Wall -Wextra -Werror
-cflags.debug 	= -g -D DEBUG_MSG=1
-cflags.normal	= 
-CFLAGS			= $(cflags.common) $(cflags.$(BUILD))
+CC				=	cc
+cflags.common	=	-Wall -Wextra -Werror
+cflags.debug 	=	-g -D DEBUG_MSG=1
+cflags.normal	=	
+CFLAGS			=	$(cflags.common) $(cflags.$(BUILD))
 
 SRCS	=	ft_atoi.c \
 			ft_atol.c \
@@ -97,7 +97,7 @@ SRCS	=	ft_atoi.c \
 			ft_obj.c \
 			ft_vm.c
 
-OBJS	= $(patsubst %.c, %.o, $(SRCS))
+OBJS	=	$(patsubst %.c, %.o, $(SRCS))
 
 all: $(NAME)
 

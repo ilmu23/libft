@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 16:21:01 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:18:35 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*ft_push(void *blk)
 		ft_exit(E_STACKOF);
 	}
 	if (DEBUG_MSG && blk)
-		ft_dprintf(DEBUGFD, "GC: push: Pushing block %p\n", blk);
+		ft_dprintf(DEBUGFD, "%s Pushing block %p\n%s", GCPUSH, blk, GCRESET);
 	if (blk)
 		vm->stack[vm->stacksize++] = blk;
 	return (blk);

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 16:20:53 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:19:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	*ft_pop(void)
 		ft_exit(E_STACKUF);
 	}
 	if (DEBUG_MSG)
-		ft_dprintf(DEBUGFD, "GC: pop: Popping block %p\n",
-			vm->stack[vm->stacksize - 1]);
+		ft_dprintf(DEBUGFD, "%s Popping block %p\n%s", GCPOP,
+			vm->stack[vm->stacksize - 1], GCRESET);
 	return (vm->stack[--vm->stacksize]);
 }
