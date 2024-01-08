@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:32:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 12:08:04 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:48:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@ int	ft_isinteger(char *n)
 	size_t	i;
 	long	nbr;
 
+	if (ft_strlen(n) > 10 + (*n == '-'))
+		return (0);
 	i = 0;
+	if (*n == '+' || *n == '-')
+		i++;
+	if (!n[i])
+		return (0);
 	while (n[i])
 	{
-		if (ft_isdigit(n[i]) == 0 && (n[i] != '-' || n[i] != '+'))
+		if (!ft_isdigit(n[i]))
 			return (0);
 		i++;
 	}
