@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/01 16:08:35 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:18:15 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 /** @brief Copies n characters from src to dst and NUL terminates dst
  *
- * @param dst String to copy to
- * @param src String to copy from
+ * @param *dst String to copy to
+ * @param *src String to copy from
  * @param n Amount of characters to copy
- * @retval char * Pointer to the start of dst or NULL if dst is empty
+ * @retval char* Pointer to the start of dst or NULL if dst is empty
  */
 char	*bufshift(char *dst, char *src, size_t n)
 {
@@ -33,7 +33,9 @@ char	*bufshift(char *dst, char *src, size_t n)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[n] = '\0';
+	src = dst + n;
+	while (*src)
+		*src++ = '\0';
 	if (*dst)
 		return (dst);
 	return (NULL);
@@ -44,7 +46,7 @@ char	*bufshift(char *dst, char *src, size_t n)
  * Joins the characters from buf, until the first newline, to out
  * @param *buf String to catenate from
  * @param **out Address of string to catenate to
- * @retval char * Address of buf or NULL if the allocation failed
+ * @retval char* Address of buf or NULL if the allocation failed
  */
 char	*bufcopy(char *buf, char **out)
 {

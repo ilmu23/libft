@@ -6,14 +6,24 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:43:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/02 15:43:21 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:17:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_debugmsg.c
+ */
+
 #include "libft.h"
 
-void	ft_printarg(char f, va_list args);
+static void	ft_printarg(char f, va_list args);
 
+/** @brief Prints the prefix pfx followed by the formatted string f
+ *
+ * @param *pfx Prefix string
+ * @param *f Formatted debug message string
+ * @param ... Arguments for format replacement in f
+ */
 void	ft_debugmsg(char *pfx, char *f, ...)
 {
 	va_list	args;
@@ -34,7 +44,7 @@ void	ft_debugmsg(char *pfx, char *f, ...)
 	ft_putchar_fd('\n', DEBUGFD);
 }
 
-void	ft_printarg(char f, va_list args)
+static void	ft_printarg(char f, va_list args)
 {
 	if (f == '%')
 		ft_putchar_fd('%', DEBUGFD);
