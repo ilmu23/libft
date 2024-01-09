@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:51 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:35:40 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define GCGEN "\e[1mGC: "
 # define GCCLEAN "\e[1;36mGC: clean: "
 # define GCALLOC "\e[1;34mGC: alloc: "
+# define GCOBJ "\e[1;34mGC: obj: "
 # define GCSWEEP "\e[1;35mGC: sweep: "
 # define GCPUSH "\e[1;32mGC: push: "
 # define GCPOP "\e[1;31mGC: pop: "
@@ -160,6 +161,8 @@ char	*bufshift(char *buf, char *src, size_t n);
 char	*bufcopy(char *buf, char **out);
 
 // gc
+size_t	ft_getblksize(void *blk);
+t_obj	*ft_getobj(void *blk);
 t_obj	*ft_newobj(t_vm *vm, size_t n);
 t_vm	*ft_getvm(void);
 void	*ft_pop(void);

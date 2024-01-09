@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/01/08 11:12:23 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/01/09 18:38:05 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ SRCS	=	ft_atoi.c \
 			ft_debugunbr.c \
 			ft_debugnbr.c \
 			ft_debugmsg.c \
+			ft_getblksize.c \
 			ft_return.c \
 			ft_clean.c \
 			ft_sweep.c \
