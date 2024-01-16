@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/01/09 18:35:40 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:46:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 512
 # endif
 
 # ifndef DEBUG_MSG
