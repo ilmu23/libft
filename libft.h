@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/02/25 17:10:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:47:24 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,15 @@
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
 # endif
+
 # ifndef INT_MAX
 #  define INT_MAX 2147483647
 # endif
+
 # ifndef LONG_MIN
 #  define LONG_MIN -9223372036854775807
 # endif
+
 # ifndef LONG_MAX
 #  define LONG_MAX 9223372036854775807
 # endif
@@ -51,6 +54,14 @@
 # define STACK_MAX 2048
 # define E_STACKOF 23
 # define E_STACKUF 24
+
+typedef struct s_list
+{
+	void			*blk;
+	size_t			*size;
+	struct s_list	*next;
+	struct s_list	*prev;
+}	t_list;
 
 typedef struct s_obj
 {
@@ -86,8 +97,8 @@ void	ft_debugnbr(long n);
 void	ft_debugunbr(unsigned long n);
 void	ft_debugxnbr(unsigned long n, char f);
 int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putendl_fd(char *s, int fd);
+int		ft_putstr_fd(const char *s, int fd);
+int		ft_putendl_fd(const char *s, int fd);
 int		ft_putnbr_fd(int n, int fd, int *flags);
 int		ft_putunbr_fd(unsigned int n, int fd);
 int		ft_putxnbr_fd(unsigned long n, int fd, int upper);
@@ -107,8 +118,8 @@ size_t	ft_hexlen(unsigned long n);
 
 // str
 size_t	ft_strlen(const char *s);
-size_t	ft_strclen(const char *s, char c);
 size_t	ft_wordcount(const char *s);
+size_t	ft_strclen(const char *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -128,6 +139,7 @@ char	*ft_strupper(char *s);
 char	*ft_strlower(char *s);
 char	*ft_strrev(char *s);
 int		ft_contains(const char *s, char c);
+int		ft_strequals(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // mem
@@ -140,6 +152,19 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+// lst
+t_list	*ft_lstnew(void *blk);
+t_list	*ft_lstdup(t_list *node);
+t_list	*ft_lstpop(t_list *node);
+t_list	*ft_lstpush(t_list *node);
+t_list	*ft_lstlast(t_list *list);
+t_list	*ft_lstfirst(t_list *list);
+void	ft_lstadd_front(t_list **list, t_list *node);
+void	ft_lstadd_back(t_list **list, t_list *node);
+void	ft_lstrmnode(t_list **list, t_list *node);
+void	ft_lstpushall(t_list *list);;
+void	ft_lstpopall(t_list *list);
 
 // printf
 void	ft_pfsetfd(int fd);
@@ -162,20 +187,32 @@ char	*bufshift(char *buf, char *src, size_t n);
 char	*bufcopy(char *buf, char **out);
 
 // gc
+
+/// blk
 size_t	ft_getblksize(void *blk);
+void	*ft_register(void *blk);
+
+/// obj
 t_obj	*ft_getobj(void *blk);
 t_obj	*ft_newobj(t_vm *vm, size_t n);
-t_vm	*ft_getvm(void);
+void	ft_unmarkall(t_vm *vm);
+void	ft_markall(t_vm *vm);
+
+/// pop
 void	*ft_pop(void);
+void	ft_popall(void);
+void	ft_popblk(void *blk);
+void	ft_popn(size_t blks);
+
+/// push
 void	*ft_push(void *blk);
 void	*ft_pusharr(void *arr);
 void	ft_pushn(size_t blks, ...);
-void	ft_unmarkall(t_vm *vm);
-void	ft_markall(t_vm *vm);
+
+/// utils
+t_vm	*ft_getvm(void);
 void	ft_sweep(t_vm *vm);
 void	ft_clean(void);
-void	ft_popall(void);
-void	ft_popn(size_t blks);
 void	ft_exit(int estat);
 int		ft_return(int rval);
 

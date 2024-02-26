@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/02/25 17:08:00 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/02/26 12:54:55 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,17 @@ SRCS	=	ft_atoi.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
 			ft_memmove.c \
+			ft_lstadd_back.c \
+			ft_lstadd_front.c \
+			ft_lstdup.c \
+			ft_lstlast.c \
+			ft_lstfirst.c \
+			ft_lstnew.c \
+			ft_lstpop.c \
+			ft_lstpush.c \
+			ft_lstpopall.c \
+			ft_lstpushall.c \
+			ft_lstrmnode.c \
 			ft_putnbr_fd.c \
 			ft_putunbr_fd.c \
 			ft_putxnbr_fd.c \
@@ -61,6 +72,7 @@ SRCS	=	ft_atoi.c \
 			ft_strdup.c \
 			ft_striteri.c \
 			ft_strremove.c \
+			ft_strequals.c \
 			ft_strupper.c \
 			ft_strlower.c \
 			ft_strsjoin.c \
