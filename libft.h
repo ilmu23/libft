@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/02/26 12:47:24 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/02 20:51:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE

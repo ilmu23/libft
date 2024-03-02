@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:33:24 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 13:08:49 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/02 21:59:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,25 @@
  */
 void	*ft_memset(void *b, int c, size_t n)
 {
-	size_t	i;
+	uint64_t	c8;
+	size_t		n8;
 
-	i = 0;
-	while (i < n)
-		*(char *)(b + i++) = (unsigned char)c;
+	if (n >= sizeof(uint64_t))
+	{
+		c8 = (unsigned char)c;
+		c8 |= c8 << 63;
+		while (n-- % sizeof(uint64_t))
+			*(char *)b++ = c;
+		n8 = n / sizeof(uint64_t);
+		while (n8)
+		{
+			*((uint64_t *)b) = c8;
+			b += sizeof(uint64_t);
+			n8--;
+		}
+		n %= sizeof(uint64_t);
+	}
+	while (n--)
+		*(char *)b++ = c;
 	return (b);
 }

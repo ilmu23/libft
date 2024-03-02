@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/02/26 12:54:55 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/03/02 21:53:18 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	=	libft.a
 BUILD	=	normal
 
 CC				=	cc
-cflags.common	=	-Wall -Wextra -Werror
+cflags.common	=	-Wall -Wextra -Werror -Ofast
 cflags.debug	=	-g
 cflags.debugm 	=	$(cflags.debug) -D DEBUG_MSG=1
 cflags.asan		=	$(cflags.debug) -fsanitize=address -static-libsan
