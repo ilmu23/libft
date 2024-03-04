@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/02 20:51:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/04 10:25:00 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,7 @@ void	ft_markall(t_vm *vm);
 void	*ft_pop(void);
 void	ft_popall(void);
 void	ft_popblk(void *blk);
+void	ft_popblks(size_t blks, ...);
 void	ft_popn(size_t blks);
 
 /// push
