@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:03:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 13:00:31 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/05 01:07:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,16 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	if (!dst || !src)
 		return (dst);
+	while (n > sizeof(uint64_t))
+	{
+		*(uint64_t *)(dst + n - sizeof(uint64_t) - 1) =  \
+		*(uint64_t *)(src + n - sizeof(uint64_t) - 1);
+		n -= sizeof(uint64_t);
+	}
 	while (n > 0)
 	{
-		*(char *)(dst + n - 1) = *(char *)(src + n - 1);
+		*(uint8_t *)(dst + n - 1) = \
+		*(uint8_t *)(src + n - 1);
 		n--;
 	}
 	return (dst);

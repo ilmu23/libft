@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:19:08 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 13:05:07 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:44:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,14 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 	{
 		i = 0;
+		while (i < len - 8)
+		{
+			*(uint64_t *)(dst + i) = *(uint64_t *)(src + i);
+			i += 8;
+		}
 		while (i < len)
 		{
-			*(char *)(dst + i) = *(char *)(src + i);
+			*(uint8_t *)(dst + i) = *(uint8_t *)(src + i);
 			i++;
 		}
 	}
