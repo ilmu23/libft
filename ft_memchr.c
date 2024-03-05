@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:48:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/05 19:34:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:55:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 static inline uint8_t	align(const uint8_t **s, uint8_t c, size_t *n)
 {
-	while (*n > 0 && (size_t)**s % sizeof(uint64_t))
+	while (*n > 0 && (size_t)*s % sizeof(uint64_t))
 	{
 		if (**s == c)
 			return (1);
