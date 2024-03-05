@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:48:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/12/30 12:17:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:34:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
  */
 
 #include "libft.h"
+
+static inline uint8_t	align(const uint8_t **s, uint8_t c, size_t *n);
+static inline void	*findbyte(const uint8_t *s, uint8_t c, size_t n);
 
 /** @brief Looks for c in s -> s + n
  *
@@ -26,9 +29,46 @@
  */
 void	*ft_memchr(const void *s, int c, size_t n)
 {
+	const uint64_t	*wordptr;
+	uint64_t		word;
+	uint64_t		rep1;
+	uint64_t		repc;
+
+	if (align((const uint8_t **)&s, c, &n))
+		return ((void *)s);
+	wordptr = (const uint64_t *)s;
+	rep1 = 0x0101010101010101;
+	repc = (uint8_t)c | ((uint8_t)c << 8);
+	repc |= repc << 16;
+	repc |= repc << 32;
+	while (n >= sizeof(uint64_t))
+	{
+		word = *wordptr ^ repc;
+		if ((((word - rep1) & ~word) & (rep1 << 7)))
+			break ;
+		wordptr++;
+		n -= sizeof(uint64_t);
+	}
+	return (findbyte((const uint8_t *)wordptr, (uint8_t)c, n));
+}
+
+static inline uint8_t	align(const uint8_t **s, uint8_t c, size_t *n)
+{
+	while (*n > 0 && (size_t)**s % sizeof(uint64_t))
+	{
+		if (**s == c)
+			return (1);
+		(*s)++;
+		(*n)--;
+	}
+	return (0);
+}
+
+static inline void	*findbyte(const uint8_t *s, uint8_t c, size_t n)
+{
 	while (n > 0)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
+		if (*(const uint8_t *)s == (uint8_t)c)
 			return ((void *)s);
 		s++;
 		n--;
