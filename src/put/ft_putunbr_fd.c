@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:01:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:16:09 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:51:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ssize_t	ft_putunbr_fd(uint64_t n, int32_t fd)
 	char	*nbr;
 	int		ret;
 
-	nbr = ft_uitoa(n);
+	nbr = ft_utoa(n);
 	if (!nbr)
 		return (-1);
 	ret = ft_putstr_fd(nbr, fd);

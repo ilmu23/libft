@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 18:22:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:12:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:50:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,16 @@
  * @file ft_uitoa.c
  */
 
-#include "lft_gc.h"
 #include "lft_to.h"
-#include "lft_nbr.h"
 
 /** @brief Converts n into a string
  *
  * @param n Unsigned integer to be converted into
  * an ascii representation of its value
- * @retval char * Pointer to the allocated string
+ * @retval char* Pointer to the allocated string
  * or NULL if the allocation failed
  */
-char	*ft_uitoa(uint64_t n)
+char	*ft_utoa(uint64_t n)
 {
-	char	*out;
-	size_t	i;
-
-	i = ft_uintlen(n, DECIMAL);
-	out = ft_calloc(i-- + 1, sizeof(char));
-	if (!out)
-		return (NULL);
-	while (n > 9)
-	{
-		out[i--] = n % 10 + '0';
-		n /= 10;
-	}
-	out[i] = n + '0';
-	return (out);
+	return (ft_utoa_base(n, DECIMAL));
 }

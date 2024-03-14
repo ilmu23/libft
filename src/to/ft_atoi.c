@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 12:50:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:09:33 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 02:35:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
  * @file ft_atoi.c
  */
 
-#include "lft_is.h"
 #include "lft_to.h"
 
 /** @brief Converts s to a 64-bit integer value
@@ -24,29 +23,7 @@
  */
 int64_t	ft_atoi64(const char *s)
 {
-	int64_t	out;
-	int8_t	n;
-
-	n = 1;
-	out = 0;
-	while (ft_isspace(*s))
-		s++;
-	if (*s == '-')
-		n = -n;
-	if (*s == '-' || *s == '+')
-		s++;
-	while (ft_isdigit(*s) != 0)
-	{
-		if (out > INT64_MAX / 10
-			|| (out == INT64_MAX / 10 && *s > '7' + (n == -1)))
-		{
-			if (n < 0)
-				return (0);
-			return (-1);
-		}
-		out = out * 10 + (*s++ - '0');
-	}
-	return (out * n);
+	return (ft_atoi_base(s, DECIMAL));
 }
 
 /** @brief Converts s to a 32-bit integer value

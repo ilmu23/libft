@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:25:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:09:43 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 02:36:23 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
  * @file ft_atou.c
  */
 
-#include "lft_is.h"
 #include "lft_to.h"
 
 /** @brief Converts s to a 64-bit unsigned integer value
@@ -24,20 +23,7 @@
  */
 uint64_t	ft_atou64(const char *s)
 {
-	uint64_t	out;
-
-	out = 0;
-	while (ft_isspace(*s))
-		s++;
-	if (*s == '+')
-		s++;
-	while (ft_isdigit(*s))
-	{
-		if (out > UINT64_MAX / 10 || (out == UINT64_MAX / 10 && *s > '5'))
-			return (0);
-		out = out * 10 + (*s++ - '0');
-	}
-	return (out);
+	return (ft_atou_base(s, DECIMAL));
 }
 
 /** @brief Converts s to a 32-bit unsigned integer value

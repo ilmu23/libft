@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:52:55 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 12:49:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:09:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,11 @@
  */
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	if (!s)
+		return ;
+	while (n)
+	{
+		*(uint8_t *)s++ = 0;
+		n--;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/03/13 22:29:12 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/03/14 04:50:58 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,12 @@ NAME	=	libft.a
 
 BUILD	=	normal
 
-LFTPFX	=	"\e[34mLIBFT >\e[m "
-
 CC				=	cc
-cflags.common	=	-Wall -Wextra -Werror -Ofast
+cflags.common	=	-Wall -Wextra -Werror
+cflags.normal	=	-Ofast
 cflags.debug	=	-g
 cflags.debugm 	=	$(cflags.debug) -D DEBUG_MSG=1
 cflags.asan		=	$(cflags.debug) -fsanitize=address
-cflags.normal	=	
 CFLAGS			=	$(cflags.common) $(cflags.$(BUILD))
 
 SRCDIR	=	src
@@ -129,12 +127,16 @@ STRFILES	=	ft_split.c \
 				ft_substr.c \
 				ft_wordcount.c
 
-TOFILES		=	ft_atoi.c \
+TOFILES		=	ft_atoi_base.c \
+				ft_atoi.c \
+				ft_atou_base.c \
 				ft_atou.c \
+				ft_itoa_base.c \
 				ft_itoa.c \
 				ft_tolower.c \
 				ft_toupper.c \
-				ft_uitoa.c
+				ft_utoa_base.c \
+				ft_utoa.c
 
 FILES	=	$(addprefix $(GCDIR)/, $(GCFILES)) \
 			$(addprefix $(GNLDIR)/, $(GNLFILES)) \
