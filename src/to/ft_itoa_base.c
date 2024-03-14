@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 02:38:37 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 04:34:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:22:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "lft_nbr.h"
 #include "lft_str.h"
 
-static inline char		*basemin(t_base base);
+static inline char	*basemin(t_base base);
 static inline int8_t	getdiv(t_base base);
 
 /** @brief Converts n into a string
@@ -63,7 +63,7 @@ static inline char	*basemin(t_base base)
 {
 	if (base == BINARY)
 		return (ft_strjoin("-1",
-				ft_memset(ft_calloc(64, sizeof(char)),'0', 63)));
+				ft_memset(ft_calloc(64, sizeof(char)), '0', 63)));
 	if (base == OCTAL)
 		return (ft_strdup("-1000000000000000000000"));
 	if (base == DECIMAL)

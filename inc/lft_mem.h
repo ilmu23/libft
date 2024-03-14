@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:21:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:05:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:00:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LFT_MEM_H
 # include <stdlib.h>
 # include <stdint.h>
+# include "lft_limits.h"
 
 /*   no alloc   */
 int8_t	ft_memcmp(const void *s1, const void *s2, size_t n);

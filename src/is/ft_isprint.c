@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:02:30 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 12:43:41 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:10:41 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /** @brief Checks if c is a printable character
  *
  * @param c Character to check
- * @retval int 1 if c is printable, 0 if not
+ * @retval uint8_t 1 if c is printable, 0 if not
  */
 uint8_t	ft_isprint(uint8_t c)
 {

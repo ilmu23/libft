@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:00:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 22:41:03 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:22:21 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	j = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[i]))
 		i++;
-	while (ft_strchr(set, s1[j])&& j > i)
+	while (ft_strchr(set, s1[j]) && j > i)
 		j--;
 	return (ft_substr(s1, i, j + 1 - i));
 }

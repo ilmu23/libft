@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:56:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:03:02 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:00:30 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LFT_STR_H
 # include <stdlib.h>
 # include <stdint.h>
+# include "lft_limits.h"
 
 /*   alloc   */
 char	**ft_split(const char *s, const uint8_t c);

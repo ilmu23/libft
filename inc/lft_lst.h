@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:28:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:08:09 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 04:59:59 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LFT_LST_H
 # include <stdlib.h>
 # include "lft_data.h"
+# include "lft_limits.h"
 
 /*   alloc   */
 t_list	*ft_lstnew(void *blk);

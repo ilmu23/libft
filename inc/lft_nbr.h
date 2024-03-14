@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:51:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:08:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:00:09 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include "lft_data.h"
+# include "lft_limits.h"
 
 /*   no alloc   */
 size_t	ft_intlen(int64_t n, t_base base);

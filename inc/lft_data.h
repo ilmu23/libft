@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 22:56:59 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:19:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_vm
 	t_obj	*head;
 }	t_vm;
 
-typedef enum	e_base
+typedef enum e_base
 {
 	BINARY,
 	OCTAL,

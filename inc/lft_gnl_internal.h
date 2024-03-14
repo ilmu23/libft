@@ -6,13 +6,14 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:49:44 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:09:34 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:01:32 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_GNL_INTERNAL_H
 # define LFT_GNL_INTERNAL_H
 # include <stdlib.h>
+# include "lft_gnl.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 512

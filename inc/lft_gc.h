@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:04:03 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:00:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include "lft_data.h"
+# include "lft_limits.h"
 
 # define GCRESET "\e[0m"
 # define GCGEN "\e[1mGC: "

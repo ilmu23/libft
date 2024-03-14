@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:26:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:06:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/14 05:00:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
+# include "lft_limits.h"
 
 # ifndef DEBUG_MSG
 #  define DEBUG_MSG 0
