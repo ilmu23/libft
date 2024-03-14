@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/03/14 04:50:58 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/03/14 06:43:37 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,14 @@ ISFILES		=	ft_isalnum.c \
 				ft_isalpha.c \
 				ft_isascii.c \
 				ft_isdigit.c \
+				ft_isint_base.c \
+				ft_isint.c \
+				ft_isint_utils.c \
 				ft_islower.c \
 				ft_isprint.c \
 				ft_isspace.c \
+				ft_isuint_base.c \
+				ft_isuint.c \
 				ft_isupper.c
 
 LSTFILES	=	ft_lstadd_back.c \
