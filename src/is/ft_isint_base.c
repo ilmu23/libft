@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 05:02:40 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/15 21:04:06 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/15 21:33:14 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "lft_isint.h"
 
 static inline size_t	maxlen(size_t tsize, t_base base);
+static inline int64_t	convert(const char *n, size_t tsize, t_base base);
 
 /** @brief Checks if n is a valid integer representation
  *
@@ -32,7 +33,7 @@ uint8_t	ft_isint_base(const char *n, size_t tsize, t_base base)
 	n = trimzeros(n);
 	if (!n || ft_strlen(n) > maxlen(tsize, base) + (*n == '+' || *n == '-'))
 		return (0);
-	nbr = ft_atoi_base(n, base);
+	nbr = convert(n, tsize, base);
 	if ((nbr == -1 && !ft_strequals(n, "-1"))
 		|| (nbr == 0 && !ft_strequals(n, "0")))
 		return (0);
@@ -55,4 +56,20 @@ static inline size_t	maxlen(size_t tsize, t_base base)
 	if (base == DECIMAL)
 		return (tsize * 3 - (tsize / 2) - (tsize == 8));
 	return (tsize * 8 - 1);
+}
+
+static inline int64_t	convert(const char *n, size_t tsize, t_base base)
+{
+	int64_t	nbr;
+
+	nbr = ft_atoi_base(n, base);
+	if ((tsize == 1 && nbr > INT8_MAX)
+		|| (tsize == 2 && nbr > INT16_MAX)
+		|| (tsize == 4 && nbr > INT32_MAX))
+		return (-1);
+	if ((tsize == 1 && nbr < INT8_MIN)
+		|| (tsize == 2 && nbr < INT16_MIN)
+		|| (tsize == 4 && nbr < INT32_MIN))
+		return (0);
+	return (nbr);
 }

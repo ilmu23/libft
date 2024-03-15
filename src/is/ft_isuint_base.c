@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 05:49:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/15 20:56:34 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/15 21:32:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "lft_isint.h"
 
 static inline size_t	maxlen(size_t tsize, t_base base);
+static inline uint64_t	convert(const char *n, size_t tsize, t_base base);
 
 /** @brief Checks if n is a valid unsigned integer representation
  *
@@ -32,7 +33,7 @@ uint8_t	ft_isuint_base(const char *n, size_t tsize, t_base base)
 	n = trimzeros(n);
 	if (!n || ft_strlen(n) > maxlen(tsize, base) + (*n == '+'))
 		return (0);
-	nbr = ft_atou_base(n, base);
+	nbr = convert(n, tsize, base);
 	if (nbr == 0 && !ft_strequals(n, "0"))
 		return (0);
 	if (*n == '+')
@@ -54,4 +55,16 @@ static inline size_t	maxlen(size_t tsize, t_base base)
 	if (base == DECIMAL)
 		return (tsize * 3 - (tsize / 2));
 	return (tsize * 2);
+}
+
+static inline uint64_t	convert(const char *n, size_t tsize, t_base base)
+{
+	uint64_t	nbr;
+
+	nbr = ft_atou_base(n, base);
+	if ((tsize == 1 && nbr > INT8_MAX)
+		|| (tsize == 2 && nbr > INT16_MAX)
+		|| (tsize == 4 && nbr > INT32_MAX))
+		return (0);
+	return (nbr);
 }
