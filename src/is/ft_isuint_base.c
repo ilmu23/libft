@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 05:49:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 06:35:35 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/15 20:56:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "lft_isint.h"
 
-static inline size_t	maxlen(t_base base);
+static inline size_t	maxlen(size_t tsize, t_base base);
 
 /** @brief Checks if n is a valid unsigned integer representation
  *
@@ -24,13 +24,13 @@ static inline size_t	maxlen(t_base base);
  * @param base Base to check with
  * @retval uint8_t 1 if n is valid, 0 if not
  */
-uint8_t	ft_isuint_base(const char *n, t_base base)
+uint8_t	ft_isuint_base(const char *n, size_t tsize, t_base base)
 {
 	const char	*nbrarr = getnbrs(base);
 	uint64_t	nbr;
 
 	n = trimzeros(n);
-	if (!n || ft_strlen(n) > maxlen(base) + (*n == '+'))
+	if (!n || ft_strlen(n) > maxlen(tsize, base) + (*n == '+'))
 		return (0);
 	nbr = ft_atou_base(n, base);
 	if (nbr == 0 && !ft_strequals(n, "0"))
@@ -44,13 +44,14 @@ uint8_t	ft_isuint_base(const char *n, t_base base)
 	}
 	return (1);
 }
-static inline size_t	maxlen(t_base base)
+
+static inline size_t	maxlen(size_t tsize, t_base base)
 {
 	if (base == BINARY)
-		return (64);
+		return (tsize * 8);
 	if (base == OCTAL)
-		return (22);
+		return (tsize * 3 - (tsize / 3));
 	if (base == DECIMAL)
-		return (20);
-	return (16);
+		return (tsize * 3 - (tsize / 2));
+	return (tsize * 2);
 }
