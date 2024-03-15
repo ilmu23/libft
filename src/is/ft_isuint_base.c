@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 05:49:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/15 21:32:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/15 21:36:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ static inline uint64_t	convert(const char *n, size_t tsize, t_base base)
 	uint64_t	nbr;
 
 	nbr = ft_atou_base(n, base);
-	if ((tsize == 1 && nbr > INT8_MAX)
-		|| (tsize == 2 && nbr > INT16_MAX)
-		|| (tsize == 4 && nbr > INT32_MAX))
+	if ((tsize == 1 && nbr > UINT8_MAX)
+		|| (tsize == 2 && nbr > UINT16_MAX)
+		|| (tsize == 4 && nbr > UINT32_MAX))
 		return (0);
 	return (nbr);
 }
