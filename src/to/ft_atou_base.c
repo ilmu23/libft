@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 02:13:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 02:27:48 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 03:33:59 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static inline uint8_t	getbn(t_base base);
 uint64_t	ft_atou_base(const char *s, t_base base)
 {
 	uint64_t	out;
-	int8_t		bn;
+	uint8_t		bn;
 
 	out = 0;
 	bn = getbn(base);
@@ -44,7 +44,7 @@ uint64_t	ft_atou_base(const char *s, t_base base)
 		if (base != HEX || ft_isdigit(*s))
 			out = out * bn + (*s++ - '0');
 		else
-			out = out * bn + (*s++ - 'A' + 10);
+			out = out * bn + (ft_toupper(*s++) - 'A' + 10);
 	}
 	return (out);
 }
