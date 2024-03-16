@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 05:00:55 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 02:52:35 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	*ft_calloc(size_t count, size_t size);
 
 /*   no alloc   */
 /**   blk   **/
-ssize_t	ft_getblksize(void *blk);
+size_t	ft_getblksize(void *blk);
 
 void	*ft_register(void *blk);
 /**   blk   **/

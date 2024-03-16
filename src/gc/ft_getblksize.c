@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:38:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:41:25 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 02:52:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * @retval size_t Size of blk or 0 if blk is NULL or not registered with
  * the garbage collector
  */
-ssize_t	ft_getblksize(void *blk)
+size_t	ft_getblksize(void *blk)
 {
 	t_obj	*obj;
 
