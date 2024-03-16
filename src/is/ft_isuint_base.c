@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 05:49:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/15 21:36:05 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 05:05:30 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 #include "lft_isint.h"
 
-static inline size_t	maxlen(size_t tsize, t_base base);
 static inline uint64_t	convert(const char *n, size_t tsize, t_base base);
+static inline size_t		maxlen(size_t tsize, t_base base);
 
 /** @brief Checks if n is a valid unsigned integer representation
  *
