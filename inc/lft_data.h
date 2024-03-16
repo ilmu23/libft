@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 05:19:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 02:57:47 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_obj
 {
 	uint8_t			marked;
 	size_t			blksize;
+	size_t			asize;
 	void			*blk;
 	struct s_obj	*next;
 }	t_obj;

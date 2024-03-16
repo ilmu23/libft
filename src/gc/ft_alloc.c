@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:21:32 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 02:59:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ static t_obj	*ft_findblk(size_t n);
  */
 void	*ft_alloc(size_t n)
 {
-	t_obj			*tmp;
+	t_obj			*obj;
 
-	tmp = ft_findblk(n);
-	if (!tmp)
-		tmp = ft_newobj(ft_getvm(), n);
-	if (!tmp)
+	obj = ft_findblk(n);
+	if (!obj)
+		obj = ft_newobj(ft_getvm(), n);
+	if (!obj)
 		return (NULL);
-	return (tmp->blk);
+	obj->asize = n;
+	return (obj->blk);
 }
 
 /** @brief Finds the smallest unused block that is at least n bytes
@@ -60,6 +61,8 @@ static t_obj	*ft_findblk(size_t n)
 		{
 			if (!out || out->blksize > obj->blksize)
 				out = obj;
+			if (out->blksize == n)
+				break ;
 		}
 		obj = obj->next;
 	}

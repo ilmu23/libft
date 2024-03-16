@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:38:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/16 02:52:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/16 03:00:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ size_t	ft_getblksize(void *blk)
 	obj = ft_getobj(blk);
 	if (!obj)
 		return (0);
-	return (obj->blksize);
+	return (obj->asize);
 }
