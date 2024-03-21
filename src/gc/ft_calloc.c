@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:59:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:21:48 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:24:09 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	asize;
 
 	asize = count * size;
-	if (asize < count && asize < size)
-		return (NULL);
-	out = ft_alloc(count * size);
+	out = ft_alloc(asize);
 	if (!out)
 		return (NULL);
-	ft_bzero(out, count * size);
+	ft_bzero(out, asize);
 	return (out);
 }
