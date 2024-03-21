@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 11:58:18 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:47:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 t_obj	*ft_newobj(size_t n);
 
 void	*ft_alloc(size_t n);
-void	*ft_calloc(size_t count, size_t size);
+void	*ft_calloc(size_t n, size_t size);
 /*   alloc   */
 
 /*   no alloc   */

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:59:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 11:24:09 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:47:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
  * @retval void * Pointer to the newly allocated block
  * or NULL if the allocation failed
  */
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t n, size_t size)
 {
 	void	*out;
 	size_t	asize;
 
-	asize = count * size;
+	asize = n * size;
 	out = ft_alloc(asize);
 	if (!out)
 		return (NULL);
