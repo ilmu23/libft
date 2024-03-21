@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/16 02:59:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:08:07 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_alloc(size_t n)
 
 	obj = ft_findblk(n);
 	if (!obj)
-		obj = ft_newobj(ft_getvm(), n);
+		obj = ft_newobj(n);
 	if (!obj)
 		return (NULL);
 	obj->asize = n;

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:41:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:15:17 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,57 +20,44 @@
 /** @brief Allocates and initializes a new t_obj
  *
  * Allocates a new t_obj, adding it to the start of the object list
- * with a obj->blk of n bytes
+ * with an obj->blk of n bytes
  * @param *vm Pointer to the virtual memory manager
  * @param n Amount of bytes to allocate for obj->blk
- * @retval t_obj* Pointer to the new object or null if
+ * @retval t_obj* Pointer to the new object or NULL if
  * the allocation failed
  */
-t_obj	*ft_newobj(t_vm *vm, size_t n)
+t_obj	*ft_newobj(size_t n)
 {
-	t_obj	*obj;
+	static t_vm	*vm = NULL;
+	t_obj		*obj;
 
+	if (!vm)
+		vm = ft_getvm();
 	if (vm->objs == vm->maxobjs)
 		ft_clean();
 	obj = malloc(sizeof(t_obj));
 	if (!obj)
 		return (NULL);
 	ft_debugmsg(GCALLOC, "Allocated new obj at %p", obj);
-	obj->marked = 0;
-	obj->next = vm->head;
-	vm->head = obj;
-	obj->blk = malloc(n);
+	*obj = (t_obj){.marked = 0, .next = vm->head, .blksize = n};
+	obj->blk = malloc(n + sizeof(t_obj *)) + sizeof(t_obj *);
 	if (!obj->blk)
 		return (NULL);
+	vm->head = obj;
+	*(t_obj **)(obj->blk - sizeof(t_obj *)) = obj;
 	ft_debugmsg(GCALLOC, "Allocated new block at %p (%u bytes)", obj->blk, n);
-	obj->blksize = n;
 	vm->objs++;
 	return (obj);
 }
 
-/** @brief Finds and returns the obj containing blk
+/** @brief Returns a pointer to the obj containing blk
  *
- * @param *blk Pointer to the block of the object to find
- * @retval t_obj* Pointer to the object that contains *blk, or NULL
- * if no obj contains blk
+ * @param *blk Pointer to the block
+ * @retval t_obj* Pointer to the object that contains *blk
  */
 t_obj	*ft_getobj(void *blk)
 {
-	t_obj	*obj;
-
 	if (!blk)
 		return (NULL);
-	ft_debugmsg(GCOBJ, "Looking for an object with block %p", blk);
-	obj = ft_getvm()->head;
-	while (obj)
-	{
-		if (obj->blk == blk)
-			break ;
-		obj = obj->next;
-	}
-	if (obj)
-		ft_debugmsg(GCOBJ, "Found object at %p", obj);
-	else
-		ft_debugmsg(GCOBJ, "No object found");
-	return (obj);
+	return (*(t_obj **)(blk - sizeof(t_obj *)));
 }
