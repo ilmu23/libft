@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 03:25:03 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 04:50:40 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:41:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static inline uint8_t	getdiv(t_base base);
  */
 char	*ft_utoa_base(uint64_t n, t_base base)
 {
-	size_t		i;
-	uint8_t		div;
-	char		*out;
-	const char	nbrarr[16] = "0123456789ABCDEF";
+	size_t				i;
+	uint8_t				div;
+	char				*out;
+	static const char	nbrarr[16] = "0123456789ABCDEF";
 
 	i = ft_uintlen(n, base);
-	out = ft_calloc(i-- + 1, sizeof(char));
+	out = ft_calloc(i-- + 1, sizeof(*out));
 	if (!out)
 		return (NULL);
 	div = getdiv(base);

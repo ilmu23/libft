@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:29:29 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:45:57 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:37:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_lstadd_back(t_list **list, t_list *node)
 	last = ft_lstlast(*list);
 	if (!last)
 	{
-		node->size = ft_push(ft_calloc(1, sizeof(size_t)));
+		node->size = ft_push(ft_calloc(1, sizeof(*node->size)));
 		if (!node->size)
 			return ;
 		*list = node;

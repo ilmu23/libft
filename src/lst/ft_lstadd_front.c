@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:19:16 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:48:30 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:37:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_lstadd_front(t_list **list, t_list *node)
 	ft_lstpush(node);
 	if (!*list)
 	{
-		node->size = ft_push(ft_calloc(1, sizeof(size_t)));
+		node->size = ft_push(ft_calloc(1, sizeof(*node->size)));
 		if (!node->size)
 			return ;
 	}

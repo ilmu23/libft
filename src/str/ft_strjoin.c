@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:51:41 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:18:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:39:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	ft_pushn(2, s1, s2);
-	out = ft_calloc(len1 + len2 + 1, sizeof(char));
+	out = ft_calloc(len1 + len2 + 1, sizeof(*out));
 	ft_popn(1 + (s1 != NULL));
 	if (!out)
 		return (NULL);
