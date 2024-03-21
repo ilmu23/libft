@@ -1,0 +1,31 @@
+.TH libft-gc 7 "MARCH 2024" "libft man-pages"
+.SH NAME
+libft-gc \- overview of the garbage collector used by the libft library
+.SH MODULES
+.SS alloc
+Functions for allocating memory (see \fBft_alloc\fR(3))
+.SS blk
+Functions for getting info about memory blocks (see \fBlibft_blk\fR(3))
+.SS obj
+Functions related to objects (see \fBlibft-obj\fR(3) and \fBlibft-data\fR(7))
+.SS pop
+Functions for setting memory blocks as not in use (see \fBft_pop\fR(3))
+.SS push
+Functions for setting memory blocks as in use (see \fBft_push\fR(3))
+.SS misc
+Misc functions (see \fBlibft-gc-misc\fR(3))
+.SH GENERAL USAGE
+All functions in the libft library are built using the libft-gc garbage collector.
+This means that any memory allocated by libft functions might get reassigned by
+another libft function at any time if not set as in use. Libft functions will set their
+parameters as in use before allocating, and set them as no longer in use after allocating.
+All memory blocks returned by libft functions are NOT set in use, except for the
+\fBft_push\fR(3) functions. For more information on setting blocks as in use / not in use, see
+\fBft_push\fR(3) and \fBft_pop\fR(3)
+.SH NOTES
+Using any of the libft-gc functions with blocks not allocated by \fBft_alloc\fR(3)
+is unsupported and will most likely result in problems. For example, calling
+\fBft_getobj\fR(3) with a block allocated with \fBmalloc\fR(3)
+will most likely result in a segmentation fault
+.SH SEE ALSO
+\fBlibft\fR(7), \fBlibft-data\fR(7)

@@ -1,0 +1,26 @@
+.TH ft_alloc 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_alloc, ft_calloc \- allocate memory
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBvoid *ft_alloc(size_t \fIn\fB);\fR
+\fBvoid *ft_alloc(size_t \fIn\fB, size_t \fIsize\fB);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_alloc()
+\fBft_alloc\fR() returns a pointer to an allocated memory block of
+at least \fIn\fR bytes. \fBft_alloc\fR() will first try to find an
+already allocated block of at least \fIn\fR bytes. If multiple blocks
+are found, the smallest one is returned. If no allocated blocks
+are found, a new block of \fIn\fR bytes is allocated
+.SS ft_calloc()
+\fBft_calloc\fR() functions like \fBft_alloc\fR(\fIn\fR * \fIsize\fR).
+Unlike \fBft_alloc\fR(), the returned memory block will be 0 initialized
+.SH RETURN VALUE
+\fBft_alloc\fR() and \fBft_calloc\fR() return a pointer to the allocated
+memory block, or NULL in case of error. Allocating 0 bytes
+is considered an error
+.SH SEE ALSO
+\fBlibft-gc\fR(7)

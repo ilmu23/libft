@@ -1,0 +1,73 @@
+.TH libft-data 7 "MARCH 2024" "libft man-pages"
+.SH NAME
+libft-data \- data structures used in the libft library
+.SH STRUCTS
+.SS t_list
+t_list is a node in a linked list (see \fBlibft-lst\fR(7)) and contains
+the following members:
+.P
+.in +4n
+.EX
+void    *blk;   Data block stored in the node
+size_t  *size;  Current size of the list the node is part of
+t_list  *next;  Next node in the list
+t_list  *prev;  Previous node in the list
+.EE
+.in
+.P
+A NULL value in \fIprev\fR or \fInext\fR signifies
+the start or end of the list respectively
+.SS t_obj
+t_obj is an object used by the garbage collector (see \fBlibft-gc\fR(7))
+to track and store information about memory allocations.
+It contains the following members:
+.P
+.in +4n
+.EX
+uint8_t marked;  Flag for marking the object as in use
+size_t  blksize; Total size of the memory block pointed to by blk
+size_t  asize;   Amount of used bytes in blk
+void    *blk;    Start of the memory block
+t_obj   *next;   Previously allocated object
+.EE
+.in
+.P
+\fIblk\fR is prefixed with an address to the obj it's part of.
+The space required for this is not included in \fIblksize\fR or \fIasize\fR.
+If you need access to the object, use \fBft_getobj\fR(3) instead of accessing
+the data directly in order to avoid any potential issues
+.SS t_vm
+t_vm is a structure that keeps track of all allocations
+known to the garbage collector (see \fBlibft-gc\fR(7)).
+It contains the following members:
+.P
+.in +4n
+.EX
+void    **stack;   Pointer array of all blocks set as in use
+size_t  stacksize; Amount of blocks set as in use
+size_t  maxobjs;   Threshold to trigger the next clean cycle
+size_t  objs;      Amount of objects currently allocated
+t_obj   *head;     Pointer to the most recent allocation
+.EE
+.in
+.P
+\fIstack\fR can hold at most \fISTACK_MAX\fR blocks
+.P
+The value of \fISTACK_MAX\fR can be altered during compilation (default 2048)
+.P
+The initial value of maxobjs can be altered by defining \fIGC_START\fR to
+the desired value during compilation (default 256)
+.SH ENUMS
+.SS t_base
+t_base is used for specifying numeric base. It contains the following members:
+.P
+.in +4n
+.EX
+BINARY
+OCTAL
+DECIMAL
+HEX
+.EE
+.in
+.SH SEE ALSO
+\fBlibft\fR(7), \fBlibft-gc\fR(7), \fBlibft-lst\fR(7)
