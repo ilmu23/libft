@@ -1,0 +1,56 @@
+.TH libft-lst 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_lstnew, ft_lstdup, ft_lstpop, ft_lstpush, ft_lstlast, ft_lstfirst,
+ft_lstadd_front, ft_lstadd_back, ft_lstrmnode, ft_lstpopall, ft_lstpushall
+\- list functions
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBt_list *ft_lstnew(void \fI*blk\fB);\fR
+\fBt_list *ft_lstdup(t_list \fI*node\fB);\fR
+\fBt_list *ft_lstpop(t_list \fI*node\fB);\fR
+\fBt_list *ft_lstpush(t_list \fI*node\fB);\fR
+\fBt_list *ft_lstlast(t_list \fI*list\fB);\fR
+\fBt_list *ft_lstfirst(t_list \fI*list\fB);\fR
+\fBvoid   ft_lstadd_front(t_list \fI**list\fB, t_list \fI*node\fB);\fR
+\fBvoid   ft_lstadd_back(t_list \fI**list\fB, t_list \fI*node\fB);\fR
+\fBvoid   ft_lstrmnode(t_list \fI**list\fB, t_list \fI*node\fB);\fR
+\fBvoid   ft_lstpopall(t_list \fI*list\fB);\fR
+\fBvoid   ft_lstpushall(t_list \fI*list\fB);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_lstnew()
+Allocates a new node and stores \fIblk\fR in it
+.SS ft_lstdup()
+Allocates a duplicate of \fInode\fR
+.SS ft_lstpop()
+Sets \fInode\fR and its content as not in use
+.SS ft_lstpush()
+Sets \fInode\fR and its content as in use
+.SS ft_lstlast()
+Fetches the last node in \fIlist\fR
+.SS ft_lstfirst()
+Fetches the first node in \fIlist\fR
+.SS ft_lstadd_front()
+Sets \fInode\fR and its content as in use and adds it to the start of \fIlist\fR
+.SS ft_lstadd_back()
+Sets \fInode\fR and its content as in use and adds it to the end of \fIlist\fR
+.SS ft_lstrmnode()
+Sets \fInode\fR and its content as not in use and removes it from \fIlist\fR
+.SS ft_lstpopall()
+Calls \fBft_lstpop\fR() on all nodes in \fIlist\fR
+.SS ft_lstpushall()
+Calls \fBft_lstpush\fR() on all nodes in \fIlist\fR
+.SH RETURN VALUE
+\fBft_lstnew\fR() and \fBft_lstdup\fR() return a pointer to a newly
+allocated node or NULL if the allocation fails
+.P
+\fBft_lstpop\fR() and \fBft_lstpush\fR() return a pointer to the node
+that was popped / pushed
+.P
+\fBft_lstlast\fR() returns a pointer to the last node in \fIlist\fR
+.P
+\fBft_lstfirst\fR() returns a pointer to the first node in \fIlist\fR
+.SH SEE ALSO
+\fBlibft-gc\fR(7), \fBlibft-data\fR(7)
