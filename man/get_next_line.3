@@ -1,0 +1,19 @@
+.TH get_next_line 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+get_next_line \- read a line from a file
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBchar *get_next_line(int32_t \fIfd\fB);\fR
+.nf
+.SH DESCRIPTION
+\fBget_next_line\fR() reads a line from \fIfd\fR \fIBUFFER_SIZE\fR bytes
+at a time. The size of the buffer can be changed during compilation by
+defining the value of BUFFER_SIZE (default 512)
+.SH RETURN VALUE
+\fBget_next_line\fR() returns a pointer to an allocated string containing
+the next line from \fIfd\fR. NULL will be returned in case of allocation
+failure or if the end of the file was reached
+.SH SEE ALSO
+\fBlibft-gc\fR(7)

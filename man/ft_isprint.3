@@ -1,0 +1,60 @@
+.TH libft-is 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_isalnum, ft_isalpha, ft_isascii, ft_isdigit, ft_islower, ft_isprint,
+ft_issapce, ft_isupper, ft_isint, ft_isint_base, ft_isuint, ft_isuint_base
+\- check properties
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBuint8_t ft_isalnum(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isalpha(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isascii(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isdigit(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_islower(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isprint(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isspace(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isupper(uint8_t \fIc\fB);\fR
+\fBuint8_t ft_isint(const char \fI*n\fB, size_t \fItsize\fB);\fR
+\fBuint8_t ft_isint_base(const char \fI*n\fB, size_t \fItsize\fB, t_base \fIbase\fB);\fR
+\fBuint8_t ft_isuint(const char \fI*n\fB, size_t \fItsize\fB);\fR
+\fBuint8_t ft_isuint_base(const char \fI*n\fB, size_t \fItsize\fB, t_base \fIbase\fB);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_isalnum()
+\fBft_isalnum(\fIc\fB)\fR is equivalent to \fBft_isalpha(\fIc\fB) || ft_isdigit(\fIc\fB)
+.SS ft_isalpha()
+\fBft_isalpha(\fIc\fB)\fR is equivalent to \fBft_islower(\fIc\fB) || ft_isupper(\fIc\fB)
+.SS ft_isascii()
+Checks if \fIc\fR is inside the ascii character range
+.SS ft_isdigit()
+Checks if \fIc\fR is a digit
+.SS ft_islower()
+Checks if \fIc\fR is a lowercase character
+.SS ft_isprint()
+Checks if \fIc\fR is a printable character
+.SS ft_isspace()
+Checks if \fIc\fR is a whitespace character
+.SS ft_isupper()
+Checks if \fIc\fR is an uppercase character
+.SS ft_isint()
+Checks if \fIn\fR contains only digits or a single '+'/'-' at the start.
+Checks if \fIn\fR is within the range of possible values for an integer
+of \fItsize\fR bytes
+.SS ft_isint_base()
+Performs the same checks as \fBft_isint\fR(), but treats \fIn\fR as
+being in \fIbase\fR
+.SS ft_isuint()
+Checks if \fIn\fR contains only digits or a single '+' at the start.
+Checks if \fIn\fR is within the range of possible values for an unsigned
+integer of \fItsize\fR bytes
+.SS ft_isuint_base()
+Performs the same checks as \fBft_isuint\fR(), but treats \fIn\fR as
+being in \fIbase\fR
+.SH RETURN VALUE
+All functions return 1 if the tested value passes the checks
+or 0 if it doesn't
+.SH NOTES
+Supported values for \fItsize\fR are 1, 2, 4 and 8
+.SH SEE ALSO
+\fBlibft-data\fR(7)
