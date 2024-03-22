@@ -1,0 +1,29 @@
+.TH ft_push 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_push, ft_pusharr, ft_pushn \- push blocks to the stack
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBvoid *ft_push(void \fI*blk\fB);\fR
+\fBvoid *ft_pusharr(void \fI*addr\fB);\fR
+\fBvoid ft_pushn(size_t \fIblks\fB, ...);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_push()
+\fBft_push\fR() pushes the block \fIblk\fR to the stack
+.SS ft_pusharr()
+\fBft_pusharr\fR() pushes the NULL terminated pointer array at \fIaddr\fR
+and all of its elements to the stack
+.SS ft_pushn()
+\fBft_pushn\fR() takes \fIblks\fR blocks as variable arguments and
+pushes them to the stack
+.SH RETURN VALUE
+\fBft_push\fR() returns a pointer to the pushed block
+.P
+\fBft_pusharr\fR() returns a pointer to the pushed array
+.SH NOTES
+Exceeding \fISTACK_MAX\fR blocks on the stack will cause a stack overflow
+(see \fBlibft-data\fR(7))
+.SH SEE ALSO
+\fBft_pop\fR(3), \fBlibft-gc\fR(7), \fBlibft-data\fR(7)

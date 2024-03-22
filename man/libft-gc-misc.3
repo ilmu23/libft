@@ -1,0 +1,17 @@
+.TH libft-gc-misc 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_getvm, ft_sweep, ft_clean, ft_exit, ft_return \- misc gc functions
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBt_vm    *ft_getvm(void);\fR
+\fBvoid    ft_sweep(t_vm \fI*vm\fB);\fR
+\fBvoid    ft_clean(void);\fR
+\fBvoid    ft_exit(int32_t \fIestat\fB);\fR
+\fBint32_t ft_return(int32_t \fIrval\fB);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_getvm()
+\fBft_getvm\fR() returns a pointer to the vm structure (see \fBlibft-data\fR(7))
+

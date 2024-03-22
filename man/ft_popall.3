@@ -1,0 +1,33 @@
+.TH ft_pop 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_pop, ft_popblk, ft_popblks, ft_popn, ft_popall \- pop blocks from the stack
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBvoid *ft_pop(void);\fR
+\fBvoid ft_popblk(void \fI*blk\fB);\fR
+\fBvoid ft_popblks(size_t \fIblks\fB, ...);\fR
+\fBvoid ft_popn(size_t \fIblks\fB);\fR
+\fBvoid ft_popall(void);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_pop()
+\fBft_pop\fR() pops a block off the stack
+.SS ft_popblk()
+\fBft_popblk\fR() pops the block \fIblk\fR off the stack. If \fIblk\fR
+is not found on the stack nothing is popped
+.SS ft_popblks()
+\fBft_popblks\fR() takes \fIblks\fR blocks as variable arguments and
+pops them off the stack like \fBft_popblk\fR()
+.SS ft_popn()
+\fBft_popn\fR() pops \fIblks\fR blocks off the stack
+.SS ft_popall()
+\fBft_popall\fR() clears the stack
+.SH RETURN VALUE
+\fBft_pop\fR() returns a pointer to the popped block
+.SH NOTES
+Trying to pop more blocks than there are on the stack will result
+in a stack underflow
+.SH SEE ALSO
+\fBft_push\fR(3), \fBlibft-gc\fR(7), \fBlibft-data\fR(7)

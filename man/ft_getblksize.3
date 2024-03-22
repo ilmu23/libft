@@ -1,0 +1,19 @@
+.TH libft-blk 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_getblksize \- block functions
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBsize_t ft_getblksize(void \fI*blk\fB);\fR
+.nf
+.SH DESCRIPTION
+\fBft_getblksize\fR() gets the allocation size of the block referenced by \fIblk\fR
+.SH RETURN VALUE
+\fBft_getblksize\fR() returns the allocation size of \fIblk\fR or 0 if \fIblk\fR is NULL
+.SH NOTES
+Passing an arbitrary address to \fBft_getblksize\fR() (anything that wasn't
+returned by \fBft_alloc\fR(3) or \fBft_calloc\fR(3)) is unsupported and will
+likely lead to a segmentation fault.
+.SH SEE ALSO
+\fBlibft-gc\fR(7)

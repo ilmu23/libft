@@ -1,0 +1,36 @@
+.TH libft-obj 3 "MARCH 2024" "libft man-pages"
+.SH NAME
+ft_newobj, ft_getobj, ft_markall, ft_unmarkall \- object functions
+.SH LIBRARY
+libft (\fI-lft\fR)
+.SH SYNOPSIS
+.nf
+\fBt_obj *ft_newobj(size_t \fIn\fB);\fR
+\fBt_obj *ft_getobj(void \fI*blk\fB);\fR
+\fBvoid  ft_markall(t_vm \fI*vm\fB);\fR
+\fBvoid  ft_unmarkall(t_vm \fI*vm\fB);\fR
+.nf
+.SH DESCRIPTION
+.SS ft_newobj()
+\fBft_newobj\fR() is used by \fBft_alloc\fR(3) to allocate new objects
+.SS ft_getobj()
+\fBft_getobj\fR() fetches the object that contains \fIblk\fR
+.SS ft_markall()
+\fBft_markall\fR() checks all allocated objects and marks them if in use
+(see \fBlibft-data\fR(7))
+.SS ft_unmarkall()
+\fBft_unmarkall\fR() resets the marked value of all objects
+(see \fBlibft-data\fR(7))
+.SH RETURN VALUE
+\fBft_newobj\fR() returns a pointer to the newly allocated object
+or NULL if the allocation failed
+.P
+\fBft_getobj\fR() returns a pointer to the object that contains \fIblk\fR
+.SH NOTES
+These functions are mostly for internal use and should be avoided
+.P
+Passing an arbitrary address to \fBft_getobj\fR() (anything that wasn't
+returned by \fBft_alloc\fR(3) or \fBft_calloc\fR(3)) is unsupported and will
+likely lead to a segmentation fault
+.SH SEE ALSO
+\fBlibft-gc\fR(7)
