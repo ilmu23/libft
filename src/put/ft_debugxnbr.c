@@ -6,14 +6,14 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:20:49 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:14:33 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:17:52 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_to.h"
 #include "lft_put.h"
 
-void	ft_debugxnbr(unsigned long n, char f)
+void	ft_debugxnbr(uint64_t n, char f)
 {
 	const char	*hexarr = "0123456789abcdef";
 

@@ -6,14 +6,14 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:01:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:13:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:17:28 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_put.h"
 #include "lft_limits.h"
 
-void	ft_debugnbr(long n)
+void	ft_debugnbr(int64_t n)
 {
 	if (n == LONG_MIN)
 	{
