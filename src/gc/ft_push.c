@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:42:12 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:32:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,11 @@
  */
 void	*ft_push(void *blk)
 {
-	t_vm	*vm;
-
-	vm = ft_getvm();
-	if (vm->stacksize >= STACK_MAX)
+	if (blk)
 	{
-		ft_putendl_fd("GC: push: stack overflow", 2);
-		ft_exit(E_STACKOF);
-	}
-	if (blk)
+		ft_stackadd(blk);
 		ft_debugmsg(GCPUSH, "Pushing block %p", blk);
-	if (blk)
-		vm->stack[vm->stacksize++] = blk;
+	}
 	return (blk);
 }
 

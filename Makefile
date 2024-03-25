@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/03/14 06:43:37 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/03/24 19:44:20 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ GCFILES		=	ft_alloc.c \
 				ft_pop.c \
 				ft_push.c \
 				ft_return.c \
+				ft_stack.c \
 				ft_sweep.c \
 				ft_vm.c
 

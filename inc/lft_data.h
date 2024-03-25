@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/16 02:57:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:30:24 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define LFT_DATA_H
 # include <stdlib.h>
 # include <stdint.h>
-
-# ifndef STACK_MAX
-#  define STACK_MAX 2048
-# endif
 
 typedef struct s_list
 {
@@ -36,10 +32,16 @@ typedef struct s_obj
 	struct s_obj	*next;
 }	t_obj;
 
+typedef struct s_stack
+{
+	void			*blk;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
+
 typedef struct s_vm
 {
-	void	*stack[STACK_MAX];
-	size_t	stacksize;
+	t_stack	*stack;
 	size_t	maxobjs;
 	size_t	objs;
 	t_obj	*head;

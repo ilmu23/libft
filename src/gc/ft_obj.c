@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 07:32:46 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:25:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ t_obj	*ft_newobj(size_t n)
 		return (NULL);
 	ft_debugmsg(GCALLOC, "Allocated new obj at %p", obj);
 	*obj = (t_obj){.marked = 0, .next = vm->head, .blksize = n};
-	obj->blk = malloc(n + sizeof(*obj)) + sizeof(*obj);
+	obj->blk = malloc(n + sizeof(*obj));
 	if (!obj->blk)
 		return (NULL);
 	vm->head = obj;
-	*(t_obj **)(obj->blk - sizeof(*obj)) = obj;
+	*(t_obj **)obj->blk = obj;
 	ft_debugmsg(GCALLOC, "Allocated new block at %p (%u bytes)", obj->blk, n);
 	vm->objs++;
 	return (obj);

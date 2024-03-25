@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:08:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:41:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:26:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ void	ft_markall(t_vm *vm)
  */
 static void	ft_mark(t_vm *vm, t_obj *obj)
 {
-	size_t	i;
+	t_stack	*stack;
 
-	i = 0;
-	while (obj->marked == 0 && i < vm->stacksize)
+	stack = vm->stack;
+	while (!obj->marked && stack)
 	{
-		if (obj->blk == vm->stack[i++])
+		if (obj->blk + sizeof(t_obj *) == stack->blk)
 			obj->marked = 1;
+		stack = stack->next;
 	}
 }

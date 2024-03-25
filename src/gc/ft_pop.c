@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:42:01 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:56:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,27 @@
  */
 void	*ft_pop(void)
 {
-	t_vm	*vm;
+	static t_vm	*vm = NULL;
+	t_stack		*stack;
+	void		*blk;
 
-	vm = ft_getvm();
-	if (vm->stacksize == 0)
-	{
-		ft_putendl_fd("GC: pop: stack underflow", 2);
-		ft_exit(E_STACKUF);
-	}
-	ft_debugmsg(GCPOP, "Popping block %p", vm->stack[vm->stacksize -1]);
-	return (vm->stack[--vm->stacksize]);
+	if (!vm)
+		vm = ft_getvm();
+	stack = vm->stack;
+	if (!stack)
+		return (NULL);
+	blk = stack->blk;
+	ft_stackrm(stack);
+	ft_debugmsg(GCPOP, "Popping block %p", blk);
+	return (blk);
 }
 
 /** @brief Pops all blocks from the vm stack
  */
 void	ft_popall(void)
 {
-	ft_popn(ft_getvm()->stacksize);
+	while (ft_pop())
+		;
 }
 
 /** @brief Pops the block blk from the stack, if present
@@ -48,29 +52,20 @@ void	ft_popall(void)
  */
 void	ft_popblk(void *blk)
 {
-	t_vm	*vm;
-	size_t	i;
+	static t_vm	*vm = NULL;
+	t_stack		*stack;
 
-	if (!blk)
+	if (!vm)
+		vm = ft_getvm();
+	stack = vm->stack;
+	if (!stack || !blk)
 		return ;
-	i = 0;
-	vm = ft_getvm();
-	if (vm->stacksize == 0)
-	{
-		ft_putendl_fd("GC: pop: stack underflow", 2);
-		ft_exit(E_STACKUF);
-	}
-	while (i < vm->stacksize && vm->stack[i] != blk)
-		i++;
-	if (i == vm->stacksize)
+	while (stack && stack->blk != blk)
+		stack = stack->next;
+	if (!stack)
 		return ;
-	ft_debugmsg(GCPOP, "Popping block %p from stack index %u", blk, i);
-	while (i < vm->stacksize - 1)
-	{
-		vm->stack[i] = vm->stack[i + 1];
-		i++;
-	}
-	vm->stacksize--;
+	ft_stackrm(stack);
+	ft_debugmsg(GCPOP, "Popping block %p", blk);
 }
 
 /** @brief Pops all the blocks given from the stack
@@ -99,7 +94,8 @@ void	ft_popn(size_t blks)
 {
 	while (blks)
 	{
-		ft_pop();
+		if (!ft_pop())
+			break ;
 		blks--;
 	}
 }

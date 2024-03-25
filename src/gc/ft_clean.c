@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:40:53 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:04:54 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
  */
 void	ft_clean(void)
 {
-	t_vm	*vm;
+	static t_vm	*vm = NULL;
 
-	vm = ft_getvm();
+	if (!vm)
+		vm = ft_getvm();
 	if (!vm->head)
 	{
 		ft_debugmsg(GCCLEAN, "Nothing allocated");

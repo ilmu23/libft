@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:47:38 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 11:23:23 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:25:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*ft_alloc(size_t n)
 	if (!obj)
 		return (NULL);
 	obj->asize = n;
-	return (obj->blk);
+	return (obj->blk + sizeof(t_obj *));
 }
 
 /** @brief Finds the smallest unused block that is at least n bytes
