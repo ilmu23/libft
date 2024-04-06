@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/24 19:30:24 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:59:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_obj
 
 typedef struct s_stack
 {
-	void			*blk;
+	const void		*blk;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;

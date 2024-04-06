@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_arrdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 17:56:01 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/06 13:00:54 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/04/06 12:48:55 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/04/06 13:04:15 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file ft_strdup.c
+ * @file ft_arrdup.c
  */
 
 #include "lft_gc.h"
-#include "lft_str.h"
+#include "lft_mem.h"
 
-/** @brief Allocates and returns a copy of s
+/** @brief Allocates a duplicate of arr
  *
- * @param *s String to create a copy of
- * @retval char * Pointer to the copy or NULL if the allocation failed
+ * @param arr Pointer to the start of the arr
+ * @param size Size of the arr
+ * @retval void* Pointer to the duplcated array or
+ * NULL if allocation failed or size is 0
  */
-char	*ft_strdup(const char *s)
+void	*ft_arrdup(const void *arr, const size_t size)
 {
-	char	*out;
-	size_t	asize;
+	void	*out;
 
-	asize = ft_strlen(s) + 1;
-	ft_push(s);
-	out = ft_calloc(asize, sizeof(*out));
-	ft_popblk(s);
-	if (!out)
-		return (NULL);
-	ft_strlcpy(out, s, asize);
+	if (!size)
+		return (0);
+	ft_push(arr);
+	out = ft_memcpy(ft_alloc(size), arr, size);
+	ft_popblk(arr);
 	return (out);
 }

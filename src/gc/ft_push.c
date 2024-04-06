@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/24 19:32:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:57:43 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
  * @param blk Pointer to the block to be pushed to the vm stack
  * @retval void * Pointer to the block that was pushed to the vm stack
  */
-void	*ft_push(void *blk)
+void	*ft_push(const void *blk)
 {
 	if (blk)
 	{
 		ft_stackadd(blk);
 		ft_debugmsg(GCPUSH, "Pushing block %p", blk);
 	}
-	return (blk);
+	return ((void *)blk);
 }
 
 /** @brief Pushes all blocks in an array to the vm stack
@@ -41,15 +41,15 @@ void	*ft_push(void *blk)
  * @param addr Pointer to the pointer array to be pushed to the vm stack
  * @retval void * Pointer to the pointer array that was pushed to the vm stack
  */
-void	*ft_pusharr(void *addr)
+void	*ft_pusharr(const void *addr)
 {
 	void	**arr;
 
 	ft_push(addr);
-	arr = addr;
+	arr = (void *)addr;
 	while (arr && *arr)
 		ft_push(*arr++);
-	return (addr);
+	return ((void *)addr);
 }
 
 /** @brief Pushes blks blocks to the vm stack
