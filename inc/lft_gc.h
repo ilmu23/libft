@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/06 13:04:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/10 22:38:51 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	*ft_arrdup(const void *arr, const size_t size);
 
 /*   no alloc   */
 /**   blk   **/
-size_t	ft_getblksize(void *blk);
+size_t	ft_getblksize(const void *blk);
 /**   blk   **/
 
 /**   obj   **/
-t_obj	*ft_getobj(void *blk);
+t_obj	*ft_getobj(const void *blk);
 
-void	ft_markall(t_vm *vm);
-void	ft_unmarkall(t_vm *vm);
+void	ft_unmark(const void *blk);
+void	ft_mark(const void *blk);
 /**   obj   **/
 
 /**   pop   **/
@@ -62,7 +62,7 @@ void	ft_popall(void);
 
 /**   push   **/
 void	*ft_push(const void *blk);
-void	*ft_pusharr(const void *addr);
+void	*ft_pusharr(const void *blk);
 
 void	ft_pushn(size_t blks, ...);
 /**   push   **/
