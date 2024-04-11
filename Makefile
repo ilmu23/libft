@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/11 21:09:55 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/11 22:22:18 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ STRDIR	=	str
 TODIR	=	to
 
 GCFILES		=	ft_alloc.c \
+				ft_arrdup.c \
 				ft_calloc.c \
 				ft_clean.c \
 				ft_exit.c \
@@ -47,6 +48,7 @@ GCFILES		=	ft_alloc.c \
 				ft_obj.c \
 				ft_pop.c \
 				ft_push.c \
+				ft_pushtrap.c \
 				ft_return.c \
 				ft_stack.c \
 				ft_sweep.c \
