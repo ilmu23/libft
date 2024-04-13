@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 22:22:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/11 23:15:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/13 12:26:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,21 @@
 
 static inline void	ptrap_pop(t_vm *vm);
 static inline void	ptrap_clean(void);
+
+/** @brief Returns the current status of pushtrap
+ *
+ * @retval uint8_t Current status
+ */
+uint8_t	ft_pushtrap_status(void)
+{
+	static t_vm	*vm = NULL;
+
+	if (!vm)
+		vm = ft_getvm();
+	if (vm->ptrap == 1)
+		return (PTRAP_ENABLE);
+	return (PTRAP_DISABLE);
+}
 
 /** @brief Manages pushtrap settings
  *

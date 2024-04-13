@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/11 23:17:41 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/13 12:23:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	ft_pushn(size_t blks, ...);
 /**   push   **/
 
 /**   pushtrap   **/
+uint8_t	ft_pushtrap_status(void);
+
 void	ft_pushtrap(uint8_t op);
 /**   pushtrap   **/
 
