@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/13 12:07:56 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 02:05:57 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -183,43 +183,7 @@ $(OBJDIR):
 	@mkdir -p $(OBJDIR)/$(STRDIR)
 	@mkdir -p $(OBJDIR)/$(TODIR)
 
-$(OBJDIR)/$(GCDIR)/%.o: $(SRCDIR)/$(GCDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(GNLDIR)/%.o: $(SRCDIR)/$(GNLDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(ISDIR)/%.o: $(SRCDIR)/$(ISDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(LSTDIR)/%.o: $(SRCDIR)/$(LSTDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(MEMDIR)/%.o: $(SRCDIR)/$(MEMDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(NBRDIR)/%.o: $(SRCDIR)/$(NBRDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(PFDIR)/%.o: $(SRCDIR)/$(PFDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(PUTDIR)/%.o: $(SRCDIR)/$(PUTDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(STRDIR)/%.o: $(SRCDIR)/$(STRDIR)/%.c
-	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
-	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
-
-$(OBJDIR)/$(TODIR)/%.o: $(SRCDIR)/$(TODIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@printf "\e[34;1mLIBFT >\e[m Compiling %s\n" $@
 	@$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
@@ -231,3 +195,5 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
