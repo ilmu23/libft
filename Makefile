@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 06:48:35 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 07:51:56 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ INCDIR	=	inc
 
 GCDIR	=	gc
 GNLDIR	=	gnl
+HMAPDIR	=	hmap
 ISDIR	=	is
 LSTDIR	=	lst
 MATHDIR	=	math
@@ -57,6 +58,14 @@ GCFILES		=	ft_alloc.c \
 
 GNLFILES	=	gnl.c \
 				gnl_utils.c
+
+HMAPFILES	=	ft_mapadd.c \
+				ft_mapget.c \
+				ft_mapnew.c \
+				ft_mappop.c \
+				ft_maprm.c \
+				ft_map_utils.c \
+				ft_map_utils2.c
 
 ISFILES		=	ft_isalnum.c \
 				ft_isalpha.c \
@@ -133,6 +142,7 @@ STRFILES	=	ft_split.c \
 				ft_strclen.c \
 				ft_strdup.c \
 				ft_strequals.c \
+				ft_strhash.c \
 				ft_strjoin.c \
 				ft_strnjoin.c \
 				ft_strlcat.c \
@@ -164,6 +174,7 @@ TOFILES		=	ft_atoi_base.c \
 
 FILES	=	$(addprefix $(GCDIR)/, $(GCFILES)) \
 			$(addprefix $(GNLDIR)/, $(GNLFILES)) \
+			$(addprefix $(HMAPDIR)/, $(HMAPFILES)) \
 			$(addprefix $(ISDIR)/, $(ISFILES)) \
 			$(addprefix $(LSTDIR)/, $(LSTFILES)) \
 			$(addprefix $(MATHDIR)/, $(MATHFILES)) \
@@ -188,6 +199,7 @@ $(OBJDIR):
 	@printf "\e[34;1mLIBFT >\e[m Creating objdirs\n" $@
 	@mkdir -p $(OBJDIR)/$(GCDIR)
 	@mkdir -p $(OBJDIR)/$(GNLDIR)
+	@mkdir -p $(OBJDIR)/$(HMAPDIR)
 	@mkdir -p $(OBJDIR)/$(ISDIR)
 	@mkdir -p $(OBJDIR)/$(LSTDIR)
 	@mkdir -p $(OBJDIR)/$(MATHDIR)
