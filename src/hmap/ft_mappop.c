@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapnew.c                                        :+:      :+:    :+:   */
+/*   ft_mappop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 02:18:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 07:31:45 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/04/21 02:22:56 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/04/21 07:51:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_gc.h"
 #include "lft_hmap_internal.h"
 
-t_hmap	*ft_mapnew_size(size_t size)
+void	ft_mappop(t_hmap_pair *pair)
 {
-	t_hmap	*hmap;
-
-	hmap = ft_push(ft_calloc(1, sizeof(*hmap)));
-	if (!hmap)
-		return (NULL);
-	hmap->bsize = size;
-	hmap->size = getnextprime(size);
-	hmap->items = (ft_calloc(hmap->size, sizeof(t_hmap_pair *)));
-	ft_popblks(2, hmap, hmap->items);
-	if (!hmap->items)
-		return (NULL);
-	ft_pushn(2, hmap, hmap->items);
-	hmap->count = 0;
-	return (hmap);
+	if (!pair)
+		return ;
+	ft_popblks(3, pair, pair->key, pair->value);
 }
 
-t_hmap	*ft_mapnew(void)
+void	ft_mappop_all(t_hmap *hmap)
 {
-	return (ft_mapnew_size(HMAP_DEF_SIZE));
+	size_t	i;
+
+	if (!hmap)
+		return ;
+	i = 0;
+	while (i < hmap->size)
+		ft_mappop(hmap->items[i++]);
+	ft_popblks(2, hmap, hmap->items);
 }

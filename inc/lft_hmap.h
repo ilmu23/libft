@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 02:07:12 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:16:31 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/21 07:42:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 /*   alloc   */
 uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val);
 
-t_hmap	*ft_mapnew(size_t size);
+t_hmap	*ft_mapnew(void);
 /*   alloc   */
 
 /*   no alloc   */
+uint8_t	ft_maprm(t_hmap *hmap, const char *key);
+
 void	*ft_mapget(t_hmap *hmap, const char *key);
 
-void	ft_maprm(t_hmap *hmap, const char *key);
 void	ft_mappop(t_hmap_pair *pair);
 void	ft_mappop_all(t_hmap *hmap);
 /*   no alloc   */

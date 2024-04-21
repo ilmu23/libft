@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapdel.c                                        :+:      :+:    :+:   */
+/*   ft_map_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 02:22:56 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:07:14 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/04/21 07:27:08 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/04/21 08:08:07 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_gc.h"
 #include "lft_hmap_internal.h"
 
-void	ft_mappop(t_hmap_pair *pair)
+uint8_t	shrinkmap(t_hmap *hmap)
 {
-	if (!pair)
-		return ;
-	ft_popblks(3, pair, pair->key, pair->value);
+	return (resizemap(hmap, hmap->bsize / 2));
 }
 
-void	ft_mappop_all(t_hmap *hmap)
+uint8_t	growmap(t_hmap *hmap)
 {
-	size_t	i;
-
-	if (!hmap)
-		return ;
-	i = 0;
-	while (i < hmap->size)
-		ft_mappop(hmap->items[i++]);
-	ft_popblks(2, hmap, hmap->items);
+	return (resizemap(hmap, hmap->bsize * 2));
 }

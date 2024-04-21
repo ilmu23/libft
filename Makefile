@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 06:59:52 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 07:51:56 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,12 @@ GNLFILES	=	gnl.c \
 				gnl_utils.c
 
 HMAPFILES	=	ft_mapadd.c \
-				ft_mapdel.c \
 				ft_mapget.c \
 				ft_mapnew.c \
+				ft_mappop.c \
 				ft_maprm.c \
-				ft_map_utils.c
+				ft_map_utils.c \
+				ft_map_utils2.c
 
 ISFILES		=	ft_isalnum.c \
 				ft_isalpha.c \

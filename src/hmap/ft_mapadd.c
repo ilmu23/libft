@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:30:31 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/21 07:41:24 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "lft_hmap_internal.h"
 
 static inline t_hmap_pair	*_newpair(const char *key, const void *val);
+static inline uint8_t	_replace(t_hmap *hmap, t_hmap_pair *pair, size_t i);
 static inline void	*_dupval(const void *val);
 
 uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val)
@@ -25,20 +26,20 @@ uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val)
 	size_t		i;
 	size_t		j;
 
+	if (!hmap)
+		return (0);
+	if ((hmap->count * 100) / hmap->size > 70 && !growmap(hmap))
+		return (0);
 	pair = _newpair(key, val);
-	if (!hmap || !pair)
+	if (!pair)
 		return (0);
 	j = 0;
 	i = gethash(key, hmap->size, j++);
 	cur = hmap->items[i];
 	while (cur && cur != getdelmarker())
 	{
-		if (ft_strequals(cur->key, key))
-		{
-			ft_mappop(cur);
-			hmap->items[i] = pair;
+		if (_replace(hmap, pair, i))
 			return (1);
-		}
 		i = gethash(key, hmap->size, j++);
 		cur = hmap->items[i];
 	}
@@ -65,6 +66,17 @@ static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 		return (NULL);
 	ft_pushn(3, pair, pair->key, pair->value);
 	return (pair);
+}
+
+static inline uint8_t	_replace(t_hmap *hmap, t_hmap_pair *pair, size_t i)
+{
+	if (ft_strequals(hmap->items[i]->key, pair->key))
+	{
+		ft_mappop(hmap->items[i]);
+		hmap->items[i] = pair;
+		return (1);
+	}
+	return (0);
 }
 
 static inline void	*_dupval(const void *val)
