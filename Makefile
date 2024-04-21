@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 02:05:57 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 03:08:24 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ GCDIR	=	gc
 GNLDIR	=	gnl
 ISDIR	=	is
 LSTDIR	=	lst
+MATHDIR	=	math
 MEMDIR	=	mem
 NBRDIR	=	nbr
 PFDIR	=	printf
@@ -82,6 +83,13 @@ LSTFILES	=	ft_lstadd_back.c \
 				ft_lstpushall.c \
 				ft_lstpush.c \
 				ft_lstrmnode.c
+
+MATHFILES	=	ft_max.c \
+				ft_min.c \
+				ft_pow.c \
+				ft_umax.c \
+				ft_umin.c \
+				ft_upow.c
 
 MEMFILES	=	ft_bzero.c \
 				ft_memchr.c \
@@ -153,6 +161,7 @@ FILES	=	$(addprefix $(GCDIR)/, $(GCFILES)) \
 			$(addprefix $(GNLDIR)/, $(GNLFILES)) \
 			$(addprefix $(ISDIR)/, $(ISFILES)) \
 			$(addprefix $(LSTDIR)/, $(LSTFILES)) \
+			$(addprefix $(MATHDIR)/, $(MATHFILES)) \
 			$(addprefix $(MEMDIR)/, $(MEMFILES)) \
 			$(addprefix $(NBRDIR)/, $(NBRFILES)) \
 			$(addprefix $(PFDIR)/, $(PFFILES)) \
@@ -176,6 +185,7 @@ $(OBJDIR):
 	@mkdir -p $(OBJDIR)/$(GNLDIR)
 	@mkdir -p $(OBJDIR)/$(ISDIR)
 	@mkdir -p $(OBJDIR)/$(LSTDIR)
+	@mkdir -p $(OBJDIR)/$(MATHDIR)
 	@mkdir -p $(OBJDIR)/$(MEMDIR)
 	@mkdir -p $(OBJDIR)/$(NBRDIR)
 	@mkdir -p $(OBJDIR)/$(PFDIR)
