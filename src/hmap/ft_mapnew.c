@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_mapnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:33:14 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/04/21 02:18:11 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/04/21 04:07:40 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lft_gc.h"
+#include "lft_hmap_internal.h"
 
-# include "lft_is.h"
-# include "lft_to.h"
-# include "lft_put.h"
-# include "lft_nbr.h"
-# include "lft_str.h"
-# include "lft_mem.h"
-# include "lft_lst.h"
-# include "lft_hmap.h"
-# include "lft_math.h"
-# include "lft_printf.h"
-# include "lft_printf_internal.h"
-# include "lft_gnl.h"
-# include "lft_gc.h"
+t_hmap	*ft_mapnew(size_t size)
+{
+	t_hmap	*out;
 
-# include "lft_data.h"
-# include "lft_limits.h"
-
-#endif
+	out = ft_push(ft_calloc(1, sizeof(*out)));
+	if (!out)
+		return (NULL);
+	out->items = ft_calloc(size, sizeof(t_hmap_pair *));
+	ft_popblk(out);
+	if (!out->items)
+		return (NULL);
+	ft_pushn(2, out, out->items);
+	out->size = size;
+	return (out);
+}

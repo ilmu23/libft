@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   lft_hmap_internal.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:33:14 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/04/21 03:59:46 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/04/21 04:13:08 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-# include "lft_is.h"
-# include "lft_to.h"
-# include "lft_put.h"
-# include "lft_nbr.h"
-# include "lft_str.h"
-# include "lft_mem.h"
-# include "lft_lst.h"
+#ifndef LFT_HMAP_INTERNAL_H
+# define LFT_HMAP_INTERNAL_H
 # include "lft_hmap.h"
-# include "lft_math.h"
-# include "lft_printf.h"
-# include "lft_printf_internal.h"
-# include "lft_gnl.h"
-# include "lft_gc.h"
 
-# include "lft_data.h"
-# include "lft_limits.h"
+# define HMAP_SALT_1 347ULL
+# define HMAP_SALT_2 677ULL
+
+/*   no alloc   */
+t_hmap_pair	*getdelmarker(void);
+size_t		gethash(const char *s, const size_t size, const size_t attempt);
+/*   no alloc   */
 
 #endif
