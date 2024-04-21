@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 04:42:09 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 06:53:11 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,9 +92,13 @@ LSTFILES	=	ft_lstadd_back.c \
 				ft_lstpush.c \
 				ft_lstrmnode.c
 
-MATHFILES	=	ft_max.c \
+MATHFILES	=	ft_ceil.c \
+				ft_floor.c \
+				ft_max.c \
 				ft_min.c \
 				ft_pow.c \
+				ft_round.c \
+				ft_sqrt.c \
 				ft_umax.c \
 				ft_umin.c \
 				ft_upow.c
