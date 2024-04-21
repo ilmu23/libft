@@ -6,12 +6,21 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 06:23:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 06:28:28 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/21 06:35:26 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file ft_round.c
+ */
+
 #include "lft_math.h"
 
+/** @brief Rounds n to the nearest whole number
+ *
+ * @param n Number to round
+ * @retval double Nearest whole number
+ */
 double	ft_round(const double n)
 {
 	double	rf;
