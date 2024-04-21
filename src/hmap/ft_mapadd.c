@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 20:26:10 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/21 22:06:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static inline void	*_dupval(const void *val)
 	void		*out;
 
 	vsize = ft_getblksize(val);
-	out = ft_alloc(vsize);
+	out = ft_calloc(1, vsize);
 	if (!out)
 		return (NULL);
 	return (ft_memcpy(out, val, vsize));
