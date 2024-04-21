@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 06:26:33 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/21 06:48:35 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ ISFILES		=	ft_isalnum.c \
 				ft_isint.c \
 				ft_isint_utils.c \
 				ft_islower.c \
+				ft_isprime.c \
 				ft_isprint.c \
 				ft_isspace.c \
 				ft_isuint_base.c \
