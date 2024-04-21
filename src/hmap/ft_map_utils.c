@@ -36,7 +36,7 @@ uint8_t	resizemap(t_hmap *hmap, size_t bsize)
 	i = 0;
 	while (i < hmap->size)
 	{
-		if (hmap->items[i] && hmap->items[i] != HMAP_DEL)
+		if (hmap->items[i] && hmap->items[i] != (void *)HMAP_DEL)
 		{
 			if (!ft_mapadd(tmp, hmap->items[i]->key, hmap->items[i]->value))
 			{
