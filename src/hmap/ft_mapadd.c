@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 20:26:10 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:22:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val)
 static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 {
 	t_hmap_pair	*pair;
+	uint8_t		ptstatus;
 
 	if (!key)
 		return (NULL);
@@ -67,7 +68,10 @@ static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 	ft_popblks(2 + (val != NULL), pair, pair->key, pair->value);
 	if (!pair->key || !pair->value)
 		return (NULL);
+	ptstatus = ft_pushtrap_status();
+	ft_pushtrap(PTRAP_DISABLE);
 	ft_pushn(2 + (val != NULL), pair, pair->key, pair->value);
+	ft_pushtrap(ptstatus);
 	return (pair);
 }
 
@@ -88,7 +92,7 @@ static inline void	*_dupval(const void *val)
 	void		*out;
 
 	vsize = ft_getblksize(val);
-	out = ft_alloc(vsize);
+	out = ft_calloc(1, vsize);
 	if (!out)
 		return (NULL);
 	return (ft_memcpy(out, val, vsize));
