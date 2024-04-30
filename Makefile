@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/21 07:51:56 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/30 05:37:57 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,16 +115,13 @@ MEMFILES	=	ft_bzero.c \
 NBRFILES	=	ft_intlen.c \
 				ft_uintlen.c
 
-PFFILES		=	ft_dprintf.c \
-				ft_format.c \
-				ft_printf.c \
-				ft_putc.c \
-				ft_putd.c \
-				ft_putp.c \
-				ft_puts.c \
-				ft_putu.c \
-				ft_putx.c \
-				printf_utils.c
+PFFILES		=	ft_printf.c \
+				ft_vsnprintf.c \
+				expand.c \
+				expand2.c \
+				parse.c \
+				parse2.c \
+				utils.c
 
 PUTFILES	=	ft_debugmsg.c \
 				ft_debugnbr.c \

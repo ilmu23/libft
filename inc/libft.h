@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 04:33:14 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/29 22:35:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include "lft_lst.h"
 # include "lft_hmap.h"
 # include "lft_math.h"
-# include "lft_printf.h"
-# include "lft_printf_internal.h"
 # include "lft_gnl.h"
 # include "lft_gc.h"
 
