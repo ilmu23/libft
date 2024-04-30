@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:33:24 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 12:54:26 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/30 07:47:22 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_memset(void *s, uint8_t c, size_t n)
 		c8 |= c8 << 32;
 		while (n-- % sizeof(uint64_t))
 			*(char *)s++ = c;
-		n8 = n / sizeof(uint64_t);
+		n8 = (n + 1) / sizeof(uint64_t);
 		while (n8)
 		{
 			*((uint64_t *)s) = c8;
@@ -45,6 +45,7 @@ void	*ft_memset(void *s, uint8_t c, size_t n)
 			n8--;
 		}
 		n %= sizeof(uint64_t);
+		return (out);
 	}
 	while (n--)
 		*(char *)s++ = c;
