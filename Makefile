@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/30 06:39:52 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/30 08:53:50 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,7 @@ NBRFILES	=	ft_intlen.c \
 				ft_uintlen.c
 
 PFFILES		=	ft_printf.c \
+				ft_snprintf.c \
 				ft_vsnprintf.c \
 				cast.c \
 				expand.c \

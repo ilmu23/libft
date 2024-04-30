@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:04:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 06:38:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/30 09:19:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ ssize_t	getlen(t_list *strings)
 	len = 0;
 	while (strings)
 	{
-		len += ft_strlen(strings->blk);
-		if (!*(char *)strings->blk && ft_getblksize(strings->blk) == 2)
-			len++;
+		if (strings->blk)
+			len += ft_getblksize(strings->blk) - 1;
 		strings = strings->next;
 	}
 	return (len);
