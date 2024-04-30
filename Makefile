@@ -6,11 +6,11 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/04/30 05:37:57 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/04/30 06:39:52 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libft.a
+NAME	=	libftprintf.a
 
 BUILD	=	normal
 
@@ -117,6 +117,7 @@ NBRFILES	=	ft_intlen.c \
 
 PFFILES		=	ft_printf.c \
 				ft_vsnprintf.c \
+				cast.c \
 				expand.c \
 				expand2.c \
 				parse.c \
@@ -186,6 +187,9 @@ SRCS	=	$(addprefix $(SRCDIR)/, $(FILES))
 OBJS	=	$(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
 all: $(NAME)
+
+bonus:
+	@printf "bonus!\n"
 
 $(NAME): $(OBJDIR) $(OBJS)
 	@printf "\e[34;1mLIBFT >\e[m Creating %s\n" $@

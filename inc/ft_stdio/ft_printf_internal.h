@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:53:31 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 04:08:26 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/30 06:25:08 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ char		*expandint(t_pf_conversion *cnv);
 char		*expanduint(t_pf_conversion *cnv);
 char		*expandchar(t_pf_conversion *cnv);
 char		*expandstr(t_pf_conversion *cnv);
+
+// cast.c
+void	cast(t_pf_conversion *cnv);
 
 // utils.c
 uintptr_t	getnextarg(t_list **args);

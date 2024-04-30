@@ -6,20 +6,20 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:49:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 05:24:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/30 06:31:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio/ft_printf_internal.h"
 
-static inline void	_cast(t_pf_conversion *cnv);
+static inline t_base	_getvase(t_format_type type);
 
 char	*expandint(t_pf_conversion *cnv)
 {
 	size_t	slen;
 	char	*out;
 
-	_cast(cnv);
+	cast(cnv);
 	out = ft_itoa(cnv->arg.intval);
 	if (!out)
 		return (NULL);
@@ -40,17 +40,11 @@ char	*expandint(t_pf_conversion *cnv)
 
 char	*expanduint(t_pf_conversion *cnv)
 {
-	t_base	base;
 	size_t	slen;
 	char	*out;
 
-	_cast(cnv);
-	base = DECIMAL;
-	if (cnv->arg.type == o)
-		base = OCTAL;
-	else if (cnv->arg.type == x || cnv->arg.type == X || cnv->arg.type == p)
-		base = HEX;
-	out = ft_utoa_base(cnv->arg.uintval, base);
+	cast(cnv);
+	out = ft_utoa_base(cnv->arg.uintval, _getvase(cnv->arg.type));
 	if (!out)
 		return (NULL);
 	slen = ft_strlen(out);
@@ -84,8 +78,10 @@ char	*expandstr(t_pf_conversion *cnv)
 	size_t	slen;
 	char	*out;
 
+	if (!cnv->arg.ptrval)
+		cnv->arg.ptrval = (uintptr_t)ft_push(ft_strdup("(null)"));
 	slen = ft_strlen((char *)cnv->arg.ptrval);
-	out = ft_calloc(slen, sizeof(*out));
+	out = ft_calloc(slen + 1, sizeof(*out));
 	if (!out)
 		return (NULL);
 	if (cnv->precision)
@@ -94,22 +90,11 @@ char	*expandstr(t_pf_conversion *cnv)
 	return (out);
 }
 
-static inline void	_cast(t_pf_conversion *cnv)
+static inline t_base	_getvase(t_format_type type)
 {
-	if (!cnv->length)
-		return ;
-	if (cnv->length == PF_LENGTH_HHALF)
-		cnv->arg.uintval = (uint8_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_HALF)
-		cnv->arg.uintval = (uint16_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_LONG)
-		cnv->arg.uintval = (uint32_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_LLONG)
-		cnv->arg.uintval = (uint64_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_IMAX)
-		cnv->arg.uintval = (uintmax_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_SIZE)
-		cnv->arg.uintval = (size_t)cnv->arg.uintval;
-	else if (cnv->length == PF_LENGTH_DIFF)
-		cnv->arg.intval = (ptrdiff_t)cnv->arg.intval;
+	if (type == o)
+		return (OCTAL);
+	else if (type == x || type == X || type == p)
+		return (HEX);
+	return (DECIMAL);
 }

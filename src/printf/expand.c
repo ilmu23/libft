@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:12:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 05:30:30 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/04/30 07:35:32 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static inline char	*_padstr(t_pf_conversion *cnv, char *str, size_t slen)
 		&& cnv->flags & PF_FLAG_ZERO)
 		pc = '0';
 	if (cnv->flags & PF_FLAG_LEFT)
-		out = ft_strjoin(str, cstr(pc, cnv->width - slen + 1));
+		out = ft_strjoin(str, cstr(pc, cnv->width - slen));
 	else
-		out = ft_strjoin(cstr(pc, cnv->width - slen + 1), str);
+		out = ft_strjoin(cstr(pc, cnv->width - slen + (slen != 0)), str);
 	return (out);
 }
 
