@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:49:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 11:30:24 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 02:13:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*expandint(t_pf_conversion *cnv)
 	size_t	slen;
 	char	*out;
 
+	if (cnv->flags & PF_FLAG_PRECISION && !cnv->precision && !cnv->arg.intval)
+		return (NULL);
 	cast(cnv);
 	out = ft_push(ft_itoa(cnv->arg.intval));
 	if (!out)
@@ -33,13 +35,10 @@ char	*expandint(t_pf_conversion *cnv)
 		*ft_strrchr(out, '-') = '0';
 		*out = '-';
 	}
-	if (cnv->arg.intval >= 0)
-	{
-		if (cnv->flags & PF_FLAG_SIGN)
-			out = ft_strjoin("+", out);
-		else if (cnv->flags & PF_FLAG_SPACE)
-			out = ft_strjoin(" ", out);
-	}
+	if (cnv->arg.intval >= 0 && cnv->flags & PF_FLAG_SIGN)
+		out = ft_strjoin("+", out);
+	else if (cnv->arg.intval >= 0 && cnv->flags & PF_FLAG_SPACE)
+		out = ft_strjoin(" ", out);
 	return (out);
 }
 
@@ -48,6 +47,8 @@ char	*expanduint(t_pf_conversion *cnv)
 	size_t	slen;
 	char	*out;
 
+	if (cnv->flags & PF_FLAG_PRECISION && !cnv->precision && !cnv->arg.intval)
+		return (NULL);
 	cast(cnv);
 	out = ft_push(ft_utoa_base(cnv->arg.uintval, _getbase(cnv->arg.type)));
 	if (!out)
@@ -83,8 +84,9 @@ char	*expandstr(t_pf_conversion *cnv)
 	size_t	slen;
 	char	*out;
 
-	if (!cnv->arg.ptrval)
-		cnv->arg.ptrval = (uintptr_t)ft_push(ft_strdup("(null)"));
+	if (!cnv->arg.ptrval && (!(cnv->flags & PF_FLAG_PRECISION)
+			|| cnv->precision >= 6))
+		return (ft_strdup("(null)"));
 	slen = ft_strlen((char *)cnv->arg.ptrval);
 	if (slen && cnv->flags & PF_FLAG_PRECISION)
 		slen = ft_min(slen, cnv->precision);

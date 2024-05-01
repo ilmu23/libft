@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:14:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 02:46:33 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 01:42:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ uint8_t	getflags(const char **cnv)
 	if (ft_isdigit(*tmp))
 	{
 		flags |= PF_FLAG_WIDTH;
-		while (ft_isdigit(*tmp++))
-			;
+		while (ft_isdigit(*tmp))
+			tmp++;
 	}
 	fspec = tmp[ft_strlen(tmp) - 1];
 	if (*tmp == '.')

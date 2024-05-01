@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:12:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 11:42:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 02:01:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,11 @@ static inline char	*_padstr(t_pf_conversion *cnv, char *str, size_t slen)
 		&& cnv->flags & PF_FLAG_ZERO)
 		pc = '0';
 	if (cnv->flags & PF_FLAG_LEFT)
-	{
-		out = ft_strjoin(str, cstr(pc, cnv->width - slen - (pc == '0') + (slen == '0')));
-		if (slen == 0)
-			*out = '\0';
-	}
+		out = ft_strjoin(str, cstr(pc, cnv->width - slen));
 	else
-		out = ft_strjoin(cstr(pc, cnv->width - slen + (slen != 0) - (pc == '0')), str);
+		out = ft_strjoin(cstr(pc, cnv->width - slen), str);
+	if (slen == 0)
+		out[(ft_strlen(out) - 1) * (!*str && cnv->arg.type == c && !(cnv->flags & PF_FLAG_LEFT))] = '\0';
 	if (pc == '0')
 	{
 		if (ft_strrchr(out, '-'))
@@ -92,7 +90,7 @@ static inline void	_addstr(t_list **out, t_pf_conversion *cnv, char *str)
 	slen = ft_strlen(str);
 	if (cnv->flags & PF_FLAG_WIDTH && cnv->width > slen)
 	{
-		if (!str && cnv->arg.type == s)
+		if (!str)
 			str = cstr(' ', cnv->width);
 		else
 			str = _padstr(cnv, str, slen);
