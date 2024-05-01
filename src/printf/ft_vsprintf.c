@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_vsprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 05:31:01 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 02:20:13 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/05/02 02:34:11 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/05/02 02:35:41 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio/ft_printf.h"
 
-ssize_t	ft_printf(const char *f, ...)
+ssize_t	ft_vsprintf(char *s, const char *f, va_list args)
 {
-	va_list	args;
-	ssize_t	rval;
-
-	va_start(args, f);
-	rval = ft_vprintf(f, args);
-	va_end(args);
-	return (rval);
+	return (ft_vsnprintf(s, SIZE_MAX, f, args));
 }
