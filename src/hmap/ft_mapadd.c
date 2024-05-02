@@ -6,14 +6,14 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/22 15:22:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:19:26 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_gc.h"
 #include "lft_mem.h"
 #include "lft_str.h"
-#include "lft_hmap_internal.h"
+#include "_internal/lft_hmap_internal.h"
 
 static inline t_hmap_pair	*_newpair(const char *key, const void *val);
 static inline uint8_t		_replace(t_hmap *hmap, t_hmap_pair *pair, size_t i);

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:44:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:10:43 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:19:01 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "lft_gc.h"
 #include "lft_str.h"
-#include "lft_gnl_internal.h"
+#include "_internal/lft_gnl_internal.h"
 
 /** @brief Copies n characters from src to dst and NUL terminates dst
  *

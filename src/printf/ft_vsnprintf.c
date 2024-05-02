@@ -6,12 +6,11 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:34:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 03:53:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:23:17 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio/ft_printf_internal.h"
-#include "lft_gc.h"
+#include "_internal/ft_printf_internal.h"
 
 static inline size_t	_argcount(const char *f);
 static inline size_t	_getdmax(const char *f);

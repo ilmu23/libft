@@ -6,11 +6,11 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:14:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 01:42:19 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:22:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio/ft_printf_internal.h"
+#include "_internal/ft_printf_internal.h"
 
 static inline uint8_t	_getflags(const char **cnv);
 

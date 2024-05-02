@@ -6,11 +6,11 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:12:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 03:54:06 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:22:51 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio/ft_printf_internal.h"
+#include "_internal/ft_printf_internal.h"
 
 static inline char	*_padstr(t_pf_conversion *cnv, char *str, size_t slen);
 static inline void	_mvsign(char *s, uint8_t pc);

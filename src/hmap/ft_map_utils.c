@@ -6,13 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 04:01:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 21:13:17 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:20:54 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_is.h"
 #include "lft_str.h"
-#include "lft_hmap_internal.h"
+#include "_internal/lft_hmap_internal.h"
 
 static inline void	_swap(t_hmap *hmap, t_hmap *tmp);
 

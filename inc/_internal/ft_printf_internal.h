@@ -6,14 +6,14 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:53:31 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 03:53:52 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:23:14 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_INTERNAL_H
 # define FT_PRINTF_INTERNAL_H
 # include <stddef.h>
-# include "ft_printf.h"
+# include "ft_stdio/ft_printf.h"
 
 # define PF_FLAG_ALT 0x1U
 # define PF_FLAG_ZERO 0x2U

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:43:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:10:18 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:18:52 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include <unistd.h>
 #include "lft_str.h"
-#include "lft_gnl_internal.h"
+#include "_internal/lft_gnl_internal.h"
 
 /** @brief Reads a line from fd
  *

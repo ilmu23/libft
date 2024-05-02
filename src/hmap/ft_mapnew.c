@@ -6,12 +6,12 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 02:18:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/22 15:25:06 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:19:38 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_gc.h"
-#include "lft_hmap_internal.h"
+#include "_internal/lft_hmap_internal.h"
 
 t_hmap	*ft_mapnew_size(size_t size)
 {

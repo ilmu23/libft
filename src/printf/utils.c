@@ -6,11 +6,11 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:04:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 09:19:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:22:24 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio/ft_printf_internal.h"
+#include "_internal/ft_printf_internal.h"
 
 uintptr_t	getnextarg(t_list **args)
 {

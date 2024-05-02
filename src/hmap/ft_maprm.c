@@ -6,12 +6,12 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 04:15:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 20:27:41 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 06:20:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_str.h"
-#include "lft_hmap_internal.h"
+#include "_internal/lft_hmap_internal.h"
 
 uint8_t	ft_maprm(t_hmap *hmap, const char *key)
 {
