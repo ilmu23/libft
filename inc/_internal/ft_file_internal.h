@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 06:29:18 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 09:40:01 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:10:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # define _RDBUF 0x1U
 # define _WRBUF 0x2U
 
-# define _FILE_BUFFER_SIZE 2048
+# define _FILE_BUFFER_SIZE 4096
+
+# define _ERR -2
 
 typedef struct s_file
 {

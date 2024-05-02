@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 08:38:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 09:50:43 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:12:28 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static inline int8_t	_fflush_all(t_hmap *map)
 	while (i < map->size)
 	{
 		if (map->items[i] && map->items[i] != (void *)HMAP_DEL
-				&& !_fflush(map->items[i]->value, _WRBUF))
+			&& !_fflush(map->items[i]->value, _WRBUF))
 			rv = _err(EBADF);
 		i++;
 	}

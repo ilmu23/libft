@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:56:54 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:05:19 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:04:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,16 @@
 # endif
 # ifndef ULONG_MAX 
 #  define ULONG_MAX UINT64_MAX
+# endif
+
+// size_t
+# ifndef SIZE_MAX
+#  define SIZE_MAX ULONG_MAX
+# endif
+
+// ssize_t
+# ifndef SSIZE_MAX
+#  define SSIZE_MAX LONG_MAX
 # endif
 
 // ascii range

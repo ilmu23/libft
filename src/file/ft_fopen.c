@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 06:51:32 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 08:42:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:55:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static inline uint8_t	_loadfile(t_file *f, uint8_t ptrap_st)
 		f->size += rv;
 		f->sof = tmp;
 	}
+	ft_push(f->sof);
 	if (ptrap_st & PTRAP_ENABLE)
 		ft_pushtrap(PTRAP_ENABLE);
 	if (rv == -1)
