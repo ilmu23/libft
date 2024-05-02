@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:34:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 02:47:40 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:53:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static inline size_t	_argcount(const char *f);
 static inline size_t	_getdmax(const char *f);
 static inline t_list	*_getargs(va_list args, size_t argc);
-static inline void		_join(char *str, size_t size, t_list *conversions);
+static inline void	_join(char *str, size_t size, t_list *conversions);
 
 ssize_t	ft_vsnprintf(char *s, size_t size, const char *f, va_list args)
 {
@@ -30,7 +30,8 @@ ssize_t	ft_vsnprintf(char *s, size_t size, const char *f, va_list args)
 	ft_push(s);
 	arglist = _getargs(args, _argcount(f));
 	conversions = getconversions(f, arglist);
-	strings = expandconversions(conversions);
+	strings = NULL;
+	expandconversions(conversions, &strings);
 	if (s)
 		_join(s, size, strings);
 	if (ptrap_st & PTRAP_DISABLE)
@@ -113,14 +114,15 @@ static inline t_list	*_getargs(va_list args, size_t argc)
 	return (out);
 }
 
-static inline void		_join(char *str, size_t size, t_list *strings)
+static inline void	_join(char *str, size_t size, t_list *strings)
 {
 	ft_memset(str, 0, size);
 	while (strings && size)
 	{
 		if (strings->blk)
 		{
-			ft_memcpy(str, strings->blk, ft_min(ft_getblksize(strings->blk), size));
+			ft_memcpy(str, strings->blk,
+				ft_min(ft_getblksize(strings->blk), size));
 			str += ft_min(ft_getblksize(strings->blk), size) - 1;
 			size -= ft_min(ft_getblksize(strings->blk), size) - 1;
 		}

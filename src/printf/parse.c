@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 23:20:25 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/30 11:35:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:01:44 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static inline t_pf_conversion	*_newstring(const char *s);
 static inline t_pf_conversion	*_newconversion(const char *cnv, t_list **args);
-static inline t_pf_arg	_gettype(const char *cnv, t_list **args, size_t argn);
-static inline t_format_type		_argtype(const uint8_t c);
+static inline t_pf_arg		_gettype(const char *cnv, t_list **args, size_t n);
+static inline t_format_type	_argtype(const uint8_t c);
 
 t_list	*getconversions(const char *f, t_list *args)
 {
@@ -51,7 +51,7 @@ static inline t_pf_conversion	*_newstring(const char *str)
 	if (!out)
 		return (NULL);
 	*out = (t_pf_conversion){.arg.type = s, .arg.ptrval = (uintptr_t)str,
-	.flags = 0, .width = 0, .precision = 0, .length = 0};
+		.flags = 0, .width = 0, .precision = 0, .length = 0};
 	return (out);
 }
 
@@ -84,15 +84,15 @@ static inline t_pf_conversion	*_newconversion(const char *cnv, t_list **args)
 	return (out);
 }
 
-static inline t_pf_arg	_gettype(const char *cnv, t_list **args, size_t argn)
+static inline t_pf_arg	_gettype(const char *cnv, t_list **args, size_t n)
 {
 	t_pf_arg	arg;
 
 	arg.type = _argtype(*cnv);
-	if (arg.type != percent && !argn)
+	if (arg.type != percent && !n)
 		arg.ptrval = getnextarg(args);
 	else if (arg.type != percent)
-		arg.ptrval = getarg(*args, argn);
+		arg.ptrval = getarg(*args, n);
 	return (arg);
 }
 

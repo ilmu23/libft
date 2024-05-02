@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:49:21 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 02:13:56 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/02 03:03:35 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ char	*expandint(t_pf_conversion *cnv)
 		return (NULL);
 	slen = ft_strlen(out);
 	if (cnv->flags & PF_FLAG_PRECISION && cnv->precision > slen - (*out == '-'))
-		out = ft_strjoin(cstr('0', cnv->precision - slen + (*out == '-') -
-			(cnv->flags & (PF_FLAG_SPACE | PF_FLAG_SIGN)
-				&& cnv->arg.intval >= 0)), out);
+		out = ft_strjoin(cstr('0', cnv->precision - slen + (*out == '-')
+					- (cnv->flags & (PF_FLAG_SPACE | PF_FLAG_SIGN)
+						&& cnv->arg.intval >= 0)), out);
 	if (ft_strrchr(out, '-') && out && ft_strrchr(out, '-') != out)
 	{
 		*ft_strrchr(out, '-') = '0';
@@ -56,9 +56,10 @@ char	*expanduint(t_pf_conversion *cnv)
 	slen = ft_strlen(out);
 	if (cnv->flags & PF_FLAG_PRECISION && cnv->precision > slen)
 		out = ft_strjoin(cstr('0', cnv->precision - slen), out);
-	if ((cnv->flags & PF_FLAG_ALT && cnv->arg.uintval != 0) || cnv->arg.type == p)
+	if ((cnv->flags & PF_FLAG_ALT && cnv->arg.uintval != 0)
+		|| cnv->arg.type == p)
 	{
-		if (cnv->arg.type == o && out &&  *out != '0')
+		if (cnv->arg.type == o && out && *out != '0')
 			out = ft_strjoin("0", out);
 		else if (cnv->arg.type == x || cnv->arg.type == X || cnv->arg.type == p)
 			out = ft_strjoin("0X", out);
