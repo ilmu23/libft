@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:41:02 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/06 13:00:20 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:51:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_substr(const char *s, uint64_t start, size_t len)
 		len = slen;
 	ft_push(s);
 	out = ft_calloc(len + 1, sizeof(*out));
-	ft_pop();
+	ft_popblk(s);
 	if (!out)
 		return (NULL);
 	ft_strlcpy(out, &s[start], len + 1);

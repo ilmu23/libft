@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:05:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 07:36:52 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:50:52 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ t_list	*ft_lstnew(void *blk)
 
 	ft_push(blk);
 	out = ft_calloc(1, sizeof(*out));
-	if (blk)
-		ft_pop();
+	ft_popblk(blk);
 	if (!out)
 		return (NULL);
 	out->blk = blk;

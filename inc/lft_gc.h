@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/13 12:23:11 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:52:08 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,10 @@ void	ft_mark(const void *blk);
 /**   obj   **/
 
 /**   pop   **/
-void	*ft_pop(void);
-
+void	ft_popall(void);
+void	ft_popn(size_t blks);
 void	ft_popblk(const void *blk);
 void	ft_popblks(size_t blks, ...);
-void	ft_popn(size_t blks);
-void	ft_popall(void);
 /**   pop   **/
 
 /**   push   **/
@@ -79,11 +77,6 @@ uint8_t	ft_pushtrap_status(void);
 
 void	ft_pushtrap(uint8_t op);
 /**   pushtrap   **/
-
-/**   stack   **/
-void	ft_stackrm(t_stack *node);
-void	ft_stackadd(const void *blk);
-/**   stack   **/
 
 /**   utils   **/
 t_vm	*ft_getvm(void);
