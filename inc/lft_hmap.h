@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 02:07:12 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 20:25:27 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:05:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "lft_data.h"
 # include "lft_limits.h"
 
-# define HMAP_DEL 0x1ULL
+static const uint8_t	g_hmap_sentinel = 42;
 
 /*   alloc   */
 uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val);

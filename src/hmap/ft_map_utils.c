@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 04:01:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:20:54 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:05:10 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ uint8_t	resizemap(t_hmap *hmap, size_t bsize)
 	i = 0;
 	while (i < hmap->size)
 	{
-		if (hmap->items[i] && hmap->items[i] != (void *)HMAP_DEL)
+		if (hmap->items[i] && hmap->items[i] != (void *)&g_hmap_sentinel)
 		{
 			if (!ft_mapadd(tmp, hmap->items[i]->key, hmap->items[i]->value))
 			{
