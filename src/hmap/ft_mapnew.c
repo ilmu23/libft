@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 02:18:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:19:38 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:40:48 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_hmap	*ft_mapnew_size(size_t size)
 		return (NULL);
 	hmap->bsize = size;
 	hmap->size = getnextprime(size);
-	hmap->items = (ft_calloc(hmap->size, sizeof(t_hmap_pair *)));
-	ft_popblks(2, hmap, hmap->items);
+	hmap->items = ft_calloc(hmap->size, sizeof(t_hmap_pair *));
+	ft_popblk(hmap);
 	if (!hmap->items)
 		return (NULL);
 	ptstatus = ft_pushtrap_status();

@@ -6,15 +6,16 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 02:22:56 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:19:58 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:06:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_gc.h"
+#include "_internal/lft_hmap_internal.h"
 
 void	ft_mappop(t_hmap_pair *pair)
 {
-	if (!pair)
+	if (!pair || pair == (void *)&g_hmap_sentinel)
 		return ;
 	ft_popblks(3, pair, pair->key, pair->value);
 }
