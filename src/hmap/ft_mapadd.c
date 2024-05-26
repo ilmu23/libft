@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/26 05:05:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/27 01:33:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val)
 	size_t		i;
 	size_t		j;
 
-	if (!hmap)
-		return (0);
-	if ((hmap->count * 100) / hmap->size > 70 && !growmap(hmap))
+	ft_pushn(2, key, val);
+	if (!hmap || ((hmap->count * 100) / hmap->size > 70 && !growmap(hmap)))
 		return (0);
 	pair = _newpair(key, val);
+	ft_popblks(2, key, val);
 	if (!pair)
 		return (0);
 	j = 0;
@@ -55,18 +55,15 @@ static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 
 	if (!key)
 		return (NULL);
-	ft_pushn(2, key, val);
 	pair = ft_push(ft_calloc(1, sizeof(*pair)));
-	ft_popblks(2, key, val);
 	if (!pair)
 		return (NULL);
-	ft_push(val);
 	pair->key = ft_push(ft_strdup(key));
 	if (val)
 		pair->value = ft_push(_dupval(val));
 	else
 		pair->value = NULL;
-	ft_popblks(3 + (val != NULL), val, pair, pair->key, pair->value);
+	ft_popblks(2 + (val != NULL), pair, pair->key, pair->value);
 	if (!pair->key || !pair->value)
 		return (NULL);
 	ptstatus = ft_pushtrap_status();
