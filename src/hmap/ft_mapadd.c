@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/23 21:04:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 05:05:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 	ft_popblks(2, key, val);
 	if (!pair)
 		return (NULL);
+	ft_push(val);
 	pair->key = ft_push(ft_strdup(key));
 	if (val)
 		pair->value = ft_push(_dupval(val));
 	else
 		pair->value = NULL;
-	ft_popblks(2 + (val != NULL), pair, pair->key, pair->value);
+	ft_popblks(3 + (val != NULL), val, pair, pair->key, pair->value);
 	if (!pair->key || !pair->value)
 		return (NULL);
 	ptstatus = ft_pushtrap_status();
