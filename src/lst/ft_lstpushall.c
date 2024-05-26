@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:52:29 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:04:08 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:38:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  *
  * @param *list Address of the first node of the list
  */
-void	ft_lstpushall(t_list *list)
+void	ft_lstpushall(const t_list *list)
 {
 	while (list)
 	{

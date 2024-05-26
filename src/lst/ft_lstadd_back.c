@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:29:29 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/23 21:40:03 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:33:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param **list Address of the head pointer to the list
  * @param *node Address of the new node
  */
-void	ft_lstadd_back(t_list **list, t_list *node)
+void	ft_lstadd_back(const t_list **list, t_list *node)
 {
 	t_list	*last;
 	uint8_t	ptstatus;

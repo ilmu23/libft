@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:34:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:23:17 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:41:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ static inline size_t	_getdmax(const char *f)
 
 static inline t_list	*_getargs(va_list args, size_t argc)
 {
-	t_list		*out;
-	uintptr_t	*val;
+	const t_list	*out;
+	uintptr_t		*val;
 
 	out = NULL;
 	while (argc--)
@@ -110,7 +110,7 @@ static inline t_list	*_getargs(va_list args, size_t argc)
 		*val = va_arg(args, uintptr_t);
 		ft_lstadd_back(&out, ft_lstnew(val));
 	}
-	return (out);
+	return ((t_list *)out);
 }
 
 static inline void	_join(char *str, size_t size, t_list *strings)

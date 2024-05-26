@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 03:12:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:22:51 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:42:21 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	expandconversions(t_list *conversions, t_list **strings)
 	str = NULL;
 	while (conversions)
 	{
-		cnv = conversions->blk;
+		cnv = (t_pf_conversion *)conversions->blk;
 		if (cnv->arg.type == d || cnv->arg.type == i)
 			str = expandint(cnv);
 		else if (cnv->arg.type == o || cnv->arg.type == u
@@ -97,7 +97,7 @@ static inline void	_addstr(t_list **out, t_pf_conversion *cnv, char *str)
 		else
 			str = _padstr(cnv, str, slen);
 	}
-	ft_lstadd_back(out, ft_lstnew(str));
+	ft_lstadd_back((const t_list **)out, ft_lstnew(str));
 }
 
 static inline void	_storelen(t_pf_conversion *cnv, t_list *out)

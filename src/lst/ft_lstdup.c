@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 06:21:14 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/21 07:36:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:36:20 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "lft_lst.h"
 #include "lft_mem.h"
 
-static inline void	*dupblk(void *blk);
+static inline void	*_dupblk(const void *blk);
 
 /** @brief Creates a duplicate of a node and its content
  *
@@ -26,7 +26,7 @@ static inline void	*dupblk(void *blk);
  * @retval t_list* Address of the duplicated node,
  * or NULL if an allocation fails
  */
-t_list	*ft_lstdup(t_list *node)
+t_list	*ft_lstdup(const t_list *node)
 {
 	t_list	*out;
 
@@ -37,7 +37,7 @@ t_list	*ft_lstdup(t_list *node)
 		ft_lstpop(node);
 		return (NULL);
 	}
-	out->blk = dupblk(node->blk);
+	out->blk = _dupblk(node->blk);
 	ft_lstpop(node);
 	ft_popblk(out);
 	if (!out->blk && node->blk)
@@ -45,7 +45,7 @@ t_list	*ft_lstdup(t_list *node)
 	return (out);
 }
 
-static inline void	*dupblk(void *blk)
+static inline void	*_dupblk(const void *blk)
 {
 	void	*out;
 	size_t	asize;

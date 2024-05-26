@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:05:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/20 23:50:52 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:37:59 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * @param *blk Address of block to be stored in the nodes blk field
  * @retval t_list* Pointer to the new node, or NULL if the allocation failed
  */
-t_list	*ft_lstnew(void *blk)
+t_list	*ft_lstnew(const void *blk)
 {
 	t_list	*out;
 

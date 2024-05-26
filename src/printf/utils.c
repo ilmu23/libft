@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:04:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:22:24 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:43:07 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ uintptr_t	getnextarg(t_list **args)
 {
 	uintptr_t	*val;
 
-	val = (*args)->blk;
+	val = (uintptr_t *)(*args)->blk;
 	*args = (*args)->next;
 	return (*val);
 }
