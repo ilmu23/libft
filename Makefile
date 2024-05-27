@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/05/20 23:48:45 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/05/27 22:28:43 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,7 +164,8 @@ STRFILES	=	ft_split.c \
 				ft_substr.c \
 				ft_wordcount.c
 
-TOFILES		=	ft_atoi_base.c \
+TOFILES		=	ft_atof.c \
+				ft_atoi_base.c \
 				ft_atoi.c \
 				ft_atou_base.c \
 				ft_atou.c \

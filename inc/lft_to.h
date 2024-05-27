@@ -6,12 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:43:40 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 04:47:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:25:51 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_TO_H
 # define LFT_TO_H
+# include <float.h>
 # include <stdlib.h>
 # include <stdint.h>
 # include "lft_data.h"
@@ -37,6 +38,10 @@ uint64_t	ft_atou64(const char *s);
 uint32_t	ft_atou32(const char *s);
 uint16_t	ft_atou16(const char *s);
 uint8_t		ft_atou8(const char *s);
+
+long double	ft_atof80(const char *s);
+double		ft_atof64(const char *s);
+float		ft_atof32(const char *s);
 
 uint8_t		ft_toupper(uint8_t c);
 uint8_t		ft_tolower(uint8_t c);
