@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/05/27 22:28:43 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/05/27 22:46:32 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ ISFILES		=	ft_isalnum.c \
 				ft_isalpha.c \
 				ft_isascii.c \
 				ft_isdigit.c \
+				ft_isfloat.c \
 				ft_isint_base.c \
 				ft_isint.c \
 				ft_isint_utils.c \
