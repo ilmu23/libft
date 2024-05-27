@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 22:12:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/27 22:27:01 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/28 00:42:37 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static inline long double	_getdec(const char *s);
 long double	ft_atof80(const char *s)
 {
 	long double	out;
-	uint8_t		n;
+	int8_t		n;
 
 	n = 1;
 	out = 0.0;
