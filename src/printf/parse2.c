@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:14:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:22:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:32:39 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ uint8_t	getflags(const char **cnv)
 
 	flags = _getflags(cnv);
 	tmp = *cnv;
-	if (ft_isdigit(*tmp))
+	if (ft_isdigit(*tmp) || *tmp == '*')
 	{
 		flags |= PF_FLAG_WIDTH;
 		while (ft_isdigit(*tmp))
 			tmp++;
+		tmp += (*tmp == '*');
 	}
 	fspec = tmp[ft_strlen(tmp) - 1];
 	if (*tmp == '.')
@@ -41,7 +42,7 @@ uint8_t	getflags(const char **cnv)
 
 uint8_t	getlength(const char **cnv)
 {
-	static const char	specs[7][3] = {"hh", "h", "l3", "l", "j", "z", "t"};
+	static const char	specs[7][3] = {"hh", "h", "ll", "l", "j", "z", "t"};
 	size_t				i;
 
 	i = 0;
