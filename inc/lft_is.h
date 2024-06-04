@@ -6,12 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:23:14 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 06:43:58 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:36:25 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_IS_H
 # define LFT_IS_H
+# include <float.h>
 # include <stdint.h>
 # include "lft_data.h"
 # include "lft_limits.h"
@@ -21,6 +22,7 @@ uint8_t	ft_isalnum(uint8_t c);
 uint8_t	ft_isalpha(uint8_t c);
 uint8_t	ft_isascii(uint8_t c);
 uint8_t	ft_isdigit(uint8_t c);
+uint8_t	ft_isfloat(const char *n);
 uint8_t	ft_islower(uint8_t c);
 uint8_t	ft_isprint(uint8_t c);
 uint8_t	ft_isspace(uint8_t c);

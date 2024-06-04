@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 07:15:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:39:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum e_base
 
 typedef struct s_list
 {
-	void			*blk;
+	const void		*blk;
 	size_t			*size;
 	struct s_list	*next;
 	struct s_list	*prev;
@@ -55,17 +55,9 @@ typedef struct s_obj
 	struct s_obj	*next;
 }	t_obj;
 
-typedef struct s_stack
-{
-	const void		*blk;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
-
 typedef struct s_vm
 {
 	uint8_t	ptrap;
-	t_stack	*stack;
 	size_t	maxobjs;
 	size_t	objs;
 	t_obj	*head;

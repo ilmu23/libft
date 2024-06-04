@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/10 22:38:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:41:40 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	*ft_push(const void *blk)
 {
 	if (blk)
 	{
-		ft_stackadd(blk);
 		ft_mark(blk);
 		ft_debugmsg(GCPUSH, "Pushing block %p", blk);
 	}

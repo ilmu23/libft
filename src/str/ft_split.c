@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 20:02:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/06 13:01:18 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/28 00:33:11 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**ft_split(const char *s, const uint8_t c)
 	splits = getsplits(s, c);
 	ft_push(s);
 	out = ft_calloc((splits + 1), sizeof(*out));
-	ft_pop();
+	ft_popblk(s);
 	ft_push(out);
 	if (!out)
 		return (NULL);
@@ -51,7 +51,9 @@ char	**ft_split(const char *s, const uint8_t c)
 		if (!out[i - 1] && i <= splits)
 			return (NULL);
 	}
-	ft_popn(i);
+	while (i-- > 0)
+		ft_popblk(out[i]);
+	ft_popblk(out);
 	return (out);
 }
 

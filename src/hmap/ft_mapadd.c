@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 03:18:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:19:26 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/27 01:33:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ uint8_t	ft_mapadd(t_hmap *hmap, const char *key, const void *val)
 	size_t		i;
 	size_t		j;
 
-	if (!hmap)
-		return (0);
-	if ((hmap->count * 100) / hmap->size > 70 && !growmap(hmap))
+	ft_pushn(2, key, val);
+	if (!hmap || ((hmap->count * 100) / hmap->size > 70 && !growmap(hmap)))
 		return (0);
 	pair = _newpair(key, val);
+	ft_popblks(2, key, val);
 	if (!pair)
 		return (0);
 	j = 0;
 	i = gethash(key, hmap->size, j++);
 	cur = hmap->items[i];
-	while (cur && cur != (void *)HMAP_DEL)
+	while (cur && cur != (void *)&g_hmap_sentinel)
 	{
 		if (_replace(hmap, pair, i))
 			return (1);
@@ -55,9 +55,7 @@ static inline t_hmap_pair	*_newpair(const char *key, const void *val)
 
 	if (!key)
 		return (NULL);
-	ft_pushn(2, key, val);
 	pair = ft_push(ft_calloc(1, sizeof(*pair)));
-	ft_popblks(2, key, val);
 	if (!pair)
 		return (NULL);
 	pair->key = ft_push(ft_strdup(key));

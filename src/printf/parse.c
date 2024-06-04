@@ -19,7 +19,7 @@ static inline t_format_type	_argtype(const uint8_t c);
 
 t_list	*getconversions(const char *f, t_list *args)
 {
-	t_list			*out;
+	const t_list	*out;
 	t_pf_conversion	*conversion;
 
 	out = NULL;
@@ -39,7 +39,7 @@ t_list	*getconversions(const char *f, t_list *args)
 		}
 		ft_lstadd_back(&out, ft_lstnew(conversion));
 	}
-	return (out);
+	return ((t_list *)out);
 }
 
 static inline t_pf_conversion	*_newstring(const char *str)

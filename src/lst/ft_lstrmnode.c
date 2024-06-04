@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:47:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:05:35 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:39:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * @param **list Address of the head pointer of the list
  * @param *node Address of the node
  */
-void	ft_lstrmnode(t_list **list, t_list *node)
+void	ft_lstrmnode(const t_list **list, const t_list *node)
 {
 	if (!list || !node)
 		return ;

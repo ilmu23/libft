@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/05/02 03:57:24 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/05/27 22:46:32 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ GCFILES		=	ft_alloc.c \
 				ft_push.c \
 				ft_pushtrap.c \
 				ft_return.c \
-				ft_stack.c \
 				ft_sweep.c \
 				ft_vm.c
 
@@ -71,6 +70,7 @@ ISFILES		=	ft_isalnum.c \
 				ft_isalpha.c \
 				ft_isascii.c \
 				ft_isdigit.c \
+				ft_isfloat.c \
 				ft_isint_base.c \
 				ft_isint.c \
 				ft_isint_utils.c \
@@ -165,7 +165,8 @@ STRFILES	=	ft_split.c \
 				ft_substr.c \
 				ft_wordcount.c
 
-TOFILES		=	ft_atoi_base.c \
+TOFILES		=	ft_atof.c \
+				ft_atoi_base.c \
 				ft_atoi.c \
 				ft_atou_base.c \
 				ft_atou.c \

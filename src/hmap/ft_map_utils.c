@@ -6,13 +6,15 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 04:01:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/02 06:20:54 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 05:07:16 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_is.h"
 #include "lft_str.h"
 #include "_internal/lft_hmap_internal.h"
+
+const uint8_t	g_hmap_sentinel = 42;
 
 static inline void	_swap(t_hmap *hmap, t_hmap *tmp);
 
@@ -36,7 +38,7 @@ uint8_t	resizemap(t_hmap *hmap, size_t bsize)
 	i = 0;
 	while (i < hmap->size)
 	{
-		if (hmap->items[i] && hmap->items[i] != (void *)HMAP_DEL)
+		if (hmap->items[i] && hmap->items[i] != (void *)&g_hmap_sentinel)
 		{
 			if (!ft_mapadd(tmp, hmap->items[i]->key, hmap->items[i]->value))
 			{

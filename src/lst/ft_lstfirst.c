@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/14 00:02:59 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:37:32 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
  * @retval t_list* Address of the first node in the list,
  * or NULL if list is NULL
  */
-t_list	*ft_lstfirst(t_list *list)
+t_list	*ft_lstfirst(const t_list *list)
 {
 	if (!list)
 		return (NULL);
 	while (list->prev)
 		list = list->prev;
-	return (list);
+	return ((t_list *)list);
 }
