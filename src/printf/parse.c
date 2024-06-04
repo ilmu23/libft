@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 23:20:25 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/26 19:42:46 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:54:03 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static inline t_pf_conversion	*_newconversion(const char *cnv, t_list **args)
 		out->precision = getprecision(&cnv, args);
 	}
 	out->length = getlength(&cnv);
-	cnv += (out->length != 0);
 	out->arg = _gettype(cnv, args, argn);
 	return (out);
 }

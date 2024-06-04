@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 00:14:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/04 16:32:39 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:55:12 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ uint8_t	getlength(const char **cnv)
 		if (++i == 7)
 			return (0);
 	}
-	cnv += ft_strlen(specs[i]);
+	(*cnv) += 1 + (i == 0 || i == 2);
 	if (i == 0)
 		return (PF_LENGTH_HHALF);
 	if (i == 1)
 		return (PF_LENGTH_HALF);
 	if (i == 2)
-		return (PF_LENGTH_LONG);
-	if (i == 3)
 		return (PF_LENGTH_LLONG);
+	if (i == 3)
+		return (PF_LENGTH_LONG);
 	if (i == 4)
 		return (PF_LENGTH_IMAX);
 	if (i == 5)
