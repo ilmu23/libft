@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:08:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/21 20:26:58 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 02:03:06 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
  * @file ft_mark.c
  */
 
-#include "lft_gc.h"
-
-static inline t_obj	*getobj(const void *blk);
+#include "_internal/lft_gc_internal.h"
 
 /** @brief Removes a mark from blk
  *
@@ -24,14 +22,24 @@ static inline t_obj	*getobj(const void *blk);
  */
 void	ft_unmark(const void *blk)
 {
-	t_obj	*obj;
+	static t_vm	*vm = NULL;
+	t_obj		*obj;
 
-	obj = getobj(blk);
+	if (!vm)
+		vm = ft_getvm();
+	obj = ft_getobj(blk);
 	if (obj && obj->marks)
 	{
 		obj->marks--;
 		if (obj->traps)
 			obj->traps--;
+		if (!obj->marks)
+		{
+			if (vm->free)
+				vm->free->pfree = obj;
+			obj->nfree = vm->free;
+			vm->free = obj;
+		}
 	}
 }
 
@@ -46,28 +54,23 @@ void	ft_mark(const void *blk)
 
 	if (!vm)
 		vm = ft_getvm();
-	obj = getobj(blk);
+	obj = ft_getobj(blk);
 	if (obj)
 	{
 		obj->marks++;
 		if (vm->ptrap)
 			obj->traps++;
+		if (obj->nfree)
+		{
+			obj->nfree->pfree = obj->pfree;
+			obj->nfree = NULL;
+		}
+		if (obj->pfree)
+		{
+			obj->pfree->nfree = obj->nfree;
+			obj->pfree = NULL;
+		}
+		else if (obj->marks == 1)
+			vm->free = obj->nfree;
 	}
-}
-
-static inline t_obj	*getobj(const void *blk)
-{
-	static t_vm	*vm = NULL;
-	t_obj		*obj;
-
-	if (!vm)
-		vm = ft_getvm();
-	obj = vm->head;
-	while (obj)
-	{
-		if (obj->blk == blk - sizeof(t_obj *))
-			break ;
-		obj = obj->next;
-	}
-	return (obj);
 }

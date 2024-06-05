@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getblksize.c                                    :+:      :+:    :+:   */
+/*   ft_objpair.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 18:38:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/05 23:17:05 by ivalimak         ###   ########.fr       */
+/*   Created: 2024/06/06 01:02:13 by ivalimak          #+#    #+#             */
+/*   Updated: 2024/06/06 01:06:16 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file ft_getblksize.c
+ * @file ft_objpair.c
  */
 
-#include "_internal/lft_gc_internal.h"
+#include "lft_put.h"
+#include <_internal/lft_gc_internal.h>
 
-/** @brief Finds and returns the size of blk
+/** @brief Returns a new objpair
  *
- * @param *blk Pointer to the block
- * @retval size_t Size of blk or 0 if blk is NULL or not registered with
- * the garbage collector
+ * @param *key Key value
+ * @param *obj Object value
+ * @retval *t_objpair Newly created objpair
  */
-size_t	ft_getblksize(const void *blk)
+t_objpair	*ft_newpair(const char *key, const t_obj *obj)
 {
-	t_obj	*obj;
+	t_objpair	*out;
 
-	obj = ft_getobj(blk);
-	if (!obj)
-		return (0);
-	return (obj->asize);
+	out = malloc(sizeof(*out));
+	if (!out)
+	{
+		ft_putendl_fd(E_ALLOC, 2);
+		ft_exit(69);
+	}
+	out->key = key;
+	out->obj = obj;
+	return (out);
 }

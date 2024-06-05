@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/20 23:52:08 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/05 23:14:18 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,13 @@
 # include "lft_data.h"
 # include "lft_limits.h"
 
-# define GCRESET "\e[0m"
-# define GCGEN "\e[1mGC: "
-# define GCCLEAN "\e[1;36mGC: clean: "
-# define GCALLOC "\e[1;34mGC: alloc: "
-# define GCOBJ "\e[1;34mGC: obj: "
-# define GCSWEEP "\e[1;35mGC: sweep: "
-# define GCPUSH "\e[1;32mGC: push: "
-# define GCTRAP "\e[1;33mGC: pushtrap: "
-# define GCPOP "\e[1;31mGC: pop: "
-
 # define PTRAP_ENABLE 0x1U
 # define PTRAP_DISABLE 0x2U
 # define PTRAP_FLUSH 0xCU
 # define PTRAP_CLEAN 0x4U
 # define PTRAP_POP 0x8U
 
-# ifndef GC_START 
-#  define GC_START 256 
-# endif
-
 /*   alloc   */
-t_obj	*ft_newobj(size_t n);
-
 void	*ft_alloc(size_t n);
 void	*ft_calloc(size_t n, size_t size);
 void	*ft_arrdup(const void *arr, const size_t size);
@@ -52,8 +36,6 @@ size_t	ft_getblksize(const void *blk);
 /**   blk   **/
 
 /**   obj   **/
-t_obj	*ft_getobj(const void *blk);
-
 void	ft_unmark(const void *blk);
 void	ft_mark(const void *blk);
 /**   obj   **/
@@ -79,9 +61,6 @@ void	ft_pushtrap(uint8_t op);
 /**   pushtrap   **/
 
 /**   utils   **/
-t_vm	*ft_getvm(void);
-
-void	ft_sweep(t_vm *vm);
 void	ft_clean(void);
 void	ft_exit(int32_t estat);
 

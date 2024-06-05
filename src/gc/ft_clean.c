@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/10 21:05:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 00:45:36 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_clean.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 /** @brief Finds all unused allocations and frees them
  *
@@ -33,11 +33,11 @@ void	ft_clean(void)
 		return ;
 	}
 	ft_debugmsg(GCCLEAN, "Cleaning...");
-	ft_sweep(vm);
-	if (vm->objs > GC_START / 2)
-		vm->maxobjs = vm->objs * 2;
+	ft_sweep();
+	if (vm->objcount > GC_START / 2)
+		vm->maxobjs = vm->objcount * 2;
 	else
 		vm->maxobjs = GC_START;
 	ft_debugmsg(GCCLEAN, "Done! Current objs: %u, next clean at %u objs",
-		vm->objs, vm->maxobjs);
+		vm->objcount, vm->maxobjs);
 }

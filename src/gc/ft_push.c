@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:35:34 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/20 23:41:40 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/05 23:18:04 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_push.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 /** @brief Pushes blk to the vm stack
  *

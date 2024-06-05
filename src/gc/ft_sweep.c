@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/10 22:37:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 00:58:21 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_sweep.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 /** @brief Frees all unmarked objects
  *
@@ -23,11 +23,14 @@
  * been marked as in use
  * @param *vm Pointer to the virtual memory manager
  */
-void	ft_sweep(t_vm *vm)
+void	ft_sweep(void)
 {
-	t_obj	**obj;
-	t_obj	*tmp;
+	static t_vm	*vm = NULL;
+	t_obj		**obj;
+	t_obj		*tmp;
 
+	if (!vm)
+		vm = ft_getvm();
 	obj = &vm->head;
 	while (*obj)
 	{
@@ -35,9 +38,10 @@ void	ft_sweep(t_vm *vm)
 		{
 			tmp = *obj;
 			*obj = tmp->next;
-			vm->objs--;
+			vm->objcount--;
 			ft_debugmsg(GCSWEEP, "Freeing unused block at %p", tmp->blk);
 			ft_debugmsg(GCSWEEP, "Freeing unused obj at %p", tmp);
+			ft_objmap_rm(ft_blkkey(tmp->blk));
 			free((void *)tmp->blk);
 			free(tmp);
 		}

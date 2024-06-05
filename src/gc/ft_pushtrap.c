@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 22:22:36 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/04/13 12:26:19 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 01:15:41 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_pushtrap.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 static inline void	ptrap_pop(t_vm *vm);
 static inline void	ptrap_clean(void);
@@ -74,7 +74,7 @@ static inline void	ptrap_pop(t_vm *vm)
 	while (obj)
 	{
 		while (obj->traps)
-			ft_popblk(obj->blk + sizeof(t_obj *));
+			ft_popblk(obj->blk);
 		obj = obj->next;
 	}
 }

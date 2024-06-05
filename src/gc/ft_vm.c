@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:44:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 01:43:58 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
  * @file ft_vm.c
  */
 
-#include "lft_gc.h"
+#include "lft_mem.h"
+#include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
+#include "_internal/lft_hmap_internal.h"
 
 /** @brief Initializes and returns a pointer to the virtual memory manager
  *
@@ -29,7 +32,21 @@ t_vm	*ft_getvm(void)
 
 	if (!init)
 	{
+		vm.objmap.bsize = GC_START;
+		vm.objmap.size = getnextprime(GC_START);
+		vm.objmap.objs = malloc(vm.objmap.size * sizeof(t_objpair *));
+		if (!vm.objmap.objs)
+		{
+			ft_putendl_fd(E_ALLOC, 2);
+			exit(69);
+		}
+		ft_memset(vm.objmap.objs, 0, vm.objmap.size * sizeof(t_objpair *));
 		vm.maxobjs = GC_START;
+		vm.objmap.count = 0;
+		vm.objcount = 0;
+		vm.head = NULL;
+		vm.free = NULL;
+		vm.ptrap = 0;
 		init = 1;
 	}
 	return (&vm);
