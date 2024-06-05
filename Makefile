@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2024/05/27 22:46:32 by ivalimak         ###   ########.fr        #
+#    Updated: 2024/06/06 01:06:37 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,8 @@ GCFILES		=	ft_alloc.c \
 				ft_getblksize.c \
 				ft_mark.c \
 				ft_obj.c \
+				ft_objmap.c \
+				ft_objpair.c \
 				ft_pop.c \
 				ft_push.c \
 				ft_pushtrap.c \

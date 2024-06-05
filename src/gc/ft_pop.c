@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:39:17 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/20 23:49:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 00:46:26 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_pop.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 /** @brief Pops all blocks from the vm stack
  */
@@ -25,7 +25,7 @@ void	ft_popall(void)
 
 	if (!vm)
 		vm = ft_getvm();
-	ft_popn(vm->objs);
+	ft_popn(vm->objcount);
 }
 
 /** @brief Pops blks amount of blocks from the vm stack

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:43:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:13:15 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 00:48:02 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  * @file ft_debugmsg.c
  */
 
-#include "lft_gc.h"
 #include "lft_put.h"
+#include "_internal/lft_gc_internal.h"
 
 static void	ft_printarg(char f, va_list args);
 

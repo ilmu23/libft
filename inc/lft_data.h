@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/26 19:39:55 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/06 01:43:53 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,44 +23,72 @@ typedef enum e_base
 	HEX
 }	t_base;
 
-typedef struct s_list
-{
-	const void		*blk;
-	size_t			*size;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_list;
+typedef struct s_hmap_pair	t_hmap_pair;
+typedef struct s_hmap		t_hmap;
+typedef struct s_list		t_list;
 
-typedef struct s_hmap_pair
+// internal structures
+typedef struct s_objpair	t_objpair;
+typedef struct s_objmap		t_objmap;
+typedef struct s_obj		t_obj;
+typedef struct s_vm			t_vm;
+
+struct s_hmap_pair
 {
 	const char	*key;
 	void		*value;
-}	t_hmap_pair;
+};
 
-typedef struct s_hmap
+struct s_hmap
 {
 	size_t		size;
 	size_t		bsize;
 	size_t		count;
 	t_hmap_pair	**items;
-}	t_hmap;
+};
 
-typedef struct s_obj
+struct s_list
 {
-	size_t			marks;
-	size_t			traps;
-	size_t			blksize;
-	size_t			asize;
-	const void		*blk;
-	struct s_obj	*next;
-}	t_obj;
+	const void	*blk;
+	size_t		*size;
+	t_list		*next;
+	t_list		*prev;
+};
 
-typedef struct s_vm
+struct s_objpair
 {
-	uint8_t	ptrap;
-	size_t	maxobjs;
-	size_t	objs;
-	t_obj	*head;
-}	t_vm;
+	const char	*key;
+	const t_obj	*obj;
+};
+
+struct s_objmap
+{
+	size_t		size;
+	size_t		bsize;
+	uint64_t	count;
+	t_objpair	**objs;
+};
+
+struct s_obj
+{
+	size_t		marks;
+	size_t		traps;
+	size_t		blksize;
+	size_t		asize;
+	const void	*blk;
+	t_obj		*next;
+	t_obj		*nfree;
+	t_obj		*pfree;
+};
+
+struct s_vm
+{
+	t_obj		*head;
+	t_obj		*free;
+	uint8_t		ptrap;
+	t_objmap	objmap;
+	uint64_t	maxobjs;
+	uint64_t	objcount;
+};
 
 #endif
