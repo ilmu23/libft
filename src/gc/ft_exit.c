@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:46:19 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/03/13 23:41:19 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:15:14 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,5 @@
  */
 void	ft_exit(int estat)
 {
-	ft_popall();
-	ft_clean();
-	exit(estat);
+	exit(ft_return(estat));
 }

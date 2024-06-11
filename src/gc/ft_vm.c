@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:35:52 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 01:43:58 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:37:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ t_vm	*ft_getvm(void)
 
 	if (!init)
 	{
-		vm.objmap.bsize = GC_START;
-		vm.objmap.size = getnextprime(GC_START);
-		vm.objmap.objs = malloc(vm.objmap.size * sizeof(t_objpair *));
+		vm.objmap.bsize = _GC_MAPSIZE;
+		vm.objmap.size = getnextprime(_GC_MAPSIZE);
+		vm.objmap.objs = malloc(vm.objmap.size * sizeof(t_list *));
 		if (!vm.objmap.objs)
 		{
 			ft_putendl_fd(E_ALLOC, 2);
 			exit(69);
 		}
-		ft_memset(vm.objmap.objs, 0, vm.objmap.size * sizeof(t_objpair *));
-		vm.maxobjs = GC_START;
+		ft_memset(vm.objmap.objs, 0, vm.objmap.size * sizeof(t_list *));
+		vm.maxobjs = _GC_START;
 		vm.objmap.count = 0;
 		vm.objcount = 0;
 		vm.head = NULL;
