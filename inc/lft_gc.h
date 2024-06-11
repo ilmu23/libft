@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:52:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/05 23:14:18 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:09:15 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 void	*ft_alloc(size_t n);
 void	*ft_calloc(size_t n, size_t size);
 void	*ft_arrdup(const void *arr, const size_t size);
+void	*ft_register(const void *blk, const size_t size);
 /*   alloc   */
 
 /*   no alloc   */

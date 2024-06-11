@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:08:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/07 15:47:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:33:05 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_unmark(const void *blk)
 		obj->marks--;
 		if (obj->traps)
 			obj->traps--;
-		if (!obj->marks)
+		if (!obj->marks && obj->blksize)
 		{
 			if (vm->free)
 				vm->free->pfree = obj;
