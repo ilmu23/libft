@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/07 15:48:45 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:34:41 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
  *
  * Goes through all allocated blocks, freeing them if they haven't
  * been marked as in use
- * @param *vm Pointer to the virtual memory manager
  */
 void	ft_sweep(void)
 {

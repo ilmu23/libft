@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/07 15:41:53 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:15:38 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_objpair	*gc_newpair(const char *key, const t_obj *obj)
  *
  * Allocates a new t_obj, adding it to the start of the object list
  * with an obj->blk of n bytes
- * @param *vm Pointer to the virtual memory manager
  * @param n Amount of bytes to allocate for obj->blk
  * @retval t_obj* Pointer to the new object or NULL if
  * the allocation failed
