@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:34:58 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/26 19:41:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/11 22:44:34 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ ssize_t	ft_vsnprintf(char *s, size_t size, const char *f, va_list args)
 	expandconversions(conversions, &strings);
 	if (s)
 		_join(s, size, strings);
-	if (ptrap_st & PTRAP_DISABLE)
-		ft_pushtrap(PTRAP_DISABLE | PTRAP_POP);
+	ft_pushtrap(ptrap_st);
 	return (getlen(strings));
 }
 
