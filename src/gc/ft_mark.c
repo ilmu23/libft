@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:08:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 02:03:06 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:47:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_unmark(const void *blk)
 
 	if (!vm)
 		vm = ft_getvm();
-	obj = ft_getobj(blk);
+	obj = gc_getobj(blk);
 	if (obj && obj->marks)
 	{
 		obj->marks--;
@@ -54,7 +54,7 @@ void	ft_mark(const void *blk)
 
 	if (!vm)
 		vm = ft_getvm();
-	obj = ft_getobj(blk);
+	obj = gc_getobj(blk);
 	if (obj)
 	{
 		obj->marks++;

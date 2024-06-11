@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:38:15 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/05 23:17:05 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:47:31 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_getblksize(const void *blk)
 {
 	t_obj	*obj;
 
-	obj = ft_getobj(blk);
+	obj = gc_getobj(blk);
 	if (!obj)
 		return (0);
 	return (obj->asize);

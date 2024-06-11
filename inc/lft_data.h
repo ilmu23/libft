@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 22:49:48 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 01:43:53 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:24:28 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ struct s_objmap
 	size_t		size;
 	size_t		bsize;
 	uint64_t	count;
-	t_objpair	**objs;
+	t_list		**objs;
 };
 
 struct s_obj

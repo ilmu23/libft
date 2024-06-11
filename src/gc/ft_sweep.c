@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:57 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 00:58:21 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:48:45 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_sweep(void)
 			vm->objcount--;
 			ft_debugmsg(GCSWEEP, "Freeing unused block at %p", tmp->blk);
 			ft_debugmsg(GCSWEEP, "Freeing unused obj at %p", tmp);
-			ft_objmap_rm(ft_blkkey(tmp->blk));
+			gc_objmap_rm(gc_blkkey(tmp->blk));
 			free((void *)tmp->blk);
 			free(tmp);
 		}

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:29:27 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 00:45:36 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:47:14 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	ft_clean(void)
 	}
 	ft_debugmsg(GCCLEAN, "Cleaning...");
 	ft_sweep();
-	if (vm->objcount > GC_START / 2)
+	if (vm->objcount > _GC_START / 2)
 		vm->maxobjs = vm->objcount * 2;
 	else
-		vm->maxobjs = GC_START;
+		vm->maxobjs = _GC_START;
 	ft_debugmsg(GCCLEAN, "Done! Current objs: %u, next clean at %u objs",
 		vm->objcount, vm->maxobjs);
 }

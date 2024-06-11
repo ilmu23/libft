@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:09:54 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 00:57:44 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:18:04 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,38 @@
 
 # define _HEXARR "0123456789ABCDEF"
 
-# ifndef GC_START 
-#  define GC_START 256 
+# ifndef _GC_START 
+#  define _GC_START 256 
+# endif
+
+# ifndef _GC_MAPSIZE
+#  define _GC_MAPSIZE 4096
 # endif
 
 /*   alloc   */
-t_objpair	*ft_newpair(const char *key, const t_obj *obj);
+t_objpair	*gc_newpair(const char *key, const t_obj *obj);
 
 t_obj		*ft_newobj(size_t n);
 
-char		*ft_blkkey(const void *blk);
+char		*gc_blkkey(const void *blk);
+
+void		*gc_calloc(size_t n, size_t size);
 /*   alloc   */
 
 /*   no alloc   */
 /**   obj   */
-t_obj	*ft_objmap_get(const char *key);
-t_obj	*ft_getobj(const void *blk);
+t_obj		*gc_objmap_get(const char *key);
+t_obj		*gc_getobj(const void *blk);
 
-void	ft_objmap_rm(const char *key);
-void	ft_addobj(const char *key, const t_obj *obj);
-void	ft_addpair(t_objpair **objs, t_objpair *pair, const uint64_t size);
-void	ft_growobjmap(void);
+void		gc_objmap_rm(const char *key);
+void		gc_objmap_add(const char *key, const t_obj *obj);
+void		gc_objmap_addpair(t_list **lst, t_objpair *pair);
 /**   obj   */
 
 /**   utils   **/
-t_vm	*ft_getvm(void);
+t_vm		*ft_getvm(void);
 
-void	ft_sweep(void);
+void		ft_sweep(void);
 /**   utils   **/
 /*   no alloc   */
 

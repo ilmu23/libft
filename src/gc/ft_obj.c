@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:47:53 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/06 01:44:32 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:41:53 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,26 @@
 #include "lft_nbr.h"
 #include "lft_put.h"
 #include "_internal/lft_gc_internal.h"
+
+/** @brief Creates a new objpair
+ *
+ * @param *key Key for the object
+ * @param *obj Object to store
+ * @retval t_objpair* Pointer to the new objpair
+ */
+t_objpair	*gc_newpair(const char *key, const t_obj *obj)
+{
+	t_objpair	*out;
+
+	out = gc_calloc(1, sizeof(*out));
+	if (!out)
+	{
+		ft_putendl_fd(E_ALLOC, 2);
+		ft_exit(69);
+	}
+	*out = (t_objpair){.key = key, .obj = obj};
+	return (out);
+}
 
 /** @brief Allocates and initializes a new t_obj
  *
@@ -50,7 +70,7 @@ t_obj	*ft_newobj(size_t n)
 		vm->free->pfree = obj;
 	obj->nfree = vm->free;
 	ft_debugmsg(GCALLOC, "Allocated new block at %p (%u bytes)", obj->blk, n);
-	ft_addobj(ft_blkkey(obj->blk), obj);
+	gc_objmap_add(gc_blkkey(obj->blk), obj);
 	vm->objcount++;
 	return (obj);
 }
@@ -60,15 +80,15 @@ t_obj	*ft_newobj(size_t n)
  * @param *blk Pointer to the block
  * @retval t_obj* Pointer to the object that contains *blk
  */
-t_obj	*ft_getobj(const void *blk)
+t_obj	*gc_getobj(const void *blk)
 {
 	const char	*key;
 	t_obj		*out;
 
 	if (!blk)
 		return (NULL);
-	key = ft_blkkey(blk);
-	out = ft_objmap_get(key);
+	key = gc_blkkey(blk);
+	out = gc_objmap_get(key);
 	free((void *)key);
 	return (out);
 }
@@ -78,7 +98,7 @@ t_obj	*ft_getobj(const void *blk)
  * @param *blk Pointer to the blk
  * @retval char* String representation of the address of blk
  */
-char	*ft_blkkey(const void *blk)
+char	*gc_blkkey(const void *blk)
 {
 	size_t		i;
 	uintptr_t	addr;
