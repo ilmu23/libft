@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:12:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/06/11 17:31:05 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:58:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static inline void	*_err(const void *blk, const size_t size);
 void	*ft_register(const void *blk, const size_t size)
 {
 	static t_vm	*vm = NULL;
-	t_obj	*obj;
+	t_obj		*obj;
 
 	if (!vm)
 		vm = ft_getvm();
@@ -56,5 +56,5 @@ static inline void	*_err(const void *blk, const size_t size)
 	ft_putstr_fd(" (", 2);
 	ft_putunbr_fd(size, 2);
 	ft_putstr_fd(" bytes)\e[m\n", 2);
-	return ((void*)blk);
+	return ((void *)blk);
 }

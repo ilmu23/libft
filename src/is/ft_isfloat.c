@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 22:35:14 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/28 00:10:59 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:58:49 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static inline char	*_trimzeros(const char *s);
  */
 uint8_t	ft_isfloat(const char *n)
 {
-	long double			nbr;
+	long double	nbr;
 
 	if (!n)
 		return (0);
@@ -53,8 +53,8 @@ uint8_t	ft_isfloat(const char *n)
 
 static inline char	*_trimzeros(const char *s)
 {
-	size_t		start;
-	size_t		end;
+	size_t	start;
+	size_t	end;
 
 	if (!s[1])
 		return ((char *)s);
