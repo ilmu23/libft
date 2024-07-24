@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 22:12:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/05/28 00:42:37 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:47:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ double	ft_atof64(const char *s)
 	n = ft_atof80(s);
 	if (n > DBL_MAX)
 		return (-1);
-	if (n < DBL_MIN)
+	if (n < -DBL_MAX)
 		return (0);
 	return ((double)n);
 }
@@ -67,7 +67,7 @@ float	ft_atof32(const char *s)
 	n = ft_atof80(s);
 	if (n > FLT_MAX)
 		return (-1);
-	if (n < FLT_MIN)
+	if (n < -FLT_MAX)
 		return (0);
 	return ((float)n);
 }
