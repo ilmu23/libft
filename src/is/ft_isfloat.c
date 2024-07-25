@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 22:35:14 by ivalimak          #+#    #+#             */
-/*   Updated: 2024/07/18 13:58:49 by ivalimak         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:00:19 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ static inline char	*_trimzeros(const char *s)
 	while (end > start && s[end] == '0')
 		end--;
 	if (end)
-		return (ft_substr(s, start, end - start));
+		return (ft_substr(s, start, end - start + 1));
 	return (ft_substr(s, start, ft_strlen(&s[start])));
 }
